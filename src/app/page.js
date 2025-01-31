@@ -1,101 +1,214 @@
-import Image from "next/image";
+"use client"
+
+import Slider from './Slider';
+import Header from './Header';
+import '../lib/fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { TypeAnimation } from 'react-type-animation';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <>
+      <Header />
+      <main className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#141313]">
+        <div className="w-full mx-8 mt-3 min-h-80 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 px-7 relative">
+          <div className="px-2 py-3 w-full text-left self-center">
+            <TypeAnimation
+              sequence={[
+                'Software Engineer (Full-stack), Cybersecurity.', 
+                1000, 
+              ]}
+              speed={40} 
+              className="text-white font-mono text-2xl md:text-5xl"
+              repeat={0} 
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <p className="obj-description mt-3 text-sm md:text-base">
+              Hello everyone, my name is Gabriel Arruda. I am a Software Engineer and Cybersecurity
+              enthusiast, currently completing my degree in Computer Science. Over the years, I’ve developed a strong
+              foundation in software development and a deep passion for protecting systems from emerging threats.
+              I have worked on building secure, scalable applications and am particularly
+              excited about the intersection of engineering and security.
+              As I continue to learn and grow, I am eager to apply my skills to
+              build innovative solutions that are not only efficient but also
+              resilient in an increasingly complex digital world.
+            </p>
+          </div>
+
+          <div className="py-4 w-60 flex flex-col justify-center items-center relative md:order-none order-first md:row-auto row-start-1 md:justify-self-end justify-self-center">
+            <img
+              src="/image.png"
+              alt="Profile Picture"
+              className="w-40 h-40 max-h-40 object-contain rounded-full mx-auto md:mx-0 mb-4"
+            />
+            <p className="text-white font-mono text-xl">Gabriel Arruda</p>
+            <p className="obj-description">@arrudagba</p>
+
+            <div className="flex justify-center items-center gap-5 mt-4 p-2 w-full">
+              <a href="https://github.com/arrudagba">
+                <FontAwesomeIcon icon={['fab', 'github']} className="text-[#A5A5A5] text-xl hover:text-white" />
+              </a>
+              <a href="https://www.linkedin.com/in/arrudagba/">
+                <FontAwesomeIcon icon={['fab', 'linkedin']} className="text-[#A5A5A5] text-xl hover:text-white" />
+              </a>
+              <a href="https://mastodon.social/@arrudagba">
+                <FontAwesomeIcon icon={['fab', 'mastodon']} className="text-[#A5A5A5] text-xl hover:text-white" />
+              </a>
+              <a href="mailto:gabrielarrudahash@gmail.com">
+                <FontAwesomeIcon icon={['fas', 'envelope']} className="text-[#A5A5A5] text-xl hover:text-white" />
+              </a>
+            </div>
+          </div>
         </div>
+
+        <h2 className="obj-title pt-3">Key Skills</h2>
+        <div className="big-div">
+          <div className="obj-grid">
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="shield-halved" className="icon" />
+                <h2 className="obj-title">
+                  Security Best Practices
+                </h2>
+                <p className="obj-description">
+                  Security should never be overlooked. 
+                  From data encryption to protection against common attacks like SQL injection and XSS, I’ll help you secure your systems and data by creating safe solutions for your business.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="cloud" className="icon" />
+                <h2 className="obj-title">
+                  Cloud Computing & DevOps
+                </h2>
+                <p className="obj-description">
+                  Leveraging cloud platforms like AWS, Azure, and Google Cloud to build scalable and cost-efficient systems is essential in today's world. I specialize in cloud infrastructure, containerization (Docker), and setting up CI/CD pipelines, ensuring seamless and automated deployment processes, as well as high availability and fault tolerance.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="code" className="icon" />
+                <h2 className="obj-title">
+                  Clean Code & Best Practices
+                </h2>
+                <p className="obj-description">
+                  Writing clean, readable, and secure code is the foundation of long-term software success. I focus on simplicity, readability, and maintainability to ensure that your codebase is not only functional but also easy to understand and extend for future developers. Let's build software that stands the test of time and keeps security top of mind.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="clock" className="icon" />
+                <h2 className="obj-title">
+                  Agile Development
+                </h2>
+                <p className="obj-description">
+                  Agile methodologies are key to delivering high-quality software quickly and iteratively. I have hands-on experience with Scrum and Kanban, working in cross-functional teams to prioritize tasks, continuously improve processes, and deliver value to clients in short, frequent cycles.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="compass-drafting" className="icon" />
+                <h2 className="obj-title">
+                  Software Architecture
+                </h2>
+                <p className="obj-description">
+                  Building scalable, maintainable, and robust applications is my passion. Whether it's microservices or monolithic architectures, on-premises or cloud solutions, I work closely with you to design the best approach that suits your needs. Using principles like Domain-Driven Design (DDD), I ensure your application is flexible and future-proof.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="mobile" className="icon" />
+                <h2 className="obj-title">
+                  Cross-Platform Integration
+                </h2>
+                <p className="obj-description">
+                  In today’s interconnected world, your application needs to work seamlessly across devices. Whether it's integrating your web app with mobile platforms or ensuring consistency across multiple environments, I can help you create smooth, cross-platform experiences. By leveraging modern frameworks and APIs, I'll ensure your app functions flawlessly on desktop, mobile, and everything in between.
+                </p>
+              </div>
+            </div>
+        </div>
+
+        </div>
+        <h2 className="obj-title pt-3">Core Values</h2>
+        <div className="big-div">
+          <div className="obj-grid">
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="puzzle-piece" className="icon" />
+                <h2 className="obj-title">
+                  Adaptability
+                </h2>
+                <p className="obj-description">
+                  The tech world is constantly evolving, and so must I. I actively seek to expand my knowledge and adapt to new tools, technologies, and practices. Whether it's learning a new framework, adjusting to a new team's workflow, or switching to a different development approach, I remain flexible and open to change, knowing it’s key to continued growth and success in the field.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="handshake" className="icon" />
+                <h2 className="obj-title">
+                  Collaboration
+                </h2>
+                <p className="obj-description">
+                  The best solutions come from diverse perspectives. I believe in strong communication, transparent feedback, and the value of working closely with others — whether it’s fellow developers, designers, product managers, or stakeholders. I work hard to ensure everyone’s voice is heard and that we are all moving toward the same goals, together.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="chart-line" className="icon" />
+                <h2 className="obj-title">
+                  Scalability
+                </h2>
+                <p className="obj-description">
+                  Code should grow as the business does. When I write software, I always consider how it will scale — not just in terms of features but also in terms of performance and maintainability. I strive to build solutions that will easily adapt to increased demand, user growth, or additional features without causing bottlenecks or technical debt.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="eye" className="icon" />
+                <h2 className="obj-title">
+                  Transparency
+                </h2>
+                <p className="obj-description">
+                  Clear and honest communication is key to any successful project. I keep my team informed of progress, challenges, and any roadblocks early in the process. I believe that transparency fosters trust and ensures we’re all aligned and can react quickly to changes or issues when they arise.
+                </p>
+              </div>
+            </div>
+            <div className="obj">
+              <div className="p-8 flex flex-col">
+                <FontAwesomeIcon icon="gears" className="icon" />
+                <h2 className="obj-title">
+                  Efficiency
+                </h2>
+                <p className="obj-description">
+                  I believe removing unnecessary code is more effective than adding new features. Feature creep and lack of focus make software harder to maintain. I follow principles from Extreme Programming, UNIX, and Test-Driven Development to build clean, scalable solutions. If a feature doesn’t align with these values, I’ll speak up to ensure long-term quality and sustainability.
+                </p>
+              </div>
+            </div>
+        </div>
+
+        </div>
+        
+        <div className="div-contact">
+          <h2 className="obj-title">Contact</h2>
+          <p className="obj-description">
+            If you're interested in collaborating on a project, whether it's for professional work or a free/open-source software initiative, don't hesitate to reach out. I’m always open to exploring new ideas and teaming up on exciting opportunities. Feel free to send me an email, and we can discuss how we might work together to create something meaningful.
+          </p>
+          <p className="text-white underline font-bold pt-2 text-xl">gabrielarrudahash@gmail.com</p>
+
+        </div>
+        
+        <footer className="text-[#A5A5A5] text-sm flex font-normal justify-center itens-center py-3 bg-[#191818] w-full mt-3">
+          <a className="underline pr-3" href="/EN">EN</a> | <a className="underline pl-3" href="/PT-BR">PT</a>
+        </footer>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    </>
   );
 }

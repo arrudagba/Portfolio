@@ -2,20 +2,41 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components{
+    
+  .icon {
+      @apply w-48 h-48 pb-12 self-center text-[#A5A5A5];
   }
-}
+  
+  .big-div{
+      @apply self-center mx-8 max-w-screen-2xl bg-[#191818] px-6 rounded-3xl my-5;
+  }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  .obj-grid{
+      @apply pt-12 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8 ;
+  }
+
+  .obj-grid2{
+      @apply pt-12 pb-12 grid grid-cols-1 md:grid-cols-4 gap-[60px] place-items-center;
+  }
+
+  .obj{
+      @apply bg-[#202020] rounded-lg ;
+  }
+
+  .obj2{
+      @apply bg-[#202020] rounded-2xl ;
+  }
+
+  .obj-title{
+      @apply pb-6 text-white font-sans font-bold text-3xl;
+  }
+
+  .obj-description{
+      @apply text-[#A5A5A5] text-base;
+  }
+
+  .div-contact{
+      @apply text-left py-3 mx-8 my-5 self-center;
+  }
 }
