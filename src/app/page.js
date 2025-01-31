@@ -6,12 +6,24 @@ import '../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { TypeAnimation } from 'react-type-animation';
+import { motion } from 'framer-motion';
+
+const fadeTopDown = {
+  hidden: { opacity: 0, y: -50 }, // Start hidden and slightly above
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }, // Animate to visible
+};
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#141313]">
+      <motion.main
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }} // Only animate once
+        variants={fadeTopDown} 
+        className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#141313]">
+
         <div className="w-full mx-8 mt-3 min-h-80 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 px-7 relative">
           <div className="px-2 py-3 w-full text-left self-center">
             <TypeAnimation
@@ -208,7 +220,7 @@ export default function Home() {
         <footer className="text-[#A5A5A5] text-sm flex font-normal justify-center itens-center py-3 bg-[#191818] w-full mt-3">
           <a className="underline pr-3" href="/EN">EN</a> | <a className="underline pl-3" href="/PT-BR">PT</a>
         </footer>
-      </main>
+      </motion.main>
     </>
   );
 }

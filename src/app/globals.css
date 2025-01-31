@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    background-color: #141313;
+}
+
 @layer components{
     
   .icon {
