@@ -6,6 +6,11 @@ body{
     background-color: #141313;
 }
 
+body::selection {
+    color: black;
+    background-color: #EEEEEE;
+}
+
 @layer components{
     
   .icon {
@@ -39,6 +44,10 @@ body{
   .obj-description{
       @apply text-[#A5A5A5] text-base;
   }
+
+  .obj-description-bright{
+    @apply text-black text-base;
+}
 
   .div-contact{
       @apply text-left py-3 mx-8 my-5 self-center;

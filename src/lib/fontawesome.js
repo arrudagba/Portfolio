@@ -13,6 +13,8 @@ import {
     faChartLine,
     faEye,
     faGears,
+    faSun,
+    faMoon
   } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faGithub, faLinkedin, faMastodon, faEnvelope);
@@ -28,5 +30,7 @@ library.add(
   faHandshake,
   faChartLine,
   faEye,
-  faGears
+  faGears,
+  faSun,
+  faMoon
 );

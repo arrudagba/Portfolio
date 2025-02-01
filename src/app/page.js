@@ -7,24 +7,32 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 const fadeTopDown = {
-  hidden: { opacity: 0, y: -50 }, // Start hidden and slightly above
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }, // Animate to visible
+  hidden: { opacity: 0, y: -50 }, 
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }, 
 };
 
 export default function Home() {
+  const { isDarkMode } = useTheme();
+
+  const mainClassName = `flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] ${
+    isDarkMode ? 'bg-[#ffffff]' : 'bg-[#141313]'
+  } selection:text-black selection:bg-[#EEEEEE]`;
+
   return (
     <>
+      
       <Header />
       <motion.main
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true }} // Only animate once
+        viewport={{ once: true }} 
         variants={fadeTopDown} 
-        className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#141313]">
+        className={mainClassName}>
 
-        <div className="w-full mx-8 mt-3 min-h-80 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 px-7 relative">
+        <div id="about" className="w-full mx-8 mt-3 min-h-80 grid grid-cols-1 md:grid-cols-[1fr_auto] gap-10 px-7 relative">
           <div className="px-2 py-3 w-full text-left self-center">
             <TypeAnimation
               sequence={[
@@ -73,7 +81,7 @@ export default function Home() {
           </div>
         </div>
 
-        <h2 className="obj-title pt-3">Key Skills</h2>
+        <h2 id="key-skills" className="obj-title pt-3">Key Skills</h2>
         <div className="big-div">
           <div className="obj-grid">
             <div className="obj">
@@ -146,7 +154,7 @@ export default function Home() {
         </div>
 
         </div>
-        <h2 className="obj-title pt-3">Core Values</h2>
+        <h2 id="core-values" className="obj-title pt-3">Core Values</h2>
         <div className="big-div">
           <div className="obj-grid">
             <div className="obj">
@@ -208,7 +216,7 @@ export default function Home() {
 
         </div>
         
-        <div className="div-contact">
+        <div id="contact" className="div-contact">
           <h2 className="obj-title">Contact</h2>
           <p className="obj-description">
             If you're interested in collaborating on a project, whether it's for professional work or a free/open-source software initiative, don't hesitate to reach out. I’m always open to exploring new ideas and teaming up on exciting opportunities. Feel free to send me an email, and we can discuss how we might work together to create something meaningful.
