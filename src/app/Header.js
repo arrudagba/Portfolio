@@ -17,21 +17,25 @@ export default function Header() {
 
   return (
     <>
-      <div id="top-menu" className="fixed top-0 left-0 right-0 bg-[#3F3F46] z-50 shadow-lg shadlow-black/50 selection:text-black selection:bg-[#EEEEEE]">
+      <div id="top-menu" className="fixed top-0 left-0 right-0 bg-white dark:bg-[#3F3F46] z-50 shadow-lg shadlow-black/50 selection:text-black selection:bg-blue-700 dark:selection:bg-[#EEEEEE]">
         <div className="px-4 py-2 h-12 flex flex-row justify-between">
-          <div id="icon-menu" className="hover:cursor-pointer text-2xl self-center material-symbols-outlined text-white" onClick={toggleMenu}>
+          <div id="icon-menu" className="hover:cursor-pointer text-2xl self-center material-symbols-outlined text-black dark:text-white" onClick={toggleMenu}>
             <FontAwesomeIcon icon={faBars} />
           </div>
           <div className="justify-center flex flex-row items-center">
             <a href="/" aria-label="Logo">
-              <img src="/logo-branco.svg" alt="Logo" className="h-[35px] w-[35px]" />
+            {isDarkMode ? (
+                <img src="/logo-branco.svg" alt="Logo" className="h-[35px] w-[35px]" />
+                ) : (
+                <img src="/logo-preto.svg" alt="Logo" className="h-[35px] w-[35px]" />
+            )}
             </a>
           </div>
           <div className="flex flex-row self-center items-center">
-            <a className="text-white hover:text-[#A5A5A5] pl-2" href="static/resume.pdf" target="_blank">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] pl-2" href="static/resume.pdf" target="_blank">
               Resume
             </a>
-            <a className="text-white hover:text-[#A5A5A5] px-5" href="blog">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="blog">
               Blog
             </a>
             <div className="flex flex-row pr-2">
@@ -43,12 +47,12 @@ export default function Header() {
                     onChange={toggleTheme}
                     />
                     <div
-                    className={`w-14 h-7 bg-[#039dfc] rounded-full peer peer-checked:bg-gray-900 border border-[#A5A5A5] relative transition-colors duration-300`}
+                    className={`w-14 h-7 bg-gray-900 rounded-full peer peer-checked:bg-[#039dfc] border border-[#A5A5A5] relative transition-colors duration-300`}
                     >
-                    <div className="absolute right-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
+                    <div className="absolute left-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
                         <FontAwesomeIcon icon={faSun} className="text-[#ecf00c]" />
                     </div>
-                    <div className="absolute left-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
+                    <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
                         <FontAwesomeIcon icon={faMoon} className="text-[#A5A5A5]" />
                     </div>
                     <div

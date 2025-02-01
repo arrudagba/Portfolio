@@ -1,6 +1,7 @@
 "use client"
 
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from './ThemeContext';
 
 export default function Menu({ isOpen, onClose }) {
   const menuVariants = {
@@ -16,6 +17,8 @@ export default function Menu({ isOpen, onClose }) {
     onClose(); 
   };
 
+  const { isDarkMode } = useTheme();
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -26,11 +29,15 @@ export default function Menu({ isOpen, onClose }) {
             exit="closed"
             variants={menuVariants}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 left-0 h-full w-64 bg-[#18181b] z-50 selection:text-black selection:bg-[#EEEEEE]"
+            className="fixed top-0 left-0 h-full w-64 bg-white dark:bg-[#18181b] z-50 selection:text-black selection:bg-[#EEEEEE]"
           >
             <div className="flex flex-col items-center pt-6">
-              <img src="/logo-branco.svg" alt="Logo" className="h-[65px] w-[65px]" />
-              <div className="w-2/3 h-px bg-white my-4"></div>
+            {isDarkMode ? (
+                <img src="/logo-branco.svg" alt="Logo" className="h-[65px] w-[65px]" />
+                ) : (
+                <img src="/logo-preto.svg" alt="Logo" className="h-[65px] w-[65px]" />
+            )}
+            <div className="w-2/3 h-px bg-black dark:bg-white my-4"></div>
             </div>
 
             <ul className="p-4">
@@ -38,7 +45,7 @@ export default function Menu({ isOpen, onClose }) {
                 (item, index) => (
                   <li
                     key={index}
-                    className="p-2 text-white hover:bg-gray-700 cursor-pointer"
+                    className="p-2 text-black dark:text-white hover:bg-gray-700 cursor-pointer"
                     onClick={() => handleMenuItemClick(item.toLowerCase().replace(/\s+/g, '-'))}
                   >
                     {item}
@@ -47,7 +54,7 @@ export default function Menu({ isOpen, onClose }) {
               )}
             </ul>
 
-            <div className="p-4 border-t border-gray-600 text-center text-[#A5A5A5]">
+            <div className="p-4 border-t border-gray-600 text-center text-black dark:text-[#A5A5A5]">
               <a className="underline pr-3" href="/EN">
                 EN
               </a>
