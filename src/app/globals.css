@@ -17,15 +17,19 @@ body::selection {
       @apply w-48 h-48 pb-12 self-center text-[#A5A5A5];
   }
 
-  .icon-brigth {
+  .icon-bright {
     @apply w-48 h-48 pb-12 self-center text-black;
-}
+  }
   
+  .icon-slider {
+    @apply w-[145px] h-[145px] pb-12 self-center;
+  }
+
   .big-div{
       @apply self-center mx-8 max-w-screen-2xl bg-[#191818] px-6 rounded-3xl my-5;
   }
 
-  .big-div-brigth{
+  .big-div-bright{
     @apply self-center mx-8 max-w-screen-2xl bg-[#a2a2a2] px-6 rounded-3xl my-5;
 }
 
@@ -37,7 +41,7 @@ body::selection {
       @apply bg-[#202020] rounded-lg ;
   }
 
-  .obj-brigth{
+  .obj-bright{
     @apply bg-[#E4E4E7] rounded-lg ;
 }
 
@@ -45,7 +49,7 @@ body::selection {
       @apply pb-6 text-white font-sans font-bold text-3xl;
   }
 
-  .obj-title-brigth{
+  .obj-title-bright{
     @apply pb-6 text-black font-sans font-bold text-3xl;
 }
 

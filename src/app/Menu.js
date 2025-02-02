@@ -45,7 +45,7 @@ export default function Menu({ isOpen, onClose }) {
                 (item, index) => (
                   <li
                     key={index}
-                    className="p-2 text-black dark:text-white hover:bg-gray-700 cursor-pointer"
+                    className="p-2 text-black dark:text-white hover:bg-gray-700 hover:text-white cursor-pointer"
                     onClick={() => handleMenuItemClick(item.toLowerCase().replace(/\s+/g, '-'))}
                   >
                     {item}

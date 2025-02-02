@@ -4,7 +4,6 @@ import Slider from './Slider';
 import Header from './Header';
 import '../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import { useTheme } from './ThemeContext';
@@ -77,13 +76,16 @@ export default function Home() {
           </div>
         </div>
 
-        <h2 id="key-skills" className="obj-title-brigth dark:obj-title pt-3">Key Skills</h2>
-        <div className="big-div-brigth dark:big-div">
+        <h2 id="programming-languages" className="obj-title-bright dark:obj-title pt-3">Programming Languages</h2>
+        <Slider />
+
+        <h2 id="key-skills" className="obj-title-bright dark:obj-title pt-3">Key Skills</h2>
+        <div className="big-div-bright dark:big-div">
           <div className="obj-grid">
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="shield-halved" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="shield-halved" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Security Best Practices
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -92,10 +94,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="cloud" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="cloud" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Cloud Computing & DevOps
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -103,10 +105,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="code" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="code" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Clean Code & Best Practices
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -114,10 +116,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="clock" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="clock" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Agile Development
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -125,10 +127,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="compass-drafting" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="compass-drafting" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Software Architecture
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -136,10 +138,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="mobile" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="mobile" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Cross-Platform Integration
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -150,13 +152,13 @@ export default function Home() {
         </div>
 
         </div>
-        <h2 id="core-values" className="obj-title-brigth dark:obj-title pt-3">Core Values</h2>
-        <div className="big-div-brigth dark:big-div">
+        <h2 id="core-values" className="obj-title-bright dark:obj-title pt-3">Core Values</h2>
+        <div className="big-div-bright dark:big-div">
           <div className="obj-grid">
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="puzzle-piece" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="puzzle-piece" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Adaptability
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -164,10 +166,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="handshake" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="handshake" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Collaboration
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -175,10 +177,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="chart-line" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="chart-line" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Scalability
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -186,10 +188,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="eye" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="eye" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Transparency
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -197,10 +199,10 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            <div className="obj-brigth dark:obj">
+            <div className="obj-bright dark:obj">
               <div className="p-8 flex flex-col">
-                <FontAwesomeIcon icon="gears" className="icon-brigth dark:icon" />
-                <h2 className="obj-title-brigth dark:obj-title">
+                <FontAwesomeIcon icon="gears" className="icon-bright dark:icon" />
+                <h2 className="obj-title-bright dark:obj-title">
                   Efficiency
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
@@ -213,7 +215,7 @@ export default function Home() {
         </div>
         
         <div id="contact" className="div-contact">
-          <h2 className="obj-title-brigth dark:obj-title">Contact</h2>
+          <h2 className="obj-title-bright dark:obj-title">Contact</h2>
           <p className="obj-description-bright dark:obj-description">
             If you're interested in collaborating on a project, whether it's for professional work or a free/open-source software initiative, don't hesitate to reach out. I’m always open to exploring new ideas and teaming up on exciting opportunities. Feel free to send me an email, and we can discuss how we might work together to create something meaningful.
           </p>
