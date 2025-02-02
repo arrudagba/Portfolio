@@ -1,12 +1,12 @@
 "use client"
 
-import Slider from './Slider';
-import Header from './Header';
+import Slider from './components/Slider/Slider';
+import Header from './components/Header/Header';
 import '../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import { useTheme } from './ThemeContext';
+import { useTheme } from './context/ThemeContext';
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 }, 

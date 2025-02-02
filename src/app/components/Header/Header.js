@@ -1,11 +1,14 @@
 "use client"
 
+import Image from 'next/image';
 import { useState } from 'react';
-import Menu from './Menu';
+import Menu from '../Menu/Menu';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faChevronLeft, faChevronRight, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-import '../lib/fontawesome';
-import { useTheme } from './ThemeContext';
+import { faBars, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import '../../../lib/fontawesome';
+import { useTheme } from '../../context/ThemeContext';
+import logoDark from '../../../assets/images/logo-dark.svg';
+import logoBright from '../../../assets/images/logo-bright.svg';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,17 +28,17 @@ export default function Header() {
           <div className="justify-center flex flex-row items-center">
             <a href="/" aria-label="Logo">
             {isDarkMode ? (
-                <img src="/logo-dark.svg" alt="Logo" className="h-[35px] w-[35px]" />
+                <Image src={logoDark} alt="Logo" width={35} height={35} />
                 ) : (
-                <img src="/logo-bright.svg" alt="Logo" className="h-[35px] w-[35px]" />
+                <Image src={logoBright} alt="Logo" width={35} height={35} />
             )}
             </a>
           </div>
           <div className="flex flex-row self-center items-center">
-            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] pl-2" href="static/resume.pdf" target="_blank">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] pl-2" href="/under-construction" target="_blank">
               Resume
             </a>
-            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="blog">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="/under-construction">
               Blog
             </a>
             <div className="flex flex-row pr-2">

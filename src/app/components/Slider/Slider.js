@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { useTheme } from './ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 
 const ResponsiveSlider = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -24,7 +24,6 @@ const ResponsiveSlider = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      // Reset index on resize to ensure the first item is shown
       setCurrentIndex(0);
     };
 
@@ -36,7 +35,6 @@ const ResponsiveSlider = () => {
 
   return (
 <div className="relative bg-[#a2a2a2] dark:bg-[#191818] w-full md:max-w-screen-2xl md:w-auto md:mx-8 px-6 rounded-3xl py-7 my-5">
-  {/* Grid layout for desktop */}
   <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-4 gap-6">
     {items.map((item) => (
       <div key={item.id} className="flex flex-col items-center p-4 bg-[#E4E4E7] dark:bg-[#202020] rounded-lg">
@@ -53,7 +51,6 @@ const ResponsiveSlider = () => {
     ))}
   </div>
 
-  {/* Slider layout for mobile */}
   <div className="md:hidden relative overflow-hidden w-full">
     <div className="flex transition-transform duration-300 ease-in-out" style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
       {items.map((item) => (

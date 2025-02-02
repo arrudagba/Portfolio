@@ -1,8 +1,11 @@
 "use client"
 
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from './ThemeContext';
+import { useTheme } from '../../context/ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import logoDark from '../../../assets/images/logo-dark.svg';
+import logoBright from '../../../assets/images/logo-bright.svg';
 
 export default function Menu({ isOpen, onClose }) {
   const menuVariants = {
@@ -34,9 +37,9 @@ export default function Menu({ isOpen, onClose }) {
           >
             <div className="flex flex-col items-center pt-6">
             {isDarkMode ? (
-                <img src="/logo-dark.svg" alt="Logo" className="h-[65px] w-[65px]" />
+                <Image src={logoDark} alt="Logo" width={65} height={65} />
                 ) : (
-                <img src="/logo-bright.svg" alt="Logo" className="h-[65px] w-[65px]" />
+                <Image src={logoBright} alt="Logo" width={65} height={65} />
             )}
             <div className="w-2/3 h-px bg-black dark:bg-white my-4"></div>
             </div>
