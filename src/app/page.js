@@ -223,8 +223,19 @@ export default function Home() {
 
         </div>
         
-        <footer className="text-black dark:text-[#A5A5A5] text-sm flex font-normal justify-center itens-center py-3 bg-[#E4E4E7] dark:bg-[#191818] w-full mt-3">
-          <a className="underline pr-3" href="/EN">EN</a> | <a className="underline pl-3" href="/PT-BR">PT</a>
+        <footer className="flex items-center gap-7 text-1xlg font-normal justify-center itens-center py-3 bg-[#E4E4E7] dark:bg-[#191818] w-full mt-3">
+          <a href="https://github.com/arrudagba">
+            <FontAwesomeIcon icon={['fab', 'github']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
+          </a>
+          <a href="https://www.linkedin.com/in/arrudagba/">
+            <FontAwesomeIcon icon={['fab', 'linkedin']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
+          </a>
+          <a href="https://mastodon.social/@arrudagba">
+            <FontAwesomeIcon icon={['fab', 'mastodon']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
+          </a>
+          <a href="mailto:gabrielarrudahash@gmail.com">
+            <FontAwesomeIcon icon={['fas', 'envelope']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
+          </a>
         </footer>
       </motion.main>
     </>
