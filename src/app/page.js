@@ -69,7 +69,7 @@ export default function Home() {
               <a href="https://mastodon.social/@arrudagba">
                 <FontAwesomeIcon icon={['fab', 'mastodon']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
               </a>
-              <a href="mailto:gabrielarrudahash@gmail.com">
+              <a href="mailto:gabriel@arrudagba.dev">
                 <FontAwesomeIcon icon={['fas', 'envelope']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
               </a>
             </div>
@@ -219,7 +219,7 @@ export default function Home() {
           <p className="obj-description-bright dark:obj-description">
             If you're interested in collaborating on a project, whether it's for professional work or a free/open-source software initiative, don't hesitate to reach out. I’m always open to exploring new ideas and teaming up on exciting opportunities. Feel free to send me an email, and we can discuss how we might work together to create something meaningful.
           </p>
-          <p className="text-blue-700 dark:text-white underline font-bold pt-2 text-xl">gabrielarrudahash@gmail.com</p>
+          <p className="text-blue-700 dark:text-white underline font-bold pt-2 text-xl">gabriel@arrudagba.dev</p>
 
         </div>
         
@@ -233,7 +233,7 @@ export default function Home() {
           <a href="https://mastodon.social/@arrudagba">
             <FontAwesomeIcon icon={['fab', 'mastodon']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
           </a>
-          <a href="mailto:gabrielarrudahash@gmail.com">
+          <a href="mailto:gabriel@arrudagba.dev">
             <FontAwesomeIcon icon={['fas', 'envelope']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
           </a>
         </footer>
