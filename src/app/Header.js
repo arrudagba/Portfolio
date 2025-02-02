@@ -25,9 +25,9 @@ export default function Header() {
           <div className="justify-center flex flex-row items-center">
             <a href="/" aria-label="Logo">
             {isDarkMode ? (
-                <img src="/logo-branco.svg" alt="Logo" className="h-[35px] w-[35px]" />
+                <img src="/logo-dark.svg" alt="Logo" className="h-[35px] w-[35px]" />
                 ) : (
-                <img src="/logo-preto.svg" alt="Logo" className="h-[35px] w-[35px]" />
+                <img src="/logo-bright.svg" alt="Logo" className="h-[35px] w-[35px]" />
             )}
             </a>
           </div>

@@ -34,9 +34,9 @@ export default function Menu({ isOpen, onClose }) {
           >
             <div className="flex flex-col items-center pt-6">
             {isDarkMode ? (
-                <img src="/logo-branco.svg" alt="Logo" className="h-[65px] w-[65px]" />
+                <img src="/logo-dark.svg" alt="Logo" className="h-[65px] w-[65px]" />
                 ) : (
-                <img src="/logo-preto.svg" alt="Logo" className="h-[65px] w-[65px]" />
+                <img src="/logo-bright.svg" alt="Logo" className="h-[65px] w-[65px]" />
             )}
             <div className="w-2/3 h-px bg-black dark:bg-white my-4"></div>
             </div>
