@@ -6,7 +6,6 @@ import '../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
-import { useTheme } from './context/ThemeContext';
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 }, 
@@ -14,7 +13,6 @@ const fadeTopDown = {
 };
 
 export default function Home() {
-  const { isDarkMode } = useTheme();
 
   return (
     <>
