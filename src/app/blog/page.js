@@ -136,7 +136,7 @@ export default function BlogPage() {
                 </React.Fragment>
               ))
             ) : (
-              <p className="text-center text-gray-700 dark:text-gray-300">Nenhum post encontrado.</p>
+              <p className="text-center text-gray-700 dark:text-gray-300">No posts found.</p>
             )}
           </ul>
         </div>
