@@ -12,7 +12,7 @@ body::selection {
 }
 
 @layer components{
-    
+  /* MAIN */
   .icon {
       @apply w-48 h-48 pb-12 self-center text-[#A5A5A5];
   }
@@ -31,7 +31,7 @@ body::selection {
 
   .big-div-bright{
     @apply self-center mx-8 max-w-screen-2xl bg-[#a2a2a2] px-6 rounded-3xl my-5;
-}
+  }
 
   .obj-grid{
       @apply pt-12 pb-12 grid grid-cols-1 md:grid-cols-2 gap-8 ;
@@ -50,8 +50,8 @@ body::selection {
   }
 
   .obj-title-bright{
-    @apply pb-6 text-black font-sans font-bold text-3xl;
-}
+    @apply text-black font-sans font-bold text-3xl;
+  }
 
   .obj-description{
       @apply text-[#A5A5A5] text-base;
@@ -64,4 +64,40 @@ body::selection {
   .div-contact{
       @apply text-left py-3 mx-8 my-5 self-center;
   }
+
+  /* BLOG */
+  .blog-title{
+    @apply text-white font-sans font-bold text-lg;
+  }
+
+  .blog-title-bright{
+    @apply text-black font-sans font-bold text-lg;
+  }
+
+  .post-div{
+    @apply self-center mx-8 bg-[#191818] px-6 rounded-3xl m-5;
+  }
+
+  .post-div-bright{
+    @apply self-center mx-8 bg-[#a2a2a2] px-6 rounded-3xl m-5;
+  }
+
+  .post-info{
+    @apply text-[#A5A5A5] text-sm;
+  }
+
+  .post-info-bright{
+    @apply text-black text-sm;
+  }
+
+  .post-resume{
+    @apply text-[#A5A5A5] text-base;
+  }
+
+  .post-resume-bright{
+    @apply text-black text-base;
+  }
+
 }
+
+

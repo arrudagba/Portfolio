@@ -38,7 +38,7 @@ export default function Header() {
             <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] pl-2" href="/under-construction" target="_blank">
               Resume
             </a>
-            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="/under-construction">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="/blog">
               Blog
             </a>
             <div className="flex flex-row pr-2">

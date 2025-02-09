@@ -8,11 +8,15 @@ export default {
   ],
   theme: {
     extend: {
+      scrollbar: ['rounded'],
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/typography'),
+  ],
 };

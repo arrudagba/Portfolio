@@ -14,7 +14,8 @@ import {
     faEye,
     faGears,
     faSun,
-    faMoon
+    faMoon,
+    faGear
   } from '@fortawesome/free-solid-svg-icons';
 
 library.add(faGithub, faLinkedin, faMastodon, faEnvelope);

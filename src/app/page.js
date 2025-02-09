@@ -42,9 +42,6 @@ export default function Home() {
               foundation in software development and a deep passion for protecting systems from emerging threats.
               I have worked on building secure, scalable applications and am particularly
               excited about the intersection of engineering and security.
-              As I continue to learn and grow, I am eager to apply my skills to
-              build innovative solutions that are not only efficient but also
-              resilient in an increasingly complex digital world.
             </p>
           </div>
 
