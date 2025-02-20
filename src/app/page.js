@@ -84,8 +84,7 @@ export default function Home() {
                   Security Best Practices
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Security should never be overlooked. 
-                  From data encryption to protection against common attacks like SQL injection and XSS, I’ll help you secure your systems and data by creating safe solutions for your business.
+                Security should never be overlooked. From data encryption to protection against common attacks like SQL injection and XSS, I’ll help you secure your systems and data by creating safe solutions for your business.
                 </p>
               </div>
             </div>
@@ -96,7 +95,7 @@ export default function Home() {
                   Cloud Computing & DevOps
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Leveraging cloud platforms like AWS, Azure, and Google Cloud to build scalable and cost-efficient systems is essential in today's world. I specialize in cloud infrastructure, containerization (Docker), and setting up CI/CD pipelines, ensuring seamless and automated deployment processes, as well as high availability and fault tolerance.
+                Building scalable and cost-effective systems based on cloud platforms such as AWS, Azure, and Google Cloud is central to the business world today. I work with cloud infrastructure, containerization with Docker, and building CI/CD pipelines, easing deployment and making it automated, highly available, and fault-tolerant.
                 </p>
               </div>
             </div>
@@ -107,7 +106,7 @@ export default function Home() {
                   Clean Code & Best Practices
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Writing clean, readable, and secure code is the foundation of long-term software success. I focus on simplicity, readability, and maintainability to ensure that your codebase is not only functional but also easy to understand and extend for future developers. Let's build software that stands the test of time and keeps security top of mind.
+                Writing clean, readable, and secured code is the basic key behind the long-term success of software. My aim is to keep your codebase as clean, simple, and maintainable as possible so that it can be easily read and expanded in the future by other developers. Let's forge software that stands through time and highlights security issues.
                 </p>
               </div>
             </div>
@@ -118,7 +117,7 @@ export default function Home() {
                   Agile Development
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Agile methodologies are key to delivering high-quality software quickly and iteratively. I have hands-on experience with Scrum and Kanban, working in cross-functional teams to prioritize tasks, continuously improve processes, and deliver value to clients in short, frequent cycles.
+                Agile methodologies are important for high-quality software to be delivered fast and iteratively. I’ve had a hands-on experience with Scrum and Kanban, where I have been a part of a cross-functional team figuring out the priority of work, improving processes, and delivering value to the customers in short and frequently occurring sprints.
                 </p>
               </div>
             </div>
@@ -129,7 +128,7 @@ export default function Home() {
                   Software Architecture
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Building scalable, maintainable, and robust applications is my passion. Whether it's microservices or monolithic architectures, on-premises or cloud solutions, I work closely with you to design the best approach that suits your needs. Using principles like Domain-Driven Design (DDD), I ensure your application is flexible and future-proof.
+                Building scalable, maintainable, and robust applications is my passion. Whether it is microservices or monolithic architectures, on-premises or cloud solutions, I work with you to design the best approach that suits your needs. Using principles such as Domain-Driven Design(DDD), I ensure that the application remains flexible and future-proof.
                 </p>
               </div>
             </div>
@@ -140,7 +139,7 @@ export default function Home() {
                   Cross-Platform Integration
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  In today’s interconnected world, your application needs to work seamlessly across devices. Whether it's integrating your web app with mobile platforms or ensuring consistency across multiple environments, I can help you create smooth, cross-platform experiences. By leveraging modern frameworks and APIs, I'll ensure your app functions flawlessly on desktop, mobile, and everything in between.
+                This global era demands you to reach out to your audience across multiple devices. Be it mobile has embedded web app integration or consistency across multiple environments; I could create a seamless cross-platform experience for you. Through implementing modern frameworks and APIs, I will ensure that your application runs seamlessly across systems, mobile, and anything in between.
                 </p>
               </div>
             </div>
@@ -157,7 +156,7 @@ export default function Home() {
                   Adaptability
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  The tech world is constantly evolving, and so must I. I actively seek to expand my knowledge and adapt to new tools, technologies, and practices. Whether it's learning a new framework, adjusting to a new team's workflow, or switching to a different development approach, I remain flexible and open to change, knowing it’s key to continued growth and success in the field.
+                The tech world is ever-evolving, and so must I. I actively search for opportunities to broaden my knowledge and my use of newer tools, technologies, practices, frameworks, other team's workflows, or switching development approach. I wish to remain flexible and highly adaptable toward each change, as these are important for continued success in this line of work.
                 </p>
               </div>
             </div>
@@ -168,7 +167,7 @@ export default function Home() {
                   Collaboration
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  The best solutions come from diverse perspectives. I believe in strong communication, transparent feedback, and the value of working closely with others — whether it’s fellow developers, designers, product managers, or stakeholders. I work hard to ensure everyone’s voice is heard and that we are all moving toward the same goals, together.
+                The best solutions undertake diverse perspectives. I believe in congenial communication, honest feedback, and a concerted effort with others-whether it is fellow developers, designers, product managers, or other stakeholders. I will work tooth and nail to see that each voice has been given oyce and that we are walking toward the same goal in equal strides.
                 </p>
               </div>
             </div>
@@ -179,7 +178,7 @@ export default function Home() {
                   Scalability
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Code should grow as the business does. When I write software, I always consider how it will scale — not just in terms of features but also in terms of performance and maintainability. I strive to build solutions that will easily adapt to increased demand, user growth, or additional features without causing bottlenecks or technical debt.
+                Programming must evolve as the company grows. While writing software, I will always think of how it will scale-and this also at a level beyond just adding features, but in terms of performance and maintainability. I shall build solutions that would easily adapt when demand increases, user growth, or with increasing feature requests, causing no bottlenecks or technical debt.
                 </p>
               </div>
             </div>
@@ -190,7 +189,7 @@ export default function Home() {
                   Transparency
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  Clear and honest communication is key to any successful project. I keep my team informed of progress, challenges, and any roadblocks early in the process. I believe that transparency fosters trust and ensures we’re all aligned and can react quickly to changes or issues when they arise.
+                Clear and honest communication is key to any successful project. I normally keep my team informed about my progress, hurdles, and other roadblocks very early on in the process. I believe that transparency fosters trust among the team and helps us all stay aligned and react quickly to changes or issues whenever they arise.
                 </p>
               </div>
             </div>
@@ -201,7 +200,7 @@ export default function Home() {
                   Efficiency
                 </h2>
                 <p className="obj-description-bright dark:obj-description">
-                  I believe removing unnecessary code is more effective than adding new features. Feature creep and lack of focus make software harder to maintain. I follow principles from Extreme Programming, UNIX, and Test-Driven Development to build clean, scalable solutions. If a feature doesn’t align with these values, I’ll speak up to ensure long-term quality and sustainability.
+                I find it easier to remove unnecessary code than to introduce new features. Software development is more difficult because of feature creep and a lack of focus. I actually rely on the principles drawn from Extreme Programming, UNIX, and Test-Driven Development to produce elegant, scalable solutions. If a feature is not in line with those values, I'm going to raise my voice for quality and sustainability down the line.
                 </p>
               </div>
             </div>
