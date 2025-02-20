@@ -220,10 +220,10 @@ First of all, we need to compare how Rust and C handles memory management and sa
         <a href="https://nvd.nist.gov/vuln/detail/cve-2021-42574" style="color: #3162d4;"><strong>CVE-2021-42574</strong></a>. This vulnerability involves the use of bidirectional Unicode codepoints in source code, which could lead to discrepancies between reviewed and compiled code. Rust introduced lints in version 1.56.1 to detect and reject such codepoints, mitigating the risk of this attack.
     </li>
     <li style="margin-bottom: 10px;">
-        Studies estimate that <strong>70% of critical vulnerabilities</strong> in Microsoft Products stem from memory safety issues <a href="#ref1" style="color: #3162d4;" onclick="document.getElementById('ref1').scrollIntoView({ behavior: 'smooth' }); return false;">[1]</a>.
+        Studies estimate that <strong>70% of critical vulnerabilities</strong> in Microsoft Products stem from memory safety issues <a href="#ref1" style="color: #3162d4;" onclick="document.getElementById('ref1').scrollIntoView({ behavior: 'smooth' }); return false;">[1]</a>
     </li>
     <li style="margin-bottom: 10px;">
-        The Linux kernel, predominantly written in C, reported over <strong>1,858 CVEs</strong> in the past decade, much of them memory-related, including high-severity exploits in networking and driver subsystems <a href="#ref2" style="color: #3162d4;" onclick="document.getElementById('ref2').scrollIntoView({ behavior: 'smooth' }); return false;">[2]</a>.
+        The Linux kernel, predominantly written in C, reported over <strong>1,858 CVEs</strong> in the past decade, much of them memory-related, including high-severity exploits in networking and driver subsystems <a href="#ref2" style="color: #3162d4;" onclick="document.getElementById('ref2').scrollIntoView({ behavior: 'smooth' }); return false;">[2]</a>
     </li>
 </ul>
 
@@ -233,11 +233,11 @@ First of all, we need to compare how Rust and C handles memory management and sa
 <ul style="list-style-type: disc; margin-left: 20px;">
     <li style="margin-bottom: 10px;">
         <strong>Aerospace: Gama Space</strong><br>
-         Gama Space is a company that specializes in developing innovative solutions for satellite and space technology applications. Gama specializes in the development of solar sails. Gama employs Rust to enhance the reliability and performance of software systems used in space missions.<a href="#ref3" style="color: #3162d4;" onclick="document.getElementById('ref3').scrollIntoView({ behavior: 'smooth' }); return false;">[3]</a>.
+         Gama Space is a company that specializes in developing innovative solutions for satellite and space technology applications. Gama specializes in the development of solar sails. Gama employs Rust to enhance the reliability and performance of software systems used in space missions <a href="#ref3" style="color: #3162d4;" onclick="document.getElementById('ref3').scrollIntoView({ behavior: 'smooth' }); return false;">[3]</a>
     </li>
     <li style="margin-bottom: 10px;">
         <strong>Embedded Systems: Volvo’s Automotive Software</strong><br>
-        Volvo is using the Rust programming language to develop new software for its cars.<a href="#ref3" style="color: #3162d4;" onclick="document.getElementById('ref3').scrollIntoView({ behavior: 'smooth' }); return false;">[3]</a>.
+        Volvo is using the Rust programming language to develop new software for its cars <a href="#ref3" style="color: #3162d4;" onclick="document.getElementById('ref3').scrollIntoView({ behavior: 'smooth' }); return false;">[3]</a>
     </li>
 </ul>
 
@@ -245,11 +245,11 @@ First of all, we need to compare how Rust and C handles memory management and sa
 <ul style="list-style-type: disc; margin-left: 20px;">
     <li style="margin-bottom: 10px;">
         <strong>Servo Browser Engine</strong><br>
-        Mozilla’s Servo project replaced C++ components with Rust, eliminating all use-after-free and buffer overflow vulnerabilities in its rendering pipeline.<a href="#ref5" style="color: #3162d4;" onclick="document.getElementById('ref5').scrollIntoView({ behavior: 'smooth' }); return false;">[5]</a>.
+        Mozilla’s Servo project replaced C++ components with Rust, eliminating all use-after-free and buffer overflow vulnerabilities in its rendering pipeline <a href="#ref5" style="color: #3162d4;" onclick="document.getElementById('ref5').scrollIntoView({ behavior: 'smooth' }); return false;">[5]</a>
     </li>
     <li style="margin-bottom: 10px;">
         <strong>Cloudflare’s Public DNS Resolver</strong><br>
-        Cloudflare transitioned from Knot Resolver (Lua-based) to Rust for better performance, memory safety, and debugging in its DNS resolver. Rust’s async/await improved I/O handling, making it more efficient. WebAssembly (Wasm) was integrated for secure, portable execution. Cloudflare Workers now support multiple languages, including Rust, enhancing flexibility. This shift significantly improved performance, security, and scalability.<a href="#ref4" style="color: #3162d4;" onclick="document.getElementById('ref4').scrollIntoView({ behavior: 'smooth' }); return false;">[4]</a>.
+        Cloudflare transitioned from Knot Resolver (Lua-based) to Rust for better performance, memory safety, and debugging in its DNS resolver. Rust’s async/await improved I/O handling, making it more efficient. WebAssembly (Wasm) was integrated for secure, portable execution. Cloudflare Workers now support multiple languages, including Rust, enhancing flexibility. This shift significantly improved performance, security, and scalability <a href="#ref4" style="color: #3162d4;" onclick="document.getElementById('ref4').scrollIntoView({ behavior: 'smooth' }); return false;">[4]</a>
     </li>
 </ul>
 
@@ -283,28 +283,9 @@ First of all, we need to compare how Rust and C handles memory management and sa
         &nbsp;&nbsp;&nbsp;&nbsp;arr.swap(i, arr.len() - 1);<br>
         &nbsp;&nbsp;&nbsp;&nbsp;i<br>
         }<br><br>
-        <span style="color: #66d9ef;">fn</span> parse_numbers_from_file(filename: &amp;str) -&gt; Result&lt;Vec&lt;i32&gt;, io::Error&gt; {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> content = fs::read_to_string(filename)?;<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// extract the part between the square brackets</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> start = content.find('[').ok_or(io::Error::new(<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;io::ErrorKind::InvalidData,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #e6db74;">"No '[' found in the file"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;))?;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> end = content.find(']').ok_or(io::Error::new(<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;io::ErrorKind::InvalidData,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #e6db74;">"No ']' found in the file"</span>,<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;))?;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> numbers_str = &amp;content[start + 1..end];<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// split the string by commas and parse each number</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> numbers: Result&lt;Vec&lt;i32&gt;, _&gt; = numbers_str<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.split(',')<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map(|s| s.trim().parse::&lt;i32&gt;())<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.collect();<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;numbers.map_err(|e| io::Error::new(io::ErrorKind::InvalidData, e))<br>
-        }<br><br>
+        <span style="color: #75715e;">// FILE HANDLING</span><br><br>
         <span style="color: #66d9ef;">fn</span> main() -&gt; Result&lt;(), io::Error&gt; {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> filename = <span style="color: #e6db74;">"random_numbers.txt"</span>;<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// parse numbers from the file</span><br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">let</span> mut numbers = parse_numbers_from_file(filename)?;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;println!(<span style="color: #e6db74;">"Before sorting: {:?}"</span>, numbers);<br><br>
         &nbsp;&nbsp;&nbsp;&nbsp;quicksort(&amp;mut numbers);<br>
@@ -344,58 +325,7 @@ First of all, we need to compare how Rust and C handles memory management and sa
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;quicksort(arr, pivot_index + 1, high);<br>
         &nbsp;&nbsp;&nbsp;&nbsp;}<br>
         }<br><br>
-        <span style="color: #75715e;">// function to parse numbers from a file</span><br>
-        <span style="color: #66d9ef;">int</span> parse_numbers_from_file(<span style="color: #66d9ef;">const</span> <span style="color: #66d9ef;">char</span> *filename, <span style="color: #66d9ef;">int</span> **numbers) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;FILE *file = fopen(filename, <span style="color: #e6db74;">"r"</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">if</span> (!file) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror(<span style="color: #e6db74;">"Failed to open file"</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">return</span> -1;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;fseek(file, 0, SEEK_END);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">long</span> file_size = ftell(file);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;fseek(file, 0, SEEK_SET);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">char</span> *buffer = (<span style="color: #66d9ef;">char</span> *)malloc(file_size + 1);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">if</span> (!buffer) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror(<span style="color: #e6db74;">"Failed to allocate memory"</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fclose(file);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">return</span> -1;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;fread(buffer, 1, file_size, file);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;buffer[file_size] = <span style="color: #e6db74;">'\0'</span>;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;fclose(file);<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">char</span> *start = strchr(buffer, <span style="color: #e6db74;">'['</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">char</span> *end = strchr(buffer, <span style="color: #e6db74;">']'</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">if</span> (!start || !end) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fprintf(stderr, <span style="color: #e6db74;">"No numbers found in the file (missing '[' or ']')"</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free(buffer);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">return</span> -1;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// extract the numbers string</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;*start = <span style="color: #e6db74;">'\0'</span>;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;start++;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;*end = <span style="color: #e6db74;">'\0'</span>;<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// count the number of commas to determine the size of the array</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">int</span> count = 1;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">for</span> (<span style="color: #66d9ef;">char</span> *p = start; *p; p++) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">if</span> (*p == <span style="color: #e6db74;">','</span>) count++;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// allocate memory for the numbers array</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;*numbers = (<span style="color: #66d9ef;">int</span> *)malloc(count * <span style="color: #66d9ef;">sizeof</span>(<span style="color: #66d9ef;">int</span>));<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">if</span> (!*numbers) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perror(<span style="color: #e6db74;">"Failed to allocate memory"</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;free(buffer);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">return</span> -1;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #75715e;">// parse the numbers</span><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">char</span> *token = strtok(start, <span style="color: #e6db74;">","</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">int</span> index = 0;<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">while</span> (token) {<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(*numbers)[index++] = atoi(token);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;token = strtok(<span style="color: #66d9ef;">NULL</span>, <span style="color: #e6db74;">","</span>);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-        &nbsp;&nbsp;&nbsp;&nbsp;free(buffer);<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">return</span> count;<br>
-        }<br><br>
+        <span style="color: #75715e;">// FILE HANDLING</span><br><br>
         <span style="color: #66d9ef;">int</span> main() {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">const</span> <span style="color: #66d9ef;">char</span> *filename = <span style="color: #e6db74;">"random_numbers.txt"</span>;<br>
         &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #66d9ef;">int</span> *numbers;<br>
@@ -514,7 +444,7 @@ First of all, we need to compare how Rust and C handles memory management and sa
 <h3>C: Challenges and Trade-offs</h3>
 
 <h4>Legacy Codebases and Vendor Support</h4>
-<p>C has been the lingua franca of systems programming for decades:</p>
+<p>C has been the dominant language of systems programming for decades:</p>
 <ul style="list-style-type: disc; margin-left: 20px;">
     <li style="margin-bottom: 10px;">
         This results in vast legacy codebases and extensive vendor support, but transitioning to a modern language like Rust can be challenging, especially when dealing with proprietary or tightly coupled systems.

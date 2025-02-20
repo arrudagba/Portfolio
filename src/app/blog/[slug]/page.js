@@ -8,6 +8,7 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import '../../../lib/fontawesome';
 import { motion } from "framer-motion";
 import { FadeLoader } from 'react-spinners';
+import UtterancesComments from '../../components/Utterance/Comments';
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 },
@@ -116,6 +117,8 @@ export default function BlogPost({ params }) {
             <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           </div>
         </div>
+
+        <UtterancesComments isDarkMode={isDarkMode} />
 
         <footer className="flex items-center gap-7 text-1xlg font-normal justify-center itens-center py-3 bg-[#E4E4E7] dark:bg-[#191818] w-full mt-3">
           <a href="https://github.com/arrudagba">
