@@ -14,7 +14,7 @@ description: "This blog post compares memory safety in Rust and C, focusing on v
 In this post, we will perform an objective assessment of Rust vs C, looking at those in the critical system context of memory safety, being environments where software failure could bring catastrophic outcomes. Language design, real-world vulnerabilities, and quantitative data will show how Rust's compile-time guarantees help avoid pitfalls inherent to C's manual memory management and why this is critical to such industries as aerospace, healthcare, and embedded systems.
 
 <div style="background-color: #1c1c1c; border-left: 6px solid #ffcc00; padding: 15px; margin: 20px 0; color: #d4d4d4;">
-    <strong style="color: #ffcc00;">Warning:</strong> <strong>This post (although very reliable) is heavily influenced by my personal opinions, based on my experiences using both languages and my studies on the topic. Don't take anything from here as an absolute truth, have your own experiences and carry out your own studies.</strong>
+    <strong style="color: #ffcc00;">Warning:</strong> <strong style="color: #ffffff">This post (although very reliable) is heavily influenced by my personal opinions, based on my experiences using both languages and my studies on the topic. Don't take anything from here as an absolute truth, have your own experiences and carry out your own studies.</strong>
 </div>
 
 <div style="background-color: #000000; border-left: 6px solid #6002a8; padding: 15px; margin: 20px 0; color: #A5A5A5;">
