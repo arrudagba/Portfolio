@@ -1,6 +1,6 @@
 ---
 title: "Rust vs. C: Quantifying Memory Safety in Critical Systems"
-date: "02-09-2025"
+date: "02-19-2025"
 slug: "rust-vs-c"
 tag: ["rust", "c"]
 time: "15 min"
@@ -407,7 +407,7 @@ First of all, we need to compare how Rust and C handles memory management and sa
 <h3>Rust: Challenges and Trade-offs</h3>
 
 <h4>Learning Curve</h4>
-<p>Rust’s memory safety guarantees come at the cost of a steeper learning curve, particularly due to its borrow checker. For example:</p>
+<p>Like I said before, Rust’s memory safety guarantees come at the cost of a steeper learning curve, particularly due to its borrow checker. For example:</p>
 <ul style="list-style-type: disc; margin-left: 20px;">
     <li style="margin-bottom: 10px;">
         The borrow checker enforces strict rules around ownership, borrowing, and lifetimes, which can be challenging for developers accustomed to the more permissive memory management model of C.
@@ -500,5 +500,5 @@ First of all, we need to compare how Rust and C handles memory management and sa
     <li id="ref3">The Embedded Rustacean - <a href="https://www.theembeddedrustacean.com/p/embedded-rust-adoption-tracking" style="color: #3162d4;">https://www.theembeddedrustacean.com/p/embedded-rust-adoption-tracking</a></li>
     <li id="ref4">The Cloudflare Blog - <a href="https://blog.cloudflare.com/big-pineapple-intro/" style="color: #3162d4;">https://blog.cloudflare.com/big-pineapple-intro/</a></li>
     <li id="ref5">Mozilla's Servo - <a href="https://servo.org/" style="color: #3162d4;">https://servo.org/</a></li>
-    <li id="ref14">Introduction to "Safe and Secure Coding in Rust: A Comparative Analysis of Rust and C/C++" - <a href="https://luk6xff.github.io/other/safe_secure_rust_book/index.html" style="color: #3162d4;">https://luk6xff.github.io/other/safe_secure_rust_book/index.html</a></li>
+    <li id="ref6">Introduction to "Safe and Secure Coding in Rust: A Comparative Analysis of Rust and C/C++" - <a href="https://luk6xff.github.io/other/safe_secure_rust_book/index.html" style="color: #3162d4;">https://luk6xff.github.io/other/safe_secure_rust_book/index.html</a></li>
 </ol>
