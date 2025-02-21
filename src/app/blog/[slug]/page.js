@@ -114,7 +114,7 @@ export default function BlogPost({ params }) {
 
         <div className="post-div-bright dark:post-div w-full md:w-[80%] mx-auto p-8 text-black dark:text-[#A5A5A5]">
           <div className="overflow-y-scroll max-h-[100vh] px-4 flex justify-center">
-            <div className="prose dark:prose-invert max-w-none" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+            <div className="prose dark:prose-invert max-w-full" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           </div>
         </div>
 

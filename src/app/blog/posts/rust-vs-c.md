@@ -353,10 +353,10 @@ First of all, we need to compare how Rust and C handles memory management and sa
 
 <p>Here are the test results:</p>
 <p align="center">
-  <img src="/blog/rust-vs-c/02.png" height="450" width="450" alt="First">
+  <img src="/blog/rust-vs-c/02.png" height="450" width="450" alt="Second">
 </p>
 <p align="center">
-  <img src="/blog/rust-vs-c/03.png" height="450" width="450" alt="First">
+  <img src="/blog/rust-vs-c/03.png" height="450" width="450" alt="Third">
 </p>
 
 <table style="width: 100%; border-collapse: collapse; margin-bottom: 20px;">
