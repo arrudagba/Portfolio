@@ -3,6 +3,7 @@ title: "Rust vs. C: Quantifying Memory Safety in Critical Systems"
 date: "02-09-2025"
 slug: "rust-vs-c"
 tag: ["rust", "c"]
+time: "15 min"
 description: "This blog post compares memory safety in Rust and C, focusing on vulnerabilities like buffer overflows and use-after-free errors. It highlights Rust's ownership model and compile-time checks as key advantages over C in reducing memory-related bugs. The analysis offers insights for developers and organizations prioritizing system reliability and security in critical applications."
 ---
 <p align="center">

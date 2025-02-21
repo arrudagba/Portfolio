@@ -6,7 +6,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import '../../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faTag } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faTag, faPencil} from '@fortawesome/free-solid-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import React from "react";
 import { useTheme } from '../context/ThemeContext';
@@ -121,8 +121,10 @@ export default function BlogPage() {
                         </Link>
                         <div className="w-full h-px bg-black dark:bg-white my-4"></div>
                         <div className="flex justify-start items-center gap-2">
-                          <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faClock} />
+                          <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faPencil} />
                           <p className="post-info-bright dark:post-info">{post.date}</p>
+                          <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faClock} />
+                          <p className="post-info-bright dark:post-info">{post.time}</p>
                           <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faTag} />
                           <p className="post-info-bright dark:post-info">{post.tag.join(", ")}</p>
                         </div>

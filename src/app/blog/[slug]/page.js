@@ -3,7 +3,7 @@
 import { use, useEffect, useState } from "react"; 
 import { useTheme } from '../../context/ThemeContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faTag, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faTag, faChevronLeft, faPencil } from '@fortawesome/free-solid-svg-icons';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 import '../../../lib/fontawesome';
 import { motion } from "framer-motion";
@@ -105,8 +105,10 @@ export default function BlogPost({ params }) {
           </div>
           
           <div className="flex items-center gap-2 whitespace-nowrap">
-            <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faClock} />
+            <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faPencil} />
             <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.date}</h2>
+            <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faClock} />
+            <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.time}</h2>
             <FontAwesomeIcon className="post-info-bright dark:post-info" icon={faTag} />
             <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.tag.join(", ")}</h2>
           </div>

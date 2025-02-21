@@ -3,6 +3,7 @@ title: "About"
 date: "02-09-2025"
 slug: "about"
 tag: ["about"]
+time: "2 min"
 description: "This post is a glimpse into who I am, what I do, and why I’m passionate about building secure systems and sharing knowledge with the tech community."
 ---
 <p align="center">
