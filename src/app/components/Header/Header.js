@@ -40,7 +40,7 @@ export default function Header() {
             </a>
           </div>
           <div className="flex flex-row justify-end items-center">
-            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5]" href="/under-construction" target="_blank">
+            <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5]" href="/resume.pdf" target="_blank">
               Resume
             </a>
             <a className="text-black dark:text-white hover:text-blue-700 dark:hover:text-[#A5A5A5] px-5" href="/blog">
