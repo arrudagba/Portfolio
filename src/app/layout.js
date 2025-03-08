@@ -1,5 +1,6 @@
 import "./styles/globals.css";
 import { ThemeProvider } from './context/ThemeContext';
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata = {
   title: "arrudagba",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
       <body>
         <ThemeProvider> 
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
