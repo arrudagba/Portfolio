@@ -14,6 +14,7 @@ import logoDark from '../../assets/images/logo-dark.svg';
 import logoBright from '../../assets/images/logo-bright.svg';
 import BlogDark from '../../assets/images/blog-dark.png';
 import BlogBright from '../../assets/images/blog-bright.png';
+import { Analytics } from "@vercel/analytics/react"
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 },

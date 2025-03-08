@@ -9,6 +9,7 @@ import '../../../lib/fontawesome';
 import { motion } from "framer-motion";
 import { FadeLoader } from 'react-spinners';
 import UtterancesComments from '../../components/Utterance/Comments';
+import { Analytics } from "@vercel/analytics/react"
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 },

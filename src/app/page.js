@@ -6,6 +6,7 @@ import '../lib/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
+import { Analytics } from "@vercel/analytics/react"
 
 const fadeTopDown = {
   hidden: { opacity: 0, y: -50 }, 
