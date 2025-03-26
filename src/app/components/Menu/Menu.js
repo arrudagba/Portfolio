@@ -70,7 +70,7 @@ export default function Menu({ isOpen, onClose }) {
               <a href="https://mastodon.social/@arrudagba">
                 <FontAwesomeIcon icon={['fab', 'mastodon']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
               </a>
-              <a href="mailto:gabriel@arrudagba.dev">
+              <a href="mailto:arrudagbadev@gmail.com">
                 <FontAwesomeIcon icon={['fas', 'envelope']} className="text-black dark:text-[#A5A5A5] text-xl hover:text-blue-700 dark:hover:text-white" />
               </a>
             </div>
