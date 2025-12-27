@@ -55,7 +55,7 @@ export default function ProjectsSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#0C73CD] font-semibold text-sm uppercase tracking-wider mb-4">
+          <p className="text-[#47D7FF] font-semibold text-sm uppercase tracking-wider mb-4">
             MY WORK
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
@@ -102,12 +102,12 @@ export default function ProjectsSection() {
               {/* Content */}
               <div className="p-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-semibold text-[#0C73CD] uppercase tracking-wider">
+                  <span className="text-xs font-semibold text-[#47D7FF] uppercase tracking-wider">
                     {project.category}
                   </span>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#0C73CD] transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#47D7FF] transition-colors">
                   {project.title}
                 </h3>
                 
@@ -130,7 +130,7 @@ export default function ProjectsSection() {
             href="/projects"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-[#0C73CD] hover:bg-[#0052b3] text-white px-8 py-4 rounded-full font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-8 py-4 rounded-full font-medium transition-colors"
           >
             View All Projects
             <ArrowRight className="w-5 h-5" />

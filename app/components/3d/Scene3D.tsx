@@ -56,7 +56,7 @@ export default function Scene3D() {
       overflow: 'hidden',
       margin: '0 auto',
       position: 'relative',
-      background: 'linear-gradient(to top, #0012b3 0%, rgba(0, 18, 179, 0) 70%, #1C1C22 30%)'
+      background: 'linear-gradient(to top, #0EA5D0 0%, rgba(14, 165, 208, 0) 70%, #1C1C22 30%)'
     }}>
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}
@@ -66,7 +66,7 @@ export default function Scene3D() {
         <ambientLight intensity={0.3} />
         
         {/* Luz azul vindo da esquerda - intensidade aumentada */}
-        <directionalLight position={[-10, 0, 0]} intensity={4.5} color="#0C73CD" />
+        <directionalLight position={[-10, 0, 0]} intensity={4.5} color="#47D7FF" />
         
         {/* Luzes complementares */}
         <directionalLight position={[5, 5, 5]} intensity={0.6} />

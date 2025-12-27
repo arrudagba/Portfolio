@@ -70,14 +70,14 @@ export default function HeroSection() {
             >
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="text-white">Hello, I'm </span>
-                <span className="bg-gradient-to-r from-[#0C73CD] via-[#0052b3] to-[#0012b3] text-transparent bg-clip-text">
+                <span className="bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text">
                     Gabriel Arruda
                 </span>
                 </h1>
 
                 <h2 className="text-xl lg:text-2xl text-gray-300 font-light">
                 I'm a passionate{" "}
-                <span className="text-[#0C73CD] font-medium">{displayText}</span>
+                <span className="text-[#47D7FF] font-medium">{displayText}</span>
                 <span className="animate-pulse">|</span>
                 </h2>
 
@@ -94,7 +94,7 @@ export default function HeroSection() {
                     href="#about"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-[#0C73CD] hover:bg-[#0052b3] text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                    className="bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
                 >
                     <Briefcase className="w-4 h-4" />
                     Timeline
@@ -104,27 +104,27 @@ export default function HeroSection() {
                     <a
                     href="https://github.com/arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#0C73CD]/20 hover:border-[#0C73CD] transition-colors"
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
                     >
                     <Github className="w-5 h-5" />
                     </a>
                     <a
                     href="https://www.linkedin.com/in/arrudagba/"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#0C73CD]/20 hover:border-[#0C73CD] transition-colors"
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
                     >
                     <Linkedin className="w-5 h-5" />
                     </a>
                     <a
                     href="mailto:arrudagbadev@gmail.com"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#0C73CD]/20 hover:border-[#0C73CD] transition-colors"
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
                     >
                     <Mail className="w-5 h-5" />
                     </a>
                     <a
                     href="https://mastodon.social/@arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#0C73CD]/20 hover:border-[#0C73CD] transition-colors"
+                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
                     >
                     <Send className="w-5 h-5" />
                     </a>
@@ -139,35 +139,33 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="hidden lg:flex flex-col items-center justify-center relative"
             >
-                <div className="relative flex items-center justify-center">
-                  {/* SVG Animation Circle */}
-                  <div className="absolute inset-0 flex items-center justify-center ">
-                    <svg 
-                      className="w-[500px] h-[500px] animate-spin-slow" 
-                      fill="transparent" 
-                      viewBox="0 0 506 506" 
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <defs>
-                        <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#0C73CD"></stop>
-                          <stop offset="100%" stopColor="#0052b3"></stop>
-                        </linearGradient>
-                      </defs>
-                      <circle 
-                        cx="253" 
-                        cy="253" 
-                        r="240" 
-                        stroke="url(#circleGradient)" 
-                        strokeWidth="4" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round" 
-                        className="animate-dash"
-                      />
-                    </svg>
-                  </div>
+                <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+                  {/* SVG Animation Circle - positioned around the 3D */}
+                  <svg 
+                    className="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" 
+                    fill="transparent" 
+                    viewBox="0 0 506 506" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <defs>
+                      <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#47D7FF"></stop>
+                        <stop offset="100%" stopColor="#20B8E8"></stop>
+                      </linearGradient>
+                    </defs>
+                    <circle 
+                      cx="253" 
+                      cy="253" 
+                      r="240" 
+                      stroke="url(#circleGradient)" 
+                      strokeWidth="4" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      className="animate-dash"
+                    />
+                  </svg>
                   
-                  {/* 3D Model */}
+                  {/* 3D Model - centered */}
                   <div className="relative z-10">
                     <Scene3D />
                   </div>
@@ -183,8 +181,8 @@ export default function HeroSection() {
                   }}
                   className="flex flex-col items-center gap-2 mt-8"
                 >
-                  <span className="text-sm bg-gradient-to-r from-[#0C73CD] via-[#0052b3] to-[#0012b3] text-transparent bg-clip-text font-medium">Scroll Down</span>
-                  <ChevronDown className="w-6 h-6 text-[#0C73CD]" />
+                  <span className="text-sm bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text font-medium">Scroll Down</span>
+                  <ChevronDown className="w-6 h-6 text-[#47D7FF]" />
                 </motion.div>
             </motion.div>
             </div>

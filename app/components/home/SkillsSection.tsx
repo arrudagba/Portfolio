@@ -93,7 +93,7 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
     // Draw concentric circles (grid)
     const levels = 5;
-    ctx.strokeStyle = 'rgba(12, 115, 205, 0.3)';
+    ctx.strokeStyle = 'rgba(71, 215, 255, 0.3)';
     ctx.lineWidth = 1;
 
     for (let i = 1; i <= levels; i++) {
@@ -103,7 +103,7 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
     }
 
     // Draw axis lines from center
-    ctx.strokeStyle = 'rgba(12, 115, 205, 0.3)';
+    ctx.strokeStyle = 'rgba(71, 215, 255, 0.3)';
     ctx.lineWidth = 1;
 
     for (let i = 0; i < numSkills; i++) {
@@ -119,8 +119,8 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
     // Draw skill polygon
     ctx.beginPath();
-    ctx.strokeStyle = '#0C73CD';
-    ctx.fillStyle = 'rgba(12, 115, 205, 0.4)';
+    ctx.strokeStyle = '#47D7FF';
+    ctx.fillStyle = 'rgba(71, 215, 255, 0.4)';
     ctx.lineWidth = 2;
 
     skills.forEach((skill, i) => {
@@ -193,10 +193,10 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
               {Icon && (
                 <div className={`
                   ${isMobile ? 'w-6 h-6' : isTablet ? 'w-7 h-7' : 'w-8 h-8'}
-                  rounded-full bg-[#0C73CD]/20 border border-[#0C73CD]/40 
+                  rounded-full bg-[#47D7FF]/20 border border-[#47D7FF]/40 
                   flex items-center justify-center mb-0.5 sm:mb-1
                 `}>
-                  <Icon className={`${isMobile ? 'w-3 h-3' : isTablet ? 'w-3.5 h-3.5' : 'w-4 h-4'} text-[#0C73CD]`} />
+                  <Icon className={`${isMobile ? 'w-3 h-3' : isTablet ? 'w-3.5 h-3.5' : 'w-4 h-4'} text-[#47D7FF]`} />
                 </div>
               )}
               <span className={`
@@ -231,7 +231,7 @@ export default function SkillsSection() {
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-4">
-            My <span className="bg-gradient-to-r from-[#0C73CD] via-[#0052b3] to-[#0012b3] text-transparent bg-clip-text">Skills</span>
+            My <span className="bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text">Skills</span>
           </h2>
           <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
             A comprehensive overview of my technical expertise and interpersonal abilities
@@ -249,7 +249,7 @@ export default function SkillsSection() {
             transition={{ delay: 0.2 }}
             className="relative backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0012b3]/20 via-[#0052b3]/10 to-[#0C73CD]/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0EA5D0]/20 via-[#20B8E8]/10 to-[#47D7FF]/20" />
             <div className="relative z-10">
               <RadarChart skills={technicalSkills} title="Technical & Dev Skills" />
             </div>
@@ -263,7 +263,7 @@ export default function SkillsSection() {
             transition={{ delay: 0.3 }}
             className="relative backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 overflow-hidden"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0012b3]/20 via-[#0052b3]/10 to-[#0C73CD]/20" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0EA5D0]/20 via-[#20B8E8]/10 to-[#47D7FF]/20" />
             <div className="relative z-10">
               <RadarChart skills={humanSkills} title="Human & Creative Skills" />
             </div>

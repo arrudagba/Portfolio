@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Left - Logo */}
           <div>
             <div className="text-2xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-[#0C73CD] to-[#0052b3] text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-[#47D7FF] to-[#20B8E8] text-transparent bg-clip-text">
                 Gabriel Arruda
               </span>
             </div>
@@ -37,7 +37,7 @@ export default function Footer() {
               href="https://github.com/arrudagba"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#0C73CD] hover:border-[#0C73CD] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
             >
               <Github className="w-5 h-5" />
             </a>
@@ -45,13 +45,13 @@ export default function Footer() {
               href="https://www.linkedin.com/in/arrudagba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#0C73CD] hover:border-[#0C73CD] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:arrudagbadev@gmail.com"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#0C73CD] hover:border-[#0C73CD] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -59,7 +59,7 @@ export default function Footer() {
               href="https://mastodon.social/@arrudagba"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#0C73CD] hover:border-[#0C73CD] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
             >
               <Send className="w-5 h-5" />
             </a>
