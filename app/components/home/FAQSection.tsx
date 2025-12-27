@@ -1,0 +1,115 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+const faqs: FAQ[] = [
+  {
+    question: "What technologies do you specialize in?",
+    answer: "I specialize in C, Python, Rust, and C#. I work with modern frameworks and tools for full-stack development, focusing on building secure, scalable applications with clean code practices and robust architecture."
+  },
+  {
+    question: "What is your approach to security?",
+    answer: "Security is fundamental in everything I build. From data encryption to protection against common attacks like SQL injection and XSS, I implement security best practices throughout the development lifecycle to create safe, resilient solutions."
+  },
+  {
+    question: "How do you ensure code quality?",
+    answer: "I follow clean code principles, Test-Driven Development (TDD), and design patterns like Domain-Driven Design (DDD). I believe in writing maintainable, readable code that stands the test of time and can be easily extended by other developers."
+  },
+  {
+    question: "Are you available for collaboration?",
+    answer: "Yes, I'm open to collaborating on both professional projects and free/open-source software initiatives. Whether it's full-time opportunities, contract work, or contributing to meaningful projects, I'm always interested in exploring new ideas."
+  }
+];
+
+export default function FAQSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <section className="bg-[#1C1C22] py-20 lg:py-32">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto">
+        
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <p className="text-[#0C73CD] font-semibold text-sm uppercase tracking-wider mb-4">
+            FAQS
+          </p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+            Have Questions?
+          </h2>
+        </motion.div>
+
+        {/* FAQ Items */}
+        <div className="space-y-4">
+          {faqs.map((faq, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white/5 rounded-2xl overflow-hidden border border-white/10"
+            >
+              {/* Question */}
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/10 transition-colors"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="text-[#0C73CD] font-bold text-lg">
+                    {String(index + 1).padStart(2, '0')}.
+                  </span>
+                  <span className="text-white font-semibold text-lg">
+                    {faq.question}
+                  </span>
+                </div>
+                
+                <div className="flex-shrink-0 ml-4">
+                  {openIndex === index ? (
+                    <Minus className="w-5 h-5 text-[#0C73CD]" />
+                  ) : (
+                    <Plus className="w-5 h-5 text-gray-600" />
+                  )}
+                </div>
+              </button>
+
+              {/* Answer */}
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openIndex === index ? "auto" : 0,
+                  opacity: openIndex === index ? 1 : 0
+                }}
+                transition={{ duration: 0.3 }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-5 pl-[4.5rem]">
+                  <p className="text-gray-400 leading-relaxed">
+                    {faq.answer}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+        </div>
+      </div>
+    </section>
+  );
+}

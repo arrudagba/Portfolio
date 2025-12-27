@@ -1,18 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'JetBrains Mono', monospace;
 }
 
-html,
-body {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background-color: #1C1C22;
+.obj-description {
+  color: #A5A5A5;
 }
 
-#root {
-  width: 100%;
-  height: 100%;
+.obj-description-bright {
+  color: #6B7280;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-animate {
+  0%, 100% {
+    stroke-dasharray: 1 150 90 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90 150 1 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 15s linear infinite;
+}
+
+.animate-dash {
+  animation: dash-animate 5s ease-in-out infinite;
 }

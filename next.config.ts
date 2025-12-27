@@ -1,7 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
+  transpilePackages: ['three'],
 };
 
 export default nextConfig;
