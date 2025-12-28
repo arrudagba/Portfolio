@@ -52,9 +52,9 @@ import { useTheme } from "@/app/context/ThemeContext";
 export default function Scene3D() {
   const { theme } = useTheme();
   const grad = theme === 'light'
-    ? 'linear-gradient(to top, #83C5D8 0%, rgba(131,197,216,0) 70%, hsl(var(--background)) 30%)'
-    : 'linear-gradient(to top, #0EA5D0 0%, rgba(14,165,208,0) 70%, hsl(var(--background)) 30%)';
-  const mainLight = theme === 'light' ? '#83C5D8' : '#47D7FF';
+    ? 'linear-gradient(to top, hsl(var(--primary)) 0%, rgba(131,197,216,0) 70%, hsl(var(--background)) 30%)'
+    : 'linear-gradient(to top, hsl(var(--primary)) 0%, rgba(14,165,208,0) 70%, hsl(var(--background)) 30%)';
+  const mainLight = 'hsl(var(--primary))';
   return (
     <div style={{
       width: '350px',

@@ -5,7 +5,7 @@ import { ArrowRight, Sparkles } from "lucide-react";
 
 export default function CTASection() {
   return (
-    <section className="relative bg-gradient-to-br from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] py-20 lg:py-32 overflow-hidden">
+    <section className="relative py-20 lg:py-32 overflow-hidden" style={{ background: 'linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-dark)) 60%, hsl(var(--accent)) 100%)' }}>
       
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -46,7 +46,7 @@ export default function CTASection() {
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-2 backdrop-blur-sm border rounded-full px-6 py-2 mb-8" style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))' }}
           >
-            <Sparkles className="w-4 h-4 text-yellow-300" />
+            <Sparkles className="w-4 h-4" style={{ color: 'hsl(var(--accent))' }} />
             <span className="font-medium" style={{ color: 'hsl(var(--text))' }}>Available for work</span>
           </motion.div>
 
@@ -83,7 +83,8 @@ export default function CTASection() {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 bg-white text-gray-900 px-10 py-4 rounded-full font-semibold text-lg shadow-2xl hover:shadow-white/20 transition-all"
+              className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-semibold text-lg shadow-2xl transition-all"
+              style={{ backgroundColor: 'hsl(var(--button))', color: 'hsl(var(--button-text))' }}
             >
               Contact Me
               <ArrowRight className="w-5 h-5" />

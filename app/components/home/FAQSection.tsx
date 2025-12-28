@@ -36,7 +36,7 @@ export default function FAQSection() {
   };
 
   return (
-    <section className="bg-[#1C1C22] py-20 lg:py-32">
+    <section className="py-20 lg:py-32" style={{ backgroundColor: 'hsl(var(--background))' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
         
@@ -47,7 +47,7 @@ export default function FAQSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <p className="text-[#47D7FF] font-semibold text-sm uppercase tracking-wider mb-4">
+          <p className="font-semibold text-sm uppercase tracking-wider mb-4" style={{ color: 'hsl(var(--primary))' }}>
             FAQS
           </p>
           <h2 className="text-4xl lg:text-5xl font-bold" style={{ color: 'hsl(var(--text))' }}>
@@ -72,7 +72,7 @@ export default function FAQSection() {
                 className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors" style={{ backgroundColor: openIndex === index ? 'hsl(var(--surface))' : undefined }}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-[#47D7FF] font-bold text-lg">
+                  <span className="font-bold text-lg" style={{ color: 'hsl(var(--primary))' }}>
                     {String(index + 1).padStart(2, '0')}.
                   </span>
                   <span className="font-semibold text-lg" style={{ color: 'hsl(var(--text))' }}>
@@ -82,9 +82,9 @@ export default function FAQSection() {
                 
                 <div className="flex-shrink-0 ml-4">
                   {openIndex === index ? (
-                    <Minus className="w-5 h-5 text-[#47D7FF]" />
+                    <Minus className="w-5 h-5" style={{ color: 'hsl(var(--primary))' }} />
                   ) : (
-                    <Plus className="w-5 h-5 text-gray-600" />
+                    <Plus className="w-5 h-5" style={{ color: 'hsl(var(--text-secondary))' }} />
                   )}
                 </div>
               </button>

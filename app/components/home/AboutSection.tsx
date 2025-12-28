@@ -3,10 +3,17 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2 } from "lucide-react";
+import { useTheme } from "@/app/context/ThemeContext";
 
 export default function AboutSection() {
+  const { theme } = useTheme();
+  const accent = 'hsl(var(--primary))';
+  const bg = 'hsl(var(--background))';
+  const surface = 'hsl(var(--surface))';
+  const text = 'hsl(var(--text))';
+  const textSecondary = 'hsl(var(--text-secondary))';
   return (
-    <section id="about" className="bg-[#1C1C22] py-20 lg:py-32">
+    <section id="about" className="py-20 lg:py-32" style={{ backgroundColor: bg }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -23,14 +30,15 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-4xl lg:text-5xl font-bold mb-8" style={{ color: 'hsl(var(--text))' }}
+              className="text-4xl lg:text-5xl font-bold mb-8"
+              style={{ color: text }}
             >
               About Me
             </motion.h2>
 
-            <div className="space-y-6 text-lg leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
+            <div className="space-y-6 text-lg leading-relaxed" style={{ color: textSecondary }}>
               <p>
-                Hi, I'm <span className="font-semibold" style={{ color: 'hsl(var(--text))' }}>Gabriel Arruda</span>, a <span className="font-semibold text-[#47D7FF]">Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
+                Hi, I'm <span className="font-semibold" style={{ color: text }}>Gabriel Arruda</span>, a <span className="font-semibold" style={{ color: accent }}>Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
               </p>
 
               <p>
@@ -44,7 +52,8 @@ export default function AboutSection() {
                 href="/about"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#47D7FF] hover:bg-[#20B8E8] px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2" style={{ color: 'hsl(var(--background))' }}
+                className="px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2"
+                style={{ background: `linear-gradient(90deg, ${accent}, hsl(var(--primary-dark)))`, color: bg }}
               >
                 Discover More
                 <span className="text-xl">→</span>
@@ -54,7 +63,8 @@ export default function AboutSection() {
                 href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent hover:bg-[#47D7FF] px-8 py-3 rounded-full font-medium border-2 border-[#47D7FF] transition-colors" style={{ color: 'hsl(var(--text))' }}
+                className="bg-transparent px-8 py-3 rounded-full font-medium border-2 transition-colors"
+                style={{ borderColor: accent, color: text }}
               >
                 Contact Me
               </motion.a>
@@ -71,7 +81,7 @@ export default function AboutSection() {
           >
             <div className="relative w-full max-w-md mx-auto">
               {/* Background Decoration */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#47D7FF]/10 to-[#0EA5D0]/10 rounded-3xl transform rotate-6"></div>
+              <div className="absolute inset-0 rounded-3xl transform rotate-6" style={{ background: theme === 'light' ? 'linear-gradient(135deg, hsl(var(--primary)) / 0.1, hsl(var(--primary)) / 0.03)' : 'linear-gradient(135deg, hsl(var(--primary)) / 0.06, hsl(var(--primary)) / 0.02)' }}></div>
               
               {/* Image Container */}
               <div className="relative rounded-3xl overflow-hidden border-8 border-white shadow-2xl">
@@ -89,9 +99,10 @@ export default function AboutSection() {
               <motion.div
                 animate={{ y: [0, -10, 0], rotate: [0, 5, -5, 0] }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-6 -right-6 w-20 h-20 rounded-2xl bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] flex items-center justify-center shadow-xl"
+                className="absolute -bottom-6 -right-6 w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
+                style={{ background: `linear-gradient(90deg, ${accent}, hsl(var(--primary-dark)))` }}
               >
-                <Code2 className="w-10 h-10" style={{ color: 'hsl(var(--text))' }} />
+                <Code2 className="w-10 h-10" style={{ color: text }} />
               </motion.div>
             </div>
           </motion.div>

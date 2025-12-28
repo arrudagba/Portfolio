@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Left - Logo */}
           <div>
             <div className="text-2xl font-bold mb-2">
-              <span className="bg-gradient-to-r from-[#47D7FF] to-[#20B8E8] text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))' }}>
                 Gabriel Arruda
               </span>
             </div>
@@ -37,7 +37,8 @@ export default function Footer() {
               href="https://github.com/arrudagba"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
+              style={{ color: 'hsl(var(--text))' }}
             >
               <Github className="w-5 h-5" />
             </a>
@@ -45,13 +46,15 @@ export default function Footer() {
               href="https://www.linkedin.com/in/arrudagba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors" style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))' }}
+              className="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
+              style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))', color: 'hsl(var(--text))' }}
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:arrudagbadev@gmail.com"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
+              style={{ color: 'hsl(var(--text))' }}
             >
               <Mail className="w-5 h-5" />
             </a>
@@ -59,7 +62,8 @@ export default function Footer() {
               href="https://mastodon.social/@arrudagba"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
+              style={{ color: 'hsl(var(--text))' }}
             >
               <Send className="w-5 h-5" />
             </a>

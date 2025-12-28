@@ -81,56 +81,86 @@ export default function Header() {
               href="/" 
               className={`relative transition-colors font-medium pb-1 ${
                 activeSection === '/' 
-                  ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'hover:text-[#47D7FF]'
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
               }`}
-              style={{ color: activeSection === '/' ? undefined : 'hsl(var(--text-secondary))' }}
+              style={{
+                color: activeSection === '/' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: activeSection === '/' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
             >
               Home
+              {activeSection === '/' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
             </Link>
             <Link 
               href="#about" 
               className={`relative transition-colors pb-1 ${
                 activeSection === '#about' 
-                  ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'hover:text-[#47D7FF]'
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
               }`}
-              style={{ color: activeSection === '#about' ? undefined : 'hsl(var(--text-secondary))' }}
+              style={{
+                color: activeSection === '#about' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: activeSection === '#about' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
             >
               About Me
+              {activeSection === '#about' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
             </Link>
             <Link 
               href="#projects" 
               className={`relative transition-colors pb-1 ${
                 activeSection === '#projects' 
-                  ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'hover:text-[#47D7FF]'
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
               }`}
-              style={{ color: activeSection === '#projects' ? undefined : 'hsl(var(--text-secondary))' }}
+              style={{
+                color: activeSection === '#projects' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: activeSection === '#projects' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
             >
               Projects
+              {activeSection === '#projects' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
             </Link>
             <Link 
               href="/blog" 
               className={`relative transition-colors pb-1 ${
                 pathname === '/blog' 
-                  ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'hover:text-[#47D7FF]'
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
               }`}
-              style={{ color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))' }}
+              style={{
+                color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: pathname === '/blog' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
             >
               Posts
+              {pathname === '/blog' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
             </Link>
             <Link 
               href="#contact" 
               className={`relative transition-colors pb-1 ${
                 activeSection === '#contact' 
-                  ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'hover:text-[#47D7FF]'
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
               }`}
-              style={{ color: activeSection === '#contact' ? undefined : 'hsl(var(--text-secondary))' }}
+              style={{
+                color: activeSection === '#contact' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: activeSection === '#contact' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
             >
               Contact
+              {activeSection === '#contact' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
             </Link>
           </div>
 
@@ -159,8 +189,8 @@ export default function Header() {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:inline-flex bg-[#47D7FF] hover:bg-[#20B8E8] px-6 py-2 rounded-full font-medium transition-colors"
-              style={{ color: 'hsl(var(--background))' }}
+              className="hidden md:inline-flex px-6 py-2 rounded-full font-medium transition-colors"
+              style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))', color: 'hsl(var(--background))' }}
             >
               Hire Me
             </motion.a>
