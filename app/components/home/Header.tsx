@@ -194,6 +194,15 @@ export default function Header() {
             >
               Hire Me
             </motion.a>
+            <motion.a
+                href="/resume.pdf"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-transparent hidden md:inline-flex px-6 py-2 rounded-full font-medium transition-colors border-2"
+                style={{ borderColor: 'hsl(var(--primary))', color:  'hsl(var(--text))'}}
+              >
+                Resume
+            </motion.a>
           </div>
           </div>
         </nav>

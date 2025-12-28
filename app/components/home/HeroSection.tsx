@@ -68,6 +68,7 @@ export default function HeroSection() {
   const textColor = 'hsl(var(--text))';
   const textSecondary = 'hsl(var(--text-secondary))';
   const surface = 'hsl(var(--surface))';
+  const bg = 'hsl(var(--background))';
 
   return (
     <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: textColor }}>
@@ -120,7 +121,7 @@ export default function HeroSection() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
-                  style={{ backgroundColor: buttonBg, color: buttonText }}
+                  style={{ backgroundColor: buttonBg, color: bg }}
                 >
                   <Briefcase className="w-4 h-4" />
                   Timeline
@@ -170,7 +171,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="hidden lg:flex flex-col items-center justify-center relative"
             >
-                <div className="relative w-[400px] h-[400px] flex items-center justify-center">
+                <div className="relative md:h-[450px] md:w-[450px] w-[300px] h-[300px] flex items-center justify-center">
                   {/* SVG Animation Circle - positioned around the 3D */}
                   <svg 
                     className="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" 
@@ -214,7 +215,7 @@ export default function HeroSection() {
                 {/* Scroll Indicator */}
                 <div className="flex flex-col items-center gap-0 mt-8">
                   <span
-                    className="text-sm font-medium -mt-2"
+                    className="text-sm font-medium -mt-2 pb-1"
                     style={{
                       color: theme === 'light' ? linkColor : specialColor
                     }}
@@ -234,7 +235,7 @@ export default function HeroSection() {
             </div>
 
             {/* STATS */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mt-20">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mt-[50px]">
             <Stat value={2} suffix="+" label="Years of experience" />
             <Stat value={7} label="Completed Projects" />
             <Stat value={20} suffix="+" label="Technical Skills" />

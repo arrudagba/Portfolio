@@ -57,14 +57,14 @@ export default function Scene3D() {
   const mainLight = 'hsl(var(--primary))';
   return (
     <div style={{
-      width: '350px',
-      height: '350px',
       borderRadius: '50%',
       overflow: 'hidden',
       margin: '0 auto',
       position: 'relative',
       background: grad
-    }}>
+    }}
+        className='md:h-[400px] md:w-[400px] w-[250px] h-[250px]'
+    >
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}
         style={{ background: 'transparent' }}

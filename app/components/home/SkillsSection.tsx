@@ -11,27 +11,171 @@ import {
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
+import {
+  SiHtml5,
+  SiCss3,
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiNextdotjs,
+  SiRedux,
+  SiTailwindcss,
+  SiFramer,
+  SiNodedotjs,
+  SiExpress,
+  SiJsonwebtokens,
+  SiZod,
+  SiMongodb,
+  SiMongoose,
+  SiGit,
+  SiGithub,
+  SiVercel,
+  SiNetlify,
+  SiPostman,
+  SiFigma,
+  SiNpm,
+  SiYarn,
+  SiEslint,
+  SiPrettier,
+  SiPostgresql,
+  SiAstro,
+  SiRust,
+  SiPython,
+  SiC,
+  SiAngular,
+  SiKubernetes,
+  SiDocker,
+  SiGooglecloud,
+  SiMysql,
+  SiFirebase,
+  SiRedis,
+  SiHasura,
+  SiActix,
+  SiGraphql
+} from "react-icons/si";
+
+import { TbBrandCSharp } from "react-icons/tb";
+import { LiaAws } from "react-icons/lia";
+import { VscVscode, VscAzure} from "react-icons/vsc";
+import { IconType } from "react-icons";
+
+
+type AnyIcon = LucideIcon | IconType;
+
+interface SkillCategory {
+  title: string;
+  description: string;
+  icon: AnyIcon;
+  items: { name: string; icon: AnyIcon }[];
+}
+
 interface Skill {
   name: string;
   value: number;
-  icon?: LucideIcon;
+  icon?: AnyIcon;
 }
 
+
+const skillCategories: SkillCategory[] = [
+  {
+    title: "Frontend",
+    description: "Building responsive and dynamic user interfaces.",
+    icon: SiReact,
+    items: [
+      { name: "HTML5", icon: SiHtml5 },
+      { name: "CSS3", icon: SiCss3 },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "React.js", icon: SiReact },
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "Redux", icon: SiRedux },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Framer Motion", icon: SiFramer },
+      { name: "Angular", icon: SiAngular },
+    ],
+  },
+  {
+    title: "Backend",
+    description: "Creating robust APIs and server-side applications.",
+    icon: SiNodedotjs,
+    items: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
+      { name: "JWT", icon: SiJsonwebtokens },
+      { name: "Zod", icon: SiZod },
+      { name: "Actix Web", icon: SiActix },
+      { name: "GraphQL", icon: SiGraphql },
+      { name: "REST APIs", icon: Server },
+    ],
+  },
+  {
+    title: "Database",
+    description: "Managing and designing efficient data storage solutions.",
+    icon: SiPostgresql,
+    items: [
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "MySQL", icon: SiMysql },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Firebase", icon: SiFirebase },
+      { name: "Hasura", icon: SiHasura },
+      { name: "Redis", icon: SiRedis },
+    ],
+  },
+  {
+    title: "DevOps",
+    description: "Deployment, CI/CD, and server management.",
+    icon: SiGit,
+    items: [
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Postman", icon: SiPostman },
+      { name: "Docker", icon: SiDocker },
+      { name: "Kubernetes", icon: SiKubernetes },
+      { name: "AWS", icon: LiaAws },
+      { name: "Azure", icon: VscAzure },
+      { name: "Google Cloud", icon: SiGooglecloud },
+    ],
+  },
+  {
+    title: "Tools",
+    description: "Design, coding, and productivity tools.",
+    icon:  VscVscode,
+    items: [
+      { name: "Figma", icon: SiFigma },
+      { name: "VS Code", icon: VscVscode },
+      { name: "NPM", icon: SiNpm },
+      { name: "ESLint", icon: SiEslint },
+      { name: "Prettier", icon: SiPrettier },
+    ],
+  },
+  {
+    title: "Programming Languages",
+    description: "Core programming languages used for systems, backend, and frontend development.",
+    icon: Code,
+    items: [
+        { name: "Rust", icon: SiRust },
+        { name: "Python", icon: SiPython },
+        { name: "JavaScript", icon: SiJavascript },
+        { name: "TypeScript", icon: SiTypescript },
+        { name: "C", icon: SiC },
+        { name: "C#", icon: TbBrandCSharp },
+    ],
+    },
+];
+
+
 const technicalSkills: Skill[] = [
-  { name: 'SEO\n&\nAEO', value: 85, icon: Search },
-  { name: 'JavaScript', value: 95, icon: Code },
-  { name: 'TypeScript', value: 90, icon: FileCode },
-  { name: 'Node.js', value: 85, icon: Server },
-  { name: 'React', value: 95, icon: Atom },
-  { name: 'Astro', value: 75, icon: Rocket },
-  { name: 'CSS\n3', value: 90, icon: Palette },
-  { name: 'Tailwind\nCSS', value: 95, icon: Wind },
-  { name: 'PostgreSQL', value: 80, icon: Database },
-  { name: 'Drizzle\nORM', value: 75, icon: Box },
-  { name: 'Hono', value: 70, icon: Flame },
-  { name: 'Zod', value: 85, icon: Shield },
-  { name: 'Web\nPerformance', value: 85, icon: Zap },
-  { name: 'Web\nAccessibility', value: 80, icon: Accessibility },
+  { name: "JavaScript", value: 95, icon: SiJavascript },
+  { name: "TypeScript", value: 90, icon: SiTypescript },
+  { name: "Node.js", value: 85, icon: SiNodedotjs },
+  { name: "React", value: 95, icon: SiReact },
+  { name: "Next.js", value: 90, icon: SiNextdotjs },
+  { name: "Astro", value: 75, icon: SiAstro },
+  { name: "CSS\n3", value: 90, icon: SiCss3 },
+  { name: "Tailwind\nCSS", value: 95, icon: SiTailwindcss },
+  { name: "PostgreSQL", value: 80, icon: SiPostgresql },
+  { name: "Zod", value: 85, icon: SiZod },
 ];
 
 const humanSkills: Skill[] = [
@@ -49,6 +193,107 @@ const humanSkills: Skill[] = [
   { name: 'Branding', value: 75, icon: Award },
   { name: 'Social Media\n&\nFlyers', value: 70, icon: Share2 },
 ];
+
+function SkillsOverview() {
+  return (
+    <div className="mb-16 sm:mb-20 lg:mb-28">
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-center mb-10 sm:mb-14"
+      >
+        <h3
+          className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3"
+          style={{ color: "hsl(var(--text))" }}
+        >
+          Skill <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(var(--primary))] via-[hsl(var(--primary-dark))] to-[hsl(var(--accent))]">Overview</span>
+        </h3>
+        <p
+          className="max-w-2xl mx-auto text-base sm:text-lg"
+          style={{ color: "hsl(var(--text-secondary))" }}
+        >
+          Technologies, tools, and foundations I work with on a daily basis
+        </p>
+      </motion.div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {skillCategories.map((category, index) => {
+          const Icon = category.icon;
+
+          return (
+            <motion.div
+              key={category.title}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.08 }}
+              className="relative backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 overflow-hidden"
+            >
+              {/* Background gradient */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(135deg, hsl(var(--primary-dark) / 0.18), hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.18))",
+                }}
+              />
+
+              <div className="relative z-10">
+                {/* Header */}
+                <div className="flex items-start gap-4 mb-4">
+                  <div
+                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    style={{
+                      backgroundColor: "hsl(var(--primary) / 0.2)",
+                      border: "1px solid hsl(var(--primary) / 0.4)",
+                    }}
+                  >
+                    <Icon className="w-5 h-5" style={{ color: "hsl(var(--primary))" }} />
+                  </div>
+
+                  <div>
+                    <h4
+                      className="text-lg sm:text-xl font-semibold"
+                      style={{ color: "hsl(var(--text))" }}
+                    >
+                      {category.title}{" "}
+                    </h4>
+                    <p
+                      className="text-sm sm:text-base mt-1"
+                      style={{ color: "hsl(var(--text-secondary))" }}
+                    >
+                      {category.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Badges */}
+                <div className="flex flex-wrap gap-2 mt-4">
+                    {category.items.map(({ name, icon: ItemIcon }) => (
+                        <span
+                        key={name}
+                        className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm border"
+                        style={{
+                            backgroundColor: "hsl(var(--background) / 0.6)",
+                            color: "hsl(var(--text-secondary))",
+                            borderColor: "hsl(var(--primary) / 0.3)",
+                        }}
+                        >
+                        <ItemIcon className="w-3.5 h-3.5" />
+                        {name}
+                        </span>
+                    ))}
+                </div>
+                </div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
 
 function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -226,21 +471,9 @@ export default function SkillsSection() {
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-        
-        {/* Section Title */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-8 sm:mb-12 lg:mb-16"
-        >
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4" style={{ color: 'hsl(var(--text))' }}>
-            My <span className="bg-gradient-to-r text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)), hsl(var(--accent)))' }}>Skills</span>
-          </h2>
-          <p className="text-base sm:text-lg max-w-2xl mx-auto px-4" style={{ color: 'hsl(var(--text-secondary))' }}>
-            A comprehensive overview of my technical expertise and interpersonal abilities
-          </p>
-        </motion.div>
+
+        {/* Skills Overview */}
+        <SkillsOverview />
 
         {/* Skills Charts Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
