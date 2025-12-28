@@ -1,10 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send, Briefcase, ChevronDown } from "lucide-react";
+import { Github, Linkedin, Mail, Send, Briefcase } from "lucide-react";
 import Scene3D from "../3d/Scene3D";
 import { useState, useEffect } from "react";
 import CountUp from "react-countup";
+import Lottie from "lottie-react";
+import scrolldownAnimation from "../../../public/scrolldown.json";
 
 const roles = [
   "Software Developer",
@@ -56,7 +58,7 @@ export default function HeroSection() {
   }, [displayText, isDeleting, currentRole]);
 
   return (
-    <section className="relative min-h-screen bg-[#1C1C22] text-white overflow-hidden">
+    <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--text))' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto pt-32 pb-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -94,7 +96,8 @@ export default function HeroSection() {
                     href="#about"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                    className="bg-[#47D7FF] hover:bg-[#20B8E8] px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                    style={{ color: 'hsl(var(--background))' }}
                 >
                     <Briefcase className="w-4 h-4" />
                     Timeline
@@ -104,27 +107,31 @@ export default function HeroSection() {
                     <a
                     href="https://github.com/arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
                     >
                     <Github className="w-5 h-5" />
                     </a>
                     <a
                     href="https://www.linkedin.com/in/arrudagba/"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
                     >
                     <Linkedin className="w-5 h-5" />
                     </a>
                     <a
                     href="mailto:arrudagbadev@gmail.com"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
                     >
                     <Mail className="w-5 h-5" />
                     </a>
                     <a
                     href="https://mastodon.social/@arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
+                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
                     >
                     <Send className="w-5 h-5" />
                     </a>
@@ -172,18 +179,21 @@ export default function HeroSection() {
                 </div>
                 
                 {/* Scroll Indicator */}
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1, y: [0, 10, 0] }}
-                  transition={{ 
-                    opacity: { delay: 1, duration: 0.5 },
-                    y: { repeat: Infinity, duration: 1.5, ease: "easeInOut" }
-                  }}
-                  className="flex flex-col items-center gap-2 mt-8"
-                >
-                  <span className="text-sm bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text font-medium">Scroll Down</span>
-                  <ChevronDown className="w-6 h-6 text-[#47D7FF]" />
-                </motion.div>
+                <div className="flex flex-col items-center gap-0 mt-8">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1, duration: 0.5 }}
+                    className="w-5 h-5"
+                  >
+                    <Lottie animationData={scrolldownAnimation} loop={true} />
+                  </motion.div>
+                  <span 
+                    className="text-sm bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text font-medium -mt-2"
+                  >
+                    Scroll Down
+                  </span>
+                </div>
             </motion.div>
             </div>
 

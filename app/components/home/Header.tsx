@@ -51,18 +51,25 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
         {/* Substituí as sombras coloridas por sombras pretas sutis */}
-        <nav className={`transition-all duration-300 rounded-t-none rounded-b-2xl ${
-          scrolled 
-            ? 'bg-[#1C1C22]/90 backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.3)]' 
-            : 'bg-[#1C1C22] shadow-[0_2px_8px_rgba(0,0,0,0.2)]'
-        }`}>
+        <nav 
+          className={`transition-all duration-300 rounded-t-none rounded-b-2xl ${
+            scrolled 
+              ? 'backdrop-blur-md shadow-[0_2px_8px_rgba(0,0,0,0.3)]' 
+              : 'shadow-[0_2px_8px_rgba(0,0,0,0.2)]'
+          }`}
+          style={{ 
+            backgroundColor: scrolled 
+              ? 'hsl(var(--surface) / 0.9)' 
+              : 'hsl(var(--surface))'
+          }}
+        >
           
           <div className="px-6 py-4 flex items-center justify-between">
           
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
-              src={theme === 'dark' ? '/logo-dark.svg' : '/logo-bright.svg'} 
+              src={theme === 'dark' ? '/logo-bright.svg' : '/logo-dark.svg'} 
               alt="GA Logo" 
               className="h-10 w-auto"
             />
@@ -75,8 +82,9 @@ export default function Header() {
               className={`relative transition-colors font-medium pb-1 ${
                 activeSection === '/' 
                   ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'text-gray-300 hover:text-[#47D7FF]'
+                  : 'hover:text-[#47D7FF]'
               }`}
+              style={{ color: activeSection === '/' ? undefined : 'hsl(var(--text-secondary))' }}
             >
               Home
             </Link>
@@ -85,8 +93,9 @@ export default function Header() {
               className={`relative transition-colors pb-1 ${
                 activeSection === '#about' 
                   ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'text-gray-300 hover:text-[#47D7FF]'
+                  : 'hover:text-[#47D7FF]'
               }`}
+              style={{ color: activeSection === '#about' ? undefined : 'hsl(var(--text-secondary))' }}
             >
               About Me
             </Link>
@@ -95,8 +104,9 @@ export default function Header() {
               className={`relative transition-colors pb-1 ${
                 activeSection === '#projects' 
                   ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'text-gray-300 hover:text-[#47D7FF]'
+                  : 'hover:text-[#47D7FF]'
               }`}
+              style={{ color: activeSection === '#projects' ? undefined : 'hsl(var(--text-secondary))' }}
             >
               Projects
             </Link>
@@ -105,8 +115,9 @@ export default function Header() {
               className={`relative transition-colors pb-1 ${
                 pathname === '/blog' 
                   ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'text-gray-300 hover:text-[#47D7FF]'
+                  : 'hover:text-[#47D7FF]'
               }`}
+              style={{ color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))' }}
             >
               Posts
             </Link>
@@ -115,8 +126,9 @@ export default function Header() {
               className={`relative transition-colors pb-1 ${
                 activeSection === '#contact' 
                   ? 'bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text after:absolute after:bottom-0 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-[#47D7FF] after:via-[#20B8E8] after:to-[#0EA5D0]' 
-                  : 'text-gray-300 hover:text-[#47D7FF]'
+                  : 'hover:text-[#47D7FF]'
               }`}
+              style={{ color: activeSection === '#contact' ? undefined : 'hsl(var(--text-secondary))' }}
             >
               Contact
             </Link>
@@ -128,13 +140,17 @@ export default function Header() {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
+              className="w-10 h-10 rounded-full border flex items-center justify-center transition-colors"
+              style={{ 
+                backgroundColor: 'hsl(var(--surface))', 
+                borderColor: 'hsl(var(--text-secondary) / 0.2)',
+              }}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
                 <Sun className="w-5 h-5 text-yellow-300" />
               ) : (
-                <Moon className="w-5 h-5 text-gray-300" />
+                <Moon className="w-5 h-5" style={{ color: 'hsl(var(--text-secondary))' }} />
               )}
             </button>
 
@@ -143,7 +159,8 @@ export default function Header() {
               href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="hidden md:inline-flex bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-6 py-2 rounded-full font-medium transition-colors"
+              className="hidden md:inline-flex bg-[#47D7FF] hover:bg-[#20B8E8] px-6 py-2 rounded-full font-medium transition-colors"
+              style={{ color: 'hsl(var(--background))' }}
             >
               Hire Me
             </motion.a>

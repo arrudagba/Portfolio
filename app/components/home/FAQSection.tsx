@@ -50,7 +50,7 @@ export default function FAQSection() {
           <p className="text-[#47D7FF] font-semibold text-sm uppercase tracking-wider mb-4">
             FAQS
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-white">
+          <h2 className="text-4xl lg:text-5xl font-bold" style={{ color: 'hsl(var(--text))' }}>
             Have Questions?
           </h2>
         </motion.div>
@@ -64,18 +64,18 @@ export default function FAQSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white/5 rounded-2xl overflow-hidden border border-white/10"
+              className="rounded-2xl overflow-hidden border" style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))' }}
             >
               {/* Question */}
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/10 transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left transition-colors" style={{ backgroundColor: openIndex === index ? 'hsl(var(--surface))' : undefined }}
               >
                 <div className="flex items-center gap-4">
                   <span className="text-[#47D7FF] font-bold text-lg">
                     {String(index + 1).padStart(2, '0')}.
                   </span>
-                  <span className="text-white font-semibold text-lg">
+                  <span className="font-semibold text-lg" style={{ color: 'hsl(var(--text))' }}>
                     {faq.question}
                   </span>
                 </div>
@@ -100,7 +100,7 @@ export default function FAQSection() {
                 className="overflow-hidden"
               >
                 <div className="px-6 pb-5 pl-[4.5rem]">
-                  <p className="text-gray-400 leading-relaxed">
+                  <p className="leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
                     {faq.answer}
                   </p>
                 </div>

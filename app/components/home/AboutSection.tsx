@@ -23,14 +23,14 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="text-4xl lg:text-5xl font-bold text-white mb-8"
+              className="text-4xl lg:text-5xl font-bold mb-8" style={{ color: 'hsl(var(--text))' }}
             >
               About Me
             </motion.h2>
 
-            <div className="space-y-6 text-gray-400 text-lg leading-relaxed">
+            <div className="space-y-6 text-lg leading-relaxed" style={{ color: 'hsl(var(--text-secondary))' }}>
               <p>
-                Hi, I'm <span className="font-semibold text-white">Gabriel Arruda</span>, a <span className="font-semibold text-[#47D7FF]">Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
+                Hi, I'm <span className="font-semibold" style={{ color: 'hsl(var(--text))' }}>Gabriel Arruda</span>, a <span className="font-semibold text-[#47D7FF]">Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
               </p>
 
               <p>
@@ -44,7 +44,7 @@ export default function AboutSection() {
                 href="/about"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2"
+                className="bg-[#47D7FF] hover:bg-[#20B8E8] px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2" style={{ color: 'hsl(var(--background))' }}
               >
                 Discover More
                 <span className="text-xl">→</span>
@@ -54,7 +54,7 @@ export default function AboutSection() {
                 href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-transparent hover:bg-[#47D7FF] text-white px-8 py-3 rounded-full font-medium border-2 border-[#47D7FF] transition-colors"
+                className="bg-transparent hover:bg-[#47D7FF] px-8 py-3 rounded-full font-medium border-2 border-[#47D7FF] transition-colors" style={{ color: 'hsl(var(--text))' }}
               >
                 Contact Me
               </motion.a>
@@ -91,7 +91,7 @@ export default function AboutSection() {
                 transition={{ duration: 3, repeat: Infinity }}
                 className="absolute -bottom-6 -right-6 w-20 h-20 rounded-2xl bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] flex items-center justify-center shadow-xl"
               >
-                <Code2 className="w-10 h-10 text-white" />
+                <Code2 className="w-10 h-10" style={{ color: 'hsl(var(--text))' }} />
               </motion.div>
             </div>
           </motion.div>

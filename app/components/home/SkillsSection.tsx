@@ -169,7 +169,7 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
   return (
     <div className="relative w-full">
-      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-6 sm:mb-8 text-center px-2">
+      <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-6 sm:mb-8 text-center px-2" style={{ color: 'hsl(var(--text))' }}>
         {title}
       </h3>
       <div 
@@ -201,7 +201,8 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
               )}
               <span className={`
                 ${isMobile ? 'text-[8px] max-w-[45px]' : isTablet ? 'text-[9px] max-w-[50px]' : 'text-[10px] max-w-[60px]'}
-                text-gray-400 text-center leading-tight
+                text-center leading-tight"
+                style={{ color: 'hsl(var(--text-secondary))' }}
               `}>
                 {skill.name.split('\n').map((line, i) => (
                   <span key={i} className="block">{line}</span>
@@ -217,7 +218,7 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
 export default function SkillsSection() {
   return (
-    <section className="relative bg-[#1C1C22] py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden" id="skills">
+    <section className="relative py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden" id="skills" style={{ backgroundColor: 'hsl(var(--background))' }}>
       
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
@@ -230,10 +231,10 @@ export default function SkillsSection() {
           viewport={{ once: true }}
           className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 px-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 sm:mb-4 px-4" style={{ color: 'hsl(var(--text))' }}>
             My <span className="bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text">Skills</span>
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-base sm:text-lg max-w-2xl mx-auto px-4" style={{ color: 'hsl(var(--text-secondary))' }}>
             A comprehensive overview of my technical expertise and interpersonal abilities
           </p>
         </motion.div>

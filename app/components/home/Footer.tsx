@@ -4,7 +4,7 @@ import { Github, Linkedin, Mail, Send } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="py-12" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--text))' }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-3 gap-8 items-center">
@@ -16,7 +16,7 @@ export default function Footer() {
                 Gabriel Arruda
               </span>
             </div>
-            <p className="text-gray-400 text-sm">
+            <p className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
               Software Engineer & Cybersecurity Enthusiast
             </p>
           </div>
@@ -25,7 +25,7 @@ export default function Footer() {
           <div className="space-y-2 text-center md:text-left">
             <a 
               href="mailto:arrudagbadev@gmail.com"
-              className="block text-gray-300 hover:text-white transition-colors"
+              className="block transition-colors" style={{ color: 'hsl(var(--text-secondary))' }}
             >
               arrudagbadev@gmail.com
             </a>
@@ -45,7 +45,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/arrudagba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors"
+              className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#47D7FF] hover:border-[#47D7FF] transition-colors" style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))' }}
             >
               <Linkedin className="w-5 h-5" />
             </a>
@@ -70,10 +70,10 @@ export default function Footer() {
         <div className="border-t border-white/10 my-8"></div>
 
         {/* Bottom - Copyright & Settings */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
           <p>Copyright © 2025 Gabriel Arruda</p>
           
-          <button className="hover:text-white transition-colors">
+          <button className="transition-colors" style={{ color: 'hsl(var(--text-secondary))' }}>
             Cookie Settings
           </button>
         </div>

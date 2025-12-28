@@ -56,7 +56,7 @@ export default function Scene3D() {
       overflow: 'hidden',
       margin: '0 auto',
       position: 'relative',
-      background: 'linear-gradient(to top, #0EA5D0 0%, rgba(14, 165, 208, 0) 70%, #1C1C22 30%)'
+      background: 'linear-gradient(to top, #0EA5D0 0%, rgba(14, 165, 208, 0) 70%, hsl(var(--background)) 30%)'
     }}>
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}

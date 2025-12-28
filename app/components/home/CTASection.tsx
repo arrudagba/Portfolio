@@ -17,7 +17,7 @@ export default function CTASection() {
           rotate: [0, 5, 0]
         }}
         transition={{ duration: 5, repeat: Infinity }}
-        className="absolute top-20 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+        className="absolute top-20 left-10 w-32 h-32 rounded-full blur-2xl" style={{ backgroundColor: 'hsl(var(--surface))' }}
       ></motion.div>
       
       <motion.div
@@ -26,7 +26,7 @@ export default function CTASection() {
           rotate: [0, -5, 0]
         }}
         transition={{ duration: 6, repeat: Infinity }}
-        className="absolute bottom-20 right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl"
+        className="absolute bottom-20 right-10 w-40 h-40 rounded-full blur-2xl" style={{ backgroundColor: 'hsl(var(--surface))' }}
       ></motion.div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
@@ -44,10 +44,10 @@ export default function CTASection() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-2 mb-8"
+            className="inline-flex items-center gap-2 backdrop-blur-sm border rounded-full px-6 py-2 mb-8" style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))' }}
           >
             <Sparkles className="w-4 h-4 text-yellow-300" />
-            <span className="text-white font-medium">Available for work</span>
+            <span className="font-medium" style={{ color: 'hsl(var(--text))' }}>Available for work</span>
           </motion.div>
 
           {/* Heading */}
@@ -56,7 +56,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-4xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            className="text-4xl lg:text-6xl font-bold mb-6 leading-tight" style={{ color: 'hsl(var(--text))' }}
           >
             Let's build something<br />amazing together.
           </motion.h2>
@@ -67,7 +67,7 @@ export default function CTASection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-white/90 text-lg lg:text-xl mb-10 max-w-2xl mx-auto"
+            className="text-lg lg:text-xl mb-10 max-w-2xl mx-auto" style={{ color: 'hsl(var(--text-secondary))' }}
           >
             Ready to create secure, scalable solutions? Let's collaborate and make your vision a reality.
           </motion.p>
@@ -99,18 +99,18 @@ export default function CTASection() {
             className="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">100%</div>
-              <div className="text-white/70 text-sm">Client Satisfaction</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'hsl(var(--text))' }}>100%</div>
+              <div className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>Client Satisfaction</div>
             </div>
             
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">24/7</div>
-              <div className="text-white/70 text-sm">Support Available</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'hsl(var(--text))' }}>24/7</div>
+              <div className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>Support Available</div>
             </div>
             
             <div className="text-center">
-              <div className="text-3xl font-bold text-white mb-2">Fast</div>
-              <div className="text-white/70 text-sm">Delivery Time</div>
+              <div className="text-3xl font-bold mb-2" style={{ color: 'hsl(var(--text))' }}>Fast</div>
+              <div className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>Delivery Time</div>
             </div>
           </motion.div>
         </motion.div>

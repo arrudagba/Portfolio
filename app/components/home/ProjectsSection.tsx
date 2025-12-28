@@ -130,7 +130,7 @@ export default function ProjectsSection() {
             href="/projects"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="inline-flex items-center gap-2 bg-[#47D7FF] hover:bg-[#20B8E8] text-white px-8 py-4 rounded-full font-medium transition-colors"
+            className="inline-flex items-center gap-2 bg-[#47D7FF] hover:bg-[#20B8E8] px-8 py-4 rounded-full font-medium transition-colors" style={{ color: 'hsl(var(--background))' }}
           >
             View All Projects
             <ArrowRight className="w-5 h-5" />
