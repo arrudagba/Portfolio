@@ -3,9 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { 
-  Search, Code, FileCode, Server, Atom, Rocket, 
-  Palette, Wind, Database, Box, Flame, Shield,
-  Zap, Accessibility, Cog, Smile, Users, Eye,
+  Code, Server, Cog, Smile, Users, Eye,
   Sparkles, MessageCircle, Target, CheckCircle,
   Lightbulb, ArrowRight, Sprout, Award, Share2
 } from "lucide-react";
@@ -18,7 +16,6 @@ import {
   SiTypescript,
   SiReact,
   SiNextdotjs,
-  SiRedux,
   SiTailwindcss,
   SiFramer,
   SiNodedotjs,
@@ -26,15 +23,12 @@ import {
   SiJsonwebtokens,
   SiZod,
   SiMongodb,
-  SiMongoose,
   SiGit,
   SiGithub,
   SiVercel,
-  SiNetlify,
   SiPostman,
   SiFigma,
   SiNpm,
-  SiYarn,
   SiEslint,
   SiPrettier,
   SiPostgresql,
@@ -51,7 +45,9 @@ import {
   SiRedis,
   SiHasura,
   SiActix,
-  SiGraphql
+  SiGraphql,
+  SiBun,
+  SiVuedotjs    
 } from "react-icons/si";
 
 import { TbBrandCSharp } from "react-icons/tb";
@@ -87,11 +83,11 @@ const skillCategories: SkillCategory[] = [
       { name: "JavaScript", icon: SiJavascript },
       { name: "TypeScript", icon: SiTypescript },
       { name: "React.js", icon: SiReact },
+      { name: "Vue.js", icon: SiVuedotjs },
       { name: "Next.js", icon: SiNextdotjs },
-      { name: "Redux", icon: SiRedux },
+      { name: "Angular", icon: SiAngular },
       { name: "Tailwind CSS", icon: SiTailwindcss },
       { name: "Framer Motion", icon: SiFramer },
-      { name: "Angular", icon: SiAngular },
     ],
   },
   {
@@ -103,6 +99,7 @@ const skillCategories: SkillCategory[] = [
       { name: "Express.js", icon: SiExpress },
       { name: "JWT", icon: SiJsonwebtokens },
       { name: "Zod", icon: SiZod },
+      { name: "Bun", icon: SiBun },
       { name: "Actix Web", icon: SiActix },
       { name: "GraphQL", icon: SiGraphql },
       { name: "REST APIs", icon: Server },

@@ -3,18 +3,11 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Send, Briefcase } from "lucide-react";
 import Scene3D from "../3d/Scene3D";
-import { useState, useEffect } from "react";
 import { useTheme } from "@/app/context/ThemeContext";
 import CountUp from "react-countup";
 import Lottie from "lottie-react";
 import scrolldownAnimation from "../../../public/scrolldown.json";
 
-const roles = [
-  "Software Developer",
-  "UX/UI Designer",
-  "Full-stack Developer",
-  "Pentester",
-];
 
 function Stat({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
   return (
@@ -32,31 +25,6 @@ function Stat({ value, label, suffix = "" }: { value: number; label: string; suf
 
 
 export default function HeroSection() {
-  const [currentRole, setCurrentRole] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const role = roles[currentRole];
-    const speed = isDeleting ? 50 : 100;
-
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        setDisplayText(role.substring(0, displayText.length + 1));
-        if (displayText === role) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setDisplayText(role.substring(0, displayText.length - 1));
-        if (displayText === "") {
-          setIsDeleting(false);
-          setCurrentRole((prev) => (prev + 1) % roles.length);
-        }
-      }
-    }, speed);
-
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, currentRole]);
 
   const { theme } = useTheme();
   // Color variables
@@ -98,19 +66,10 @@ export default function HeroSection() {
                   </span>
                 </h1>
 
-
-                <h2 className="text-xl lg:text-2xl font-light" style={{ color: textSecondary }}>
-                  I'm a passionate{" "}
-                  <span className="font-medium" style={{ color: specialColor }}>{displayText}</span>
-                  <span className="animate-pulse">|</span>
-                </h2>
-
-
                 <p className="max-w-xl leading-relaxed" style={{ color: textSecondary }}>
-                  I am a Software Engineer and Cybersecurity enthusiast, currently
-                  completing my degree in Computer Science. I've developed a strong
-                  foundation in software development and a deep passion for protecting
-                  systems from emerging threats.
+                  I'm a Software Engineer and Cybersecurity enthusiast, currently
+                  completing my degree in Computer Science. I'm based in Brazil and
+                  am specialized in <span className="font-semibold" style={{ color: specialColor }}>Full-stack Development</span> and <span className="font-semibold" style={{ color: specialColor }}>Application Security</span>.
                 </p>
 
                 {/* CTA + SOCIAL */}
@@ -171,7 +130,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="hidden lg:flex flex-col items-center justify-center relative"
             >
-                <div className="relative md:h-[450px] md:w-[450px] w-[300px] h-[300px] flex items-center justify-center">
+                <div className="relative md:h-[350px] md:w-[350px] w-[300px] h-[300px] flex items-center justify-center">
                   {/* SVG Animation Circle - positioned around the 3D */}
                   <svg 
                     className="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" 

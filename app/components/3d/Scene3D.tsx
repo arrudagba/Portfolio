@@ -63,7 +63,7 @@ export default function Scene3D() {
       position: 'relative',
       background: grad
     }}
-        className='md:h-[400px] md:w-[400px] w-[250px] h-[250px]'
+        className='md:h-[300px] md:w-[300px] w-[250px] h-[250px]'
     >
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}

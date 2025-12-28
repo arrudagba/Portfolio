@@ -1,6 +1,6 @@
 import Header from "./components/home/Header";
 import HeroSection from "./components/home/HeroSection";
-import AboutSection from "./components/home/AboutSection";
+import AboutSection from "./components/home/about/AboutSection";
 import SkillsSection from "./components/home/SkillsSection";
 import FAQSection from "./components/home/FAQSection";
 import CTASection from "./components/home/CTASection";

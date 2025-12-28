@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2 } from "lucide-react";
 import { useTheme } from "@/app/context/ThemeContext";
+import AboutTimeline from "./timeline/AboutTimeline";
 
 export default function AboutSection() {
   const { theme } = useTheme();
@@ -41,9 +42,6 @@ export default function AboutSection() {
                 Hi, I'm <span className="font-semibold" style={{ color: text }}>Gabriel Arruda</span>, a <span className="font-semibold" style={{ color: accent }}>Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
               </p>
 
-              <p>
-                I have worked on building secure, scalable applications and am particularly excited about the intersection of engineering and security. My focus is on creating solutions that are not only functional but also resilient against modern threats.
-              </p>
             </div>
 
             {/* CTA Buttons */}
@@ -109,6 +107,22 @@ export default function AboutSection() {
         </div>
         </div>
       </div>
-    </section>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12 pt-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="pt-2 items-start">
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-normal mb-6"
+              style={{ color: text, display: 'inline-block', paddingBottom: '0.25rem', borderBottom: `3px solid ${accent}` }}
+            >
+              My Timeline
+            </h2>
+
+            <div className="w-full max-w-6xl">
+              <AboutTimeline />
+            </div>
+          </div>
+        </div>
+      </div>
+      </section>
   );
 }
