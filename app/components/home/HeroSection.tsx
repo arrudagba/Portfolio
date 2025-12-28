@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Send, Briefcase } from "lucide-react";
 import Scene3D from "../3d/Scene3D";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/app/context/ThemeContext";
 import CountUp from "react-countup";
 import Lottie from "lottie-react";
 import scrolldownAnimation from "../../../public/scrolldown.json";
@@ -57,8 +58,19 @@ export default function HeroSection() {
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, currentRole]);
 
+  const { theme } = useTheme();
+  // Color variables
+  const titleColor = theme === 'light' ? 'hsl(var(--title))' : 'hsl(var(--text))';
+  const specialColor = 'hsl(var(--primary))';
+  const buttonBg = theme === 'light' ? '#83C5D8' : '#47D7FF';
+  const buttonText = theme === 'light' ? '#000' : 'hsl(var(--background))';
+  const linkColor = theme === 'light' ? '#83C5D8' : '#47D7FF';
+  const textColor = 'hsl(var(--text))';
+  const textSecondary = 'hsl(var(--text-secondary))';
+  const surface = 'hsl(var(--surface))';
+
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--text))' }}>
+    <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: textColor }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto pt-32 pb-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -70,71 +82,83 @@ export default function HeroSection() {
                 transition={{ duration: 0.8 }}
                 className="space-y-6"
             >
+
                 <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-white">Hello, I'm </span>
-                <span className="bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text">
+                  <span style={{ color: textColor }}>Hello, I'm </span>
+                  <span
+                    className="bg-gradient-to-r text-transparent bg-clip-text"
+                    style={{
+                      backgroundImage: theme === 'light'
+                        ? 'linear-gradient(90deg, #83C5D8, #83C5D8)'
+                        : 'linear-gradient(90deg, #47D7FF, #20B8E8, #0EA5D0)'
+                    }}
+                  >
                     Gabriel Arruda
-                </span>
+                  </span>
                 </h1>
 
-                <h2 className="text-xl lg:text-2xl text-gray-300 font-light">
-                I'm a passionate{" "}
-                <span className="text-[#47D7FF] font-medium">{displayText}</span>
-                <span className="animate-pulse">|</span>
+
+                <h2 className="text-xl lg:text-2xl font-light" style={{ color: textSecondary }}>
+                  I'm a passionate{" "}
+                  <span className="font-medium" style={{ color: specialColor }}>{displayText}</span>
+                  <span className="animate-pulse">|</span>
                 </h2>
 
-                <p className="text-gray-400 max-w-xl leading-relaxed">
-                I am a Software Engineer and Cybersecurity enthusiast, currently
-                completing my degree in Computer Science. I've developed a strong
-                foundation in software development and a deep passion for protecting
-                systems from emerging threats.
+
+                <p className="max-w-xl leading-relaxed" style={{ color: textSecondary }}>
+                  I am a Software Engineer and Cybersecurity enthusiast, currently
+                  completing my degree in Computer Science. I've developed a strong
+                  foundation in software development and a deep passion for protecting
+                  systems from emerging threats.
                 </p>
 
                 {/* CTA + SOCIAL */}
                 <div className="flex items-center gap-6 pt-4">
+
                 <motion.a
-                    href="#about"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#47D7FF] hover:bg-[#20B8E8] px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
-                    style={{ color: 'hsl(var(--background))' }}
+                  href="#about"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
+                  style={{ backgroundColor: buttonBg, color: buttonText }}
                 >
-                    <Briefcase className="w-4 h-4" />
-                    Timeline
+                  <Briefcase className="w-4 h-4" />
+                  Timeline
                 </motion.a>
 
+
                 <div className="flex gap-3">
-                    <a
+                  <a
                     href="https://github.com/arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
-                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
-                    >
-                    <Github className="w-5 h-5" />
-                    </a>
-                    <a
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: surface, borderColor: textSecondary }}
+                  >
+                    <Github className="w-5 h-5" style={{ color: specialColor }} />
+                  </a>
+                  <a
                     href="https://www.linkedin.com/in/arrudagba/"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
-                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
-                    >
-                    <Linkedin className="w-5 h-5" />
-                    </a>
-                    <a
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: surface, borderColor: textSecondary }}
+                  >
+                    <Linkedin className="w-5 h-5" style={{ color: specialColor }} />
+                  </a>
+                  <a
                     href="mailto:arrudagbadev@gmail.com"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
-                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
-                    >
-                    <Mail className="w-5 h-5" />
-                    </a>
-                    <a
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: surface, borderColor: textSecondary }}
+                  >
+                    <Mail className="w-5 h-5" style={{ color: specialColor }} />
+                  </a>
+                  <a
                     href="https://mastodon.social/@arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center hover:bg-[#47D7FF]/20 hover:border-[#47D7FF] transition-colors"
-                    style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--text-secondary) / 0.2)' }}
-                    >
-                    <Send className="w-5 h-5" />
-                    </a>
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    style={{ backgroundColor: surface, borderColor: textSecondary }}
+                  >
+                    <Send className="w-5 h-5" style={{ color: specialColor }} />
+                  </a>
                 </div>
                 </div>
             </motion.div>
@@ -156,8 +180,17 @@ export default function HeroSection() {
                   >
                     <defs>
                       <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#47D7FF"></stop>
-                        <stop offset="100%" stopColor="#20B8E8"></stop>
+                        {theme === 'light' ? (
+                          <>
+                            <stop offset="0%" stopColor="#83C5D8"></stop>
+                            <stop offset="100%" stopColor="#83C5D8"></stop>
+                          </>
+                        ) : (
+                          <>
+                            <stop offset="0%" stopColor="#47D7FF"></stop>
+                            <stop offset="100%" stopColor="#20B8E8"></stop>
+                          </>
+                        )}
                       </linearGradient>
                     </defs>
                     <circle 
@@ -180,6 +213,14 @@ export default function HeroSection() {
                 
                 {/* Scroll Indicator */}
                 <div className="flex flex-col items-center gap-0 mt-8">
+                  <span
+                    className="text-sm font-medium -mt-2"
+                    style={{
+                      color: theme === 'light' ? linkColor : specialColor
+                    }}
+                  >
+                    Scroll Down
+                  </span>
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -188,11 +229,6 @@ export default function HeroSection() {
                   >
                     <Lottie animationData={scrolldownAnimation} loop={true} />
                   </motion.div>
-                  <span 
-                    className="text-sm bg-gradient-to-r from-[#47D7FF] via-[#20B8E8] to-[#0EA5D0] text-transparent bg-clip-text font-medium -mt-2"
-                  >
-                    Scroll Down
-                  </span>
                 </div>
             </motion.div>
             </div>

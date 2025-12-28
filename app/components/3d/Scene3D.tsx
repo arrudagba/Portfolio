@@ -47,7 +47,14 @@ function RotatingModel() {
   );
 }
 
+import { useTheme } from "@/app/context/ThemeContext";
+
 export default function Scene3D() {
+  const { theme } = useTheme();
+  const grad = theme === 'light'
+    ? 'linear-gradient(to top, #83C5D8 0%, rgba(131,197,216,0) 70%, hsl(var(--background)) 30%)'
+    : 'linear-gradient(to top, #0EA5D0 0%, rgba(14,165,208,0) 70%, hsl(var(--background)) 30%)';
+  const mainLight = theme === 'light' ? '#83C5D8' : '#47D7FF';
   return (
     <div style={{
       width: '350px',
@@ -56,7 +63,7 @@ export default function Scene3D() {
       overflow: 'hidden',
       margin: '0 auto',
       position: 'relative',
-      background: 'linear-gradient(to top, #0EA5D0 0%, rgba(14, 165, 208, 0) 70%, hsl(var(--background)) 30%)'
+      background: grad
     }}>
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}
@@ -64,29 +71,22 @@ export default function Scene3D() {
         gl={{ antialias: true, alpha: true }}
       >
         <ambientLight intensity={0.3} />
-        
-        {/* Luz azul vindo da esquerda - intensidade aumentada */}
-        <directionalLight position={[-10, 0, 0]} intensity={4.5} color="#47D7FF" />
-        
+        {/* Luz principal adaptada ao tema */}
+        <directionalLight position={[-10, 0, 0]} intensity={4.5} color={mainLight} />
         {/* Luzes complementares */}
         <directionalLight position={[5, 5, 5]} intensity={0.6} />
         <directionalLight position={[-5, -5, -5]} intensity={0.3} />
-        
         <Suspense fallback={<Loader />}>
           <RotatingModel />
         </Suspense>
-        
-        {/* OrbitControls com movimento limitado - não afeta o fundo */}
         <OrbitControls 
           enableZoom={false}
           enablePan={false}
           enableRotate={true}
-          // Rotação horizontal livre
           minAzimuthAngle={-Infinity}
           maxAzimuthAngle={Infinity}
-          // Movimento vertical limitado - ajuste esses valores para controlar quanto pode mover verticalmente
-          minPolarAngle={Math.PI / 2 - 0.1} // Limite superior (0.3 radianos = ~17 graus)
-          maxPolarAngle={Math.PI / 2 + 0.1} // Limite inferior (0.3 radianos = ~17 graus)
+          minPolarAngle={Math.PI / 2 - 0.1}
+          maxPolarAngle={Math.PI / 2 + 0.1}
           minDistance={5}
           maxDistance={5}
         />
