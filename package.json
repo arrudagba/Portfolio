@@ -12,6 +12,8 @@
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.4.2",
     "@vercel/analytics": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "dompurify": "^3.2.4",
     "framer-motion": "^12.0.11",
     "gray-matter": "^4.0.3",
@@ -20,6 +22,7 @@
     "lucide-react": "^0.562.0",
     "marked": "^15.0.6",
     "next": "^16.1.1",
+    "ogl": "^1.0.11",
     "react": "^19.2.3",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.3",
@@ -32,6 +35,8 @@
     "rehype-react": "^8.0.0",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
+    "tailwind-merge": "^3.4.0",
+    "tailwindcss-animate": "^1.0.7",
     "three": "^0.182.0"
   },
   "devDependencies": {

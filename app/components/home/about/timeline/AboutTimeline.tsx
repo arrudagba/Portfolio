@@ -13,11 +13,10 @@ interface TimelineItem {
 }
 
 const timelineData: (TimelineItem & { Icon?: any })[] = [
-  { year: "1993", title: "First PC", description: "A 386 running DOS and Windows 3.1 - wrote my first programs in QBasic. The start of everything.", Icon: Monitor },
-  { year: "2000", title: "HTML & Family", description: "First web experiments and learning the basics of HTML/CSS.", Icon: Globe },
-  { year: "2003", title: "Freelance Path", description: "Started doing freelance projects and small client work.", Icon: Briefcase },
-  { year: "2004", title: "First CRM & Teaching", description: "Built a simple CRM and gave programming lessons.", Icon: BookOpen },
-  { year: "2006", title: "Avature", description: "Worked on larger web apps and teamwork-focused projects.", Icon: Layers },
+  { year: "2021", title: "First PC", description: "A 386 running DOS and Windows 3.1 - wrote my first programs in QBasic. The start of everything.", Icon: Monitor },
+  { year: "2023", title: "HTML & Family", description: "First web experiments and learning the basics of HTML/CSS.", Icon: Globe },
+  { year: "2024", title: "Freelance Path", description: "Started doing freelance projects and small client work.", Icon: Briefcase },
+  { year: "2025", title: "First CRM & Teaching", description: "Built a simple CRM and gave programming lessons.", Icon: BookOpen },
 ];
 
 export default function AboutTimeline() {

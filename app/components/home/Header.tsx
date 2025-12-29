@@ -123,25 +123,8 @@ export default function Header() {
                 backgroundImage: activeSection === '#projects' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
               }}
             >
-              Projects
+              Skills
               {activeSection === '#projects' && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
-              )}
-            </Link>
-            <Link 
-              href="/blog" 
-              className={`relative transition-colors pb-1 ${
-                pathname === '/blog' 
-                  ? 'text-transparent bg-clip-text' 
-                  : 'hover:text-[hsl(var(--primary))]'
-              }`}
-              style={{
-                color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))',
-                backgroundImage: pathname === '/blog' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
-              }}
-            >
-              Posts
-              {pathname === '/blog' && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
               )}
             </Link>
@@ -159,6 +142,23 @@ export default function Header() {
             >
               Contact
               {activeSection === '#contact' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
+            </Link>
+            <Link 
+              href="/blog" 
+              className={`relative transition-colors pb-1 ${
+                pathname === '/blog' 
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
+              }`}
+              style={{
+                color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: pathname === '/blog' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
+            >
+              Blog
+              {pathname === '/blog' && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
               )}
             </Link>
