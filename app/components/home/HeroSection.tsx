@@ -68,8 +68,8 @@ export default function HeroSection() {
 
                 <p className="max-w-xl leading-relaxed" style={{ color: textSecondary }}>
                   I'm a Software Engineer and Cybersecurity enthusiast, currently
-                  completing my degree in Computer Science. I'm based in Brazil and
-                  am specialized in <span className="font-semibold" style={{ color: specialColor }}>Full-stack Development</span> and <span className="font-semibold" style={{ color: specialColor }}>Application Security</span>.
+                  completing a degree in Computer Science. I'm based in Brazil and
+                  specialize in <span className="font-semibold" style={{ color: specialColor }}>Full-stack Development</span> and <span className="font-semibold" style={{ color: specialColor }}>Application Security</span>.
                 </p>
 
                 {/* CTA + SOCIAL */}

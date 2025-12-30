@@ -112,6 +112,23 @@ export default function Header() {
               )}
             </Link>
             <Link 
+              href="#skills" 
+              className={`relative transition-colors pb-1 ${
+                activeSection === '#skills' 
+                  ? 'text-transparent bg-clip-text' 
+                  : 'hover:text-[hsl(var(--primary))]'
+              }`}
+              style={{
+                color: activeSection === '#skills' ? undefined : 'hsl(var(--text-secondary))',
+                backgroundImage: activeSection === '#skills' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
+              }}
+            >
+              Skills
+              {activeSection === '#skills' && (
+                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
+              )}
+            </Link>
+            <Link 
               href="#projects" 
               className={`relative transition-colors pb-1 ${
                 activeSection === '#projects' 
@@ -123,7 +140,7 @@ export default function Header() {
                 backgroundImage: activeSection === '#projects' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
               }}
             >
-              Skills
+              Projects
               {activeSection === '#projects' && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
               )}
@@ -142,23 +159,6 @@ export default function Header() {
             >
               Contact
               {activeSection === '#contact' && (
-                <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
-              )}
-            </Link>
-            <Link 
-              href="/blog" 
-              className={`relative transition-colors pb-1 ${
-                pathname === '/blog' 
-                  ? 'text-transparent bg-clip-text' 
-                  : 'hover:text-[hsl(var(--primary))]'
-              }`}
-              style={{
-                color: pathname === '/blog' ? undefined : 'hsl(var(--text-secondary))',
-                backgroundImage: pathname === '/blog' ? 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' : undefined
-              }}
-            >
-              Blog
-              {pathname === '/blog' && (
                 <span className="absolute bottom-0 left-0 right-0 h-0.5" style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }} />
               )}
             </Link>
@@ -186,22 +186,22 @@ export default function Header() {
 
             {/* Hire Me Button */}
             <motion.a
-              href="/contact"
+              href="/resume.pdf"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="hidden md:inline-flex px-6 py-2 rounded-full font-medium transition-colors"
               style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))', color: 'hsl(var(--background))' }}
             >
-              Hire Me
+              Resume
             </motion.a>
             <motion.a
-                href="/resume.pdf"
+                href="/blog"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-transparent hidden md:inline-flex px-6 py-2 rounded-full font-medium transition-colors border-2"
                 style={{ borderColor: 'hsl(var(--primary))', color:  'hsl(var(--text))'}}
               >
-                Resume
+                Blog
             </motion.a>
           </div>
           </div>

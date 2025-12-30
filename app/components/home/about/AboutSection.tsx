@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Code2 } from "lucide-react";
 import { useTheme } from "@/app/context/ThemeContext";
-import AboutTimeline from "./timeline/AboutTimeline";
+import CareerTimeline from "./timeline/CareerTimeline";
 
 export default function AboutSection() {
   const { theme } = useTheme();
@@ -39,7 +39,19 @@ export default function AboutSection() {
 
             <div className="space-y-6 text-lg leading-relaxed" style={{ color: textSecondary }}>
               <p>
-                Hi, I'm <span className="font-semibold" style={{ color: text }}>Gabriel Arruda</span>, a <span className="font-semibold" style={{ color: accent }}>Software Engineer</span> and Cybersecurity enthusiast, currently completing my degree in Computer Science. Over the years, I've developed a strong foundation in software development and a deep passion for protecting systems from emerging threats.
+                My name is Gabriel Arruda (aka <a href="https://github.com/arrudagba" target="_blank" rel="noopener noreferrer" className="font-semibold underline" style={{ color: accent }}>arrudagba</a>), I’m 21 years old, based in <span className="font-semibold" style={{ color: accent }}>Rio de Janeiro, Brazil</span>. I have <span className="font-semibold" style={{ color: accent }}>2+ years</span> of experience as a <span className="font-semibold" style={{ color: accent }}>Full‑stack Developer</span>, <span className="font-semibold" style={{ color: accent }}>UI/UX Designer</span> and <span className="font-semibold" style={{ color: accent }}>Pentester</span>.
+              </p>
+
+              <p>
+                I’m currently pursuing a degree in <span className="font-semibold">Computer Science</span> and focus on building secure, well‑structured applications that balance performance, usability, and security.
+              </p>
+
+              <p>
+                My main stack includes <span className="font-semibold" style={{ color: accent }}>React, Next.js, Express</span>, and backend tools like <span className="font-semibold">Actix</span> and <span className="font-semibold">FastAPI</span>. I also have hands‑on experience in <span className="font-semibold">cybersecurity</span> and Red Team operations.
+              </p>
+
+              <p>
+                I work at the intersection of software engineering and security — from designing interfaces and APIs to hardening systems, reviewing code, and exploring vulnerabilities — always aiming for practical, reliable solutions rather than overengineered ones.
               </p>
 
             </div>
@@ -47,7 +59,7 @@ export default function AboutSection() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mt-10">
               <motion.a
-                href="/about"
+                href="/blog"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2"
@@ -100,7 +112,7 @@ export default function AboutSection() {
                 className="absolute -bottom-6 -right-6 w-20 h-20 rounded-2xl flex items-center justify-center shadow-xl"
                 style={{ background: `linear-gradient(90deg, ${accent}, hsl(var(--primary-dark)))` }}
               >
-                <Code2 className="w-10 h-10" style={{ color: text }} />
+                <Code2 className="w-10 h-10" style={{ color: bg }} />
               </motion.div>
             </div>
           </motion.div>
@@ -118,7 +130,7 @@ export default function AboutSection() {
             </h2>
 
             <div className="w-full max-w-6xl">
-              <AboutTimeline />
+              <CareerTimeline />
             </div>
           </div>
         </div>

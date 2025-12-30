@@ -12,7 +12,7 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     question: "What technologies do you specialize in?",
-    answer: "I specialize in C, Python, Rust, and C#. I work with modern frameworks and tools for full-stack development, focusing on building secure, scalable applications with clean code practices and robust architecture."
+    answer: "I specialize in C, Python and Rust. I work with modern frameworks and tools for full-stack development, focusing on building secure, scalable applications with clean code practices and robust architecture."
   },
   {
     question: "What is your approach to security?",

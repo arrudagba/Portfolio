@@ -50,7 +50,6 @@ import {
   SiVuedotjs    
 } from "react-icons/si";
 
-import { TbBrandCSharp } from "react-icons/tb";
 import { LiaAws } from "react-icons/lia";
 import { VscVscode, VscAzure} from "react-icons/vsc";
 import { IconType } from "react-icons";
@@ -156,7 +155,6 @@ const skillCategories: SkillCategory[] = [
         { name: "JavaScript", icon: SiJavascript },
         { name: "TypeScript", icon: SiTypescript },
         { name: "C", icon: SiC },
-        { name: "C#", icon: TbBrandCSharp },
     ],
     },
 ];
@@ -176,7 +174,6 @@ const technicalSkills: Skill[] = [
 ];
 
 const humanSkills: Skill[] = [
-  { name: 'Automation', value: 90, icon: Cog },
   { name: 'Positive\nAttitude', value: 95, icon: Smile },
   { name: 'Teamwork', value: 95, icon: Users },
   { name: 'Curiosity', value: 100, icon: Eye },
@@ -188,7 +185,6 @@ const humanSkills: Skill[] = [
   { name: 'Adaptability', value: 90, icon: ArrowRight },
   { name: 'Flexibility', value: 90, icon: Sprout },
   { name: 'Branding', value: 75, icon: Award },
-  { name: 'Social Media\n&\nFlyers', value: 70, icon: Share2 },
 ];
 
 function SkillsOverview() {
