@@ -32,7 +32,6 @@ import {
   SiEslint,
   SiPrettier,
   SiPostgresql,
-  SiAstro,
   SiRust,
   SiPython,
   SiC,
@@ -161,29 +160,32 @@ const skillCategories: SkillCategory[] = [
 
 
 const technicalSkills: Skill[] = [
-  { name: "JavaScript", value: 95, icon: SiJavascript },
-  { name: "TypeScript", value: 90, icon: SiTypescript },
-  { name: "Node.js", value: 85, icon: SiNodedotjs },
-  { name: "React", value: 95, icon: SiReact },
-  { name: "Next.js", value: 90, icon: SiNextdotjs },
-  { name: "Astro", value: 75, icon: SiAstro },
-  { name: "CSS\n3", value: 90, icon: SiCss3 },
-  { name: "Tailwind\nCSS", value: 95, icon: SiTailwindcss },
-  { name: "PostgreSQL", value: 80, icon: SiPostgresql },
-  { name: "Zod", value: 85, icon: SiZod },
+  // Linguagens
+  { name: "TypeScript", value: 100, icon: SiTypescript },
+  { name: "Python", value: 85, icon: SiPython },
+  { name: "Rust", value: 95, icon: SiRust },
+
+  // Frontend
+  { name: "React", value: 100, icon: SiReact },
+  { name: "Vue", value: 75, icon: SiVuedotjs },
+
+  // Backend
+  { name: "Node.js", value: 95, icon: SiNodedotjs },
+  { name: "Express", value: 90, icon: SiExpress },
+  { name: "GraphQL", value: 75, icon: SiGraphql },
+
+  // Banco de dados
+  { name: "PostgreSQL", value: 95, icon: SiPostgresql },
+  { name: "MongoDB", value: 60, icon: SiMongodb },
 ];
 
 const humanSkills: Skill[] = [
-  { name: 'Positive\nAttitude', value: 95, icon: Smile },
-  { name: 'Teamwork', value: 95, icon: Users },
+  { name: 'Teamwork', value: 100, icon: Users },
   { name: 'Curiosity', value: 100, icon: Eye },
   { name: 'Creativity', value: 90, icon: Sparkles },
-  { name: 'Communication', value: 85, icon: MessageCircle },
-  { name: 'Analytical\nThinking', value: 90, icon: Target },
-  { name: 'Decision\nMaking', value: 85, icon: CheckCircle },
-  { name: 'Problem\nSolving', value: 95, icon: Lightbulb },
+  { name: 'Analytical\nThinking', value: 80, icon: Target },
+  { name: 'Problem\nSolving', value: 100, icon: Lightbulb },
   { name: 'Adaptability', value: 90, icon: ArrowRight },
-  { name: 'Flexibility', value: 90, icon: Sprout },
   { name: 'Branding', value: 75, icon: Award },
 ];
 

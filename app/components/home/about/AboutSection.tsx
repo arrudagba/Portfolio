@@ -43,7 +43,7 @@ export default function AboutSection() {
               </p>
 
               <p>
-                I’m currently pursuing a degree in <span className="font-semibold">Computer Science</span> and focus on building secure, well‑structured applications that balance performance, usability, and security.
+                I’m currently pursuing a degree in <span className="font-semibold">Computer Science</span> in PUC-Rio and focus on building secure, well‑structured applications that balance performance, usability, and security.
               </p>
 
               <p>
