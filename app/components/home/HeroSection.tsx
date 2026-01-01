@@ -39,7 +39,7 @@ export default function HeroSection() {
   const bg = 'hsl(var(--background))';
 
   return (
-    <section className="relative min-h-screen overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: textColor }}>
+    <section className="relative overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: textColor }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto pt-32 pb-20">
             <div className="grid lg:grid-cols-2 gap-16 items-center">

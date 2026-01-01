@@ -16,7 +16,7 @@ export default function CTASection({ theme = 'dark' }) {
   const bg = 'hsl(var(--background))';
 
   return (
-    <section className="relative py-20 lg:py-32 overflow-hidden" style={{ backgroundColor: bg }}>
+    <section className="relative py-12 overflow-hidden" style={{ backgroundColor: bg }}>
       {/* LightRays overlay with fade on sides */}
       <div 
         className="absolute inset-0 pointer-events-none z-20"

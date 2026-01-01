@@ -14,7 +14,7 @@ export default function AboutSection() {
   const text = 'hsl(var(--text))';
   const textSecondary = 'hsl(var(--text-secondary))';
   return (
-    <section id="about" className="py-20 lg:py-32" style={{ backgroundColor: bg }}>
+    <section id="about" className="py-12" style={{ backgroundColor: bg }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">

@@ -461,7 +461,7 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
 export default function SkillsSection() {
   return (
-    <section className="relative py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden" id="skills" style={{ backgroundColor: 'hsl(var(--background))' }}>
+    <section className="relative py-12 overflow-hidden" id="skills" style={{ backgroundColor: 'hsl(var(--background))' }}>
       
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">

@@ -1,41 +1,85 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
+import Image from "next/image";
+import {
+  SiNextdotjs,
+  SiTypescript,
+  SiTailwindcss,
+  SiPostgresql,
+  SiActix,
+  SiRust,
+  SiWebassembly
+} from "react-icons/si";
+import { IconType } from "react-icons";
 
 type Project = {
   title: string;
-  type: string;
-  href: string;
+  technologies: { name: string; icon: IconType }[];
+  description: string;
+  image: string;
+  github?: string;
+  demo?: string;
 };
 
 const projects: Project[] = [
   {
-    title: "HappyCraft Event LLP – Premium Event Management Website",
-    type: "Website",
-    href: "/projects/happycraft-event-llp",
+    title: "ConvertKiller - File Conversion & Compression Tool",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind", icon: SiTailwindcss },
+      { name: "WASM", icon: SiWebassembly },
+      { name: "Rust", icon: SiRust },
+    ],
+    description: "Elegant portfolio website showcasing luxury interior designs and architectural projects.",
+    image: "/assets/projects/convertkiller.png",
+    demo: "https://convert-killer.vercel.app",
+    github: "https://github.com/arrudagba/ConvertKiller",
   },
   {
-    title: "KET Design & Interior — Luxury Interior & Architectural Website",
-    type: "Website",
-    href: "/projects/ket-design-interior",
+    title: "Portfolio",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind", icon: SiTailwindcss },
+    ],
+    description: "Complete HR management system with employee tracking, attendance, and payroll features.",
+    image: "/assets/projects/portfolio.png",
+    github: "https://github.com/arrudagba/Portfolio",
   },
   {
-    title: "StaffWorks Employee Management Portal",
-    type: "Web Application",
-    href: "/projects/staffworks-employee-management-portal",
+    title: "CASCO's Website",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "Tailwind", icon: SiTailwindcss },
+    ],
+    description: "Enterprise-grade platform for managing dealership operations, inventory, and sales analytics.",
+    image: "/assets/projects/casco.png",
+    demo: "https://casco.inf.puc-rio.br",
   },
   {
-    title: "Mudd Vision — Dealer & Sales Management Platform",
-    type: "Software Application",
-    href: "/projects/mudd-vision-sales-platform",
+    title: "URL Shortener - Scalable Link Management Service",
+    technologies: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "JavaScript", icon: SiTypescript },
+      { name: "Tailwind", icon: SiTailwindcss },
+      { name: "ActixWeb", icon: SiActix },
+      { name: "PostgreSQL", icon: SiPostgresql },
+    ],
+    description: "URL Shortener is a scalable and efficient link-shortening service built with Rust (Actix Web) for the backend, Next.js for the frontend, and Supabase (PostgreSQL) as the database.",
+    image: "/assets/projects/urlshortener.png",
+    demo: "https://url-shortener-steel-ten.vercel.app/",
+    github: "https://github.com/arrudagba/URL-Shortener",
   },
 ];
 
 export default function ProjectsSection() {
   return (
     <section 
-      className="relative py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden" 
+      className="relative py-12 overflow-hidden" 
       id="projects" 
       style={{ backgroundColor: 'hsl(var(--background))' }}
     >
@@ -67,77 +111,114 @@ export default function ProjectsSection() {
           {/* Projects Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
             {projects.map((project, index) => (
-              <motion.a
+              <motion.div
                 key={index}
-                href={project.href}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl overflow-hidden"
+                className="group relative backdrop-blur-sm border rounded-2xl sm:rounded-3xl overflow-hidden"
+                style={{
+                  backgroundColor: 'hsl(var(--surface))',
+                  borderColor: 'hsl(var(--border) / 0.5)',
+                }}
               >
-                {/* Background gradient */}
+                {/* Background gradient on hover */}
                 <div
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{
                     background:
-                      "linear-gradient(135deg, hsl(var(--primary-dark) / 0.18), hsl(var(--primary) / 0.08), hsl(var(--accent) / 0.18))",
+                      "linear-gradient(135deg, hsl(var(--primary-dark) / 0.1), hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.1))",
                   }}
                 />
 
                 {/* Image Container */}
-                <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: 'hsl(var(--background-secondary) / 0.5)' }}>
-                  <svg
-                    className="w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity duration-500"
-                    viewBox="0 0 400 225"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect width="400" height="225" fill="hsl(var(--primary) / 0.1)" />
-                    <circle cx="200" cy="112.5" r="40" fill="hsl(var(--primary) / 0.3)" />
-                    <rect x="140" y="140" width="120" height="8" rx="4" fill="hsl(var(--primary) / 0.2)" />
-                    <rect x="160" y="160" width="80" height="6" rx="3" fill="hsl(var(--primary) / 0.15)" />
-                  </svg>
+                <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: 'hsl(var(--background) / 0.5)' }}>
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
                   
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--background))] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--surface))] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
 
                 {/* Content */}
                 <div className="relative z-10 p-6 sm:p-8">
-                  <div className="flex items-start justify-between gap-4 mb-3">
-                    <h4
-                      className="text-base sm:text-lg font-semibold line-clamp-2 group-hover:text-[hsl(var(--primary))] transition-colors duration-300"
-                      style={{ color: "hsl(var(--text))" }}
-                    >
-                      {project.title}
-                    </h4>
-                    
-                    <ExternalLink 
-                      className="w-5 h-5 flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
-                      style={{ color: "hsl(var(--primary))" }}
-                    />
+                  {/* Title */}
+                  <h4
+                    className="text-base sm:text-lg font-semibold mb-4 line-clamp-2 group-hover:text-[hsl(var(--primary))] transition-colors duration-300"
+                    style={{ color: "hsl(var(--text))" }}
+                  >
+                    {project.title}
+                  </h4>
+
+                  {/* Technology Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map(({ name, icon: Icon }) => (
+                      <span
+                        key={name}
+                        className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs sm:text-sm border"
+                        style={{
+                          backgroundColor: "hsl(var(--background) / 0.6)",
+                          color: "hsl(var(--text-secondary))",
+                          borderColor: "hsl(var(--primary) / 0.3)",
+                        }}
+                      >
+                        <Icon className="w-3.5 h-3.5" />
+                        {name}
+                      </span>
+                    ))}
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span
-                      className="text-xs sm:text-sm px-3 py-1 rounded-full border"
-                      style={{
-                        backgroundColor: "hsl(var(--background) / 0.6)",
-                        color: "hsl(var(--text-secondary))",
-                        borderColor: "hsl(var(--primary) / 0.3)",
-                      }}
-                    >
-                      {project.type}
-                    </span>
+                  {/* Description */}
+                  <p
+                    className="text-sm mb-6 line-clamp-2"
+                    style={{ color: "hsl(var(--text-secondary))" }}
+                  >
+                    {project.description}
+                  </p>
+
+                  {/* Action Buttons */}
+                  <div className="flex items-center gap-3">
+                    {project.github && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 hover:scale-105"
+                        style={{
+                          backgroundColor: "hsl(var(--background) / 0.6)",
+                          color: "hsl(var(--text))",
+                          borderColor: "hsl(var(--primary) / 0.5)",
+                        }}
+                      >
+                        <Github className="w-4 h-4" />
+                        GitHub
+                      </a>
+                    )}
                     
-                    <ArrowRight 
-                      className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" 
-                      style={{ color: "hsl(var(--primary))" }}
-                    />
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
+                        style={{
+                          backgroundColor: "hsl(var(--primary))",
+                          color: "hsl(var(--background))",
+                        }}
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
-              </motion.a>
+              </motion.div>
             ))}
           </div>
         </div>
