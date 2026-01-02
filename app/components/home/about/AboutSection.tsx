@@ -69,15 +69,6 @@ export default function AboutSection() {
                 <span className="text-xl">→</span>
               </motion.a>
               
-              <motion.a
-                href="/contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-transparent px-8 py-3 rounded-full font-medium border-2 transition-colors"
-                style={{ borderColor: accent, color: text }}
-              >
-                Contact Me
-              </motion.a>
             </div>
           </motion.div>
 

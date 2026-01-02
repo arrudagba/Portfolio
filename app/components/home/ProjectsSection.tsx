@@ -3,15 +3,16 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import {
   SiNextdotjs,
   SiTypescript,
   SiTailwindcss,
   SiPostgresql,
-  SiActix,
   SiRust,
   SiWebassembly
 } from "react-icons/si";
+import { TbBrandRust } from "react-icons/tb";
 import { IconType } from "react-icons";
 
 type Project = {
@@ -66,7 +67,7 @@ const projects: Project[] = [
       { name: "Next.js", icon: SiNextdotjs },
       { name: "JavaScript", icon: SiTypescript },
       { name: "Tailwind", icon: SiTailwindcss },
-      { name: "ActixWeb", icon: SiActix },
+      { name: "ActixWeb", icon: TbBrandRust },
       { name: "PostgreSQL", icon: SiPostgresql },
     ],
     description: "URL Shortener is a scalable and efficient link-shortening service built with Rust (Actix Web) for the backend, Next.js for the frontend, and Supabase (PostgreSQL) as the database.",
@@ -132,14 +133,21 @@ export default function ProjectsSection() {
                   }}
                 />
 
-                {/* Image Container */}
-                <div className="relative aspect-[16/9] overflow-hidden" style={{ backgroundColor: 'hsl(var(--background) / 0.5)' }}>
+                {/* Image Container - Fixed aspect ratio */}
+                <div 
+                  className="relative w-full overflow-hidden" 
+                  style={{ 
+                    backgroundColor: 'hsl(var(--background) / 0.5)',
+                    aspectRatio: '16/9',
+                  }}
+                >
                   <Image
                     src={project.image}
-                    alt={project.title}
+                    alt={`Screenshot of ${project.title}`}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    priority={index < 2}
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                   />
                   
                   {/* Hover overlay */}
@@ -189,6 +197,7 @@ export default function ProjectsSection() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${project.title} source code on GitHub`}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 hover:scale-105"
                         style={{
                           backgroundColor: "hsl(var(--background) / 0.6)",
@@ -196,7 +205,7 @@ export default function ProjectsSection() {
                           borderColor: "hsl(var(--primary) / 0.5)",
                         }}
                       >
-                        <Github className="w-4 h-4" />
+                        <Github className="w-4 h-4" aria-hidden="true" />
                         GitHub
                       </a>
                     )}
@@ -206,13 +215,14 @@ export default function ProjectsSection() {
                         href={project.demo}
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label={`View ${project.title} live demo`}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105"
                         style={{
                           backgroundColor: "hsl(var(--primary))",
                           color: "hsl(var(--background))",
                         }}
                       >
-                        <ExternalLink className="w-4 h-4" />
+                        <ExternalLink className="w-4 h-4" aria-hidden="true" />
                         Live Demo
                       </a>
                     )}

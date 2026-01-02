@@ -470,6 +470,16 @@ export default function SkillsSection() {
         {/* Skills Overview */}
         <SkillsOverview />
 
+        {/* Skills Charts Title */}
+        <div className="mb-8 sm:mb-10 lg:mb-12">
+          <h2
+            className="text-2xl sm:text-3xl lg:text-4xl font-normal"
+            style={{ color: 'hsl(var(--text))', display: 'inline-block', paddingBottom: '0.25rem', borderBottom: '3px solid hsl(var(--primary))' }}
+          >
+            Skill Level Charts
+          </h2>
+        </div>
+
         {/* Skills Charts Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-16">
           

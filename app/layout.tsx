@@ -3,8 +3,10 @@ import './globals.css';
 import { ThemeProvider } from './context/ThemeContext';
 
 export const metadata: Metadata = {
-  title: 'Portfolio 3D',
-  description: 'Portfolio com visualização 3D',
+  title: 'Gabriel Arruda.',
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
 
 export default function RootLayout({

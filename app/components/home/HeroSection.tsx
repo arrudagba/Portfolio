@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
 import { FaMastodon } from "react-icons/fa";
@@ -26,7 +27,7 @@ function Stat({ value, label, suffix = "" }: { value: number; label: string; suf
 
 
 export default function HeroSection() {
-
+  const [isTimelineHovered, setIsTimelineHovered] = useState(false);
   const { theme } = useTheme();
   // Color variables
   const titleColor = theme === 'light' ? 'hsl(var(--title))' : 'hsl(var(--text))';
@@ -80,10 +81,24 @@ export default function HeroSection() {
                   href="#about"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onHoverStart={() => setIsTimelineHovered(true)}
+                  onHoverEnd={() => setIsTimelineHovered(false)}
                   className="px-6 py-3 rounded-full font-medium transition-colors flex items-center gap-2"
                   style={{ backgroundColor: buttonBg, color: bg }}
                 >
-                  <Briefcase className="w-4 h-4" />
+                  <motion.div
+                    animate={isTimelineHovered ? {
+                      rotate: [-5, 5, -5, 5, 0],
+                    } : {
+                      rotate: 0
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: "easeInOut"
+                    }}
+                  >
+                    <Briefcase className="w-4 h-4" />
+                  </motion.div>
                   Timeline
                 </motion.a>
 

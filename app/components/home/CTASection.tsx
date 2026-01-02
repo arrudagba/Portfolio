@@ -2,43 +2,56 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import LightRays from '../../../components/LightRays';
+import { useTheme } from "@/app/context/ThemeContext";
+import dynamic from 'next/dynamic';
 
-export default function CTASection({ theme = 'dark' }) {
+// Lazy load LightRays with no SSR
+const LightRays = dynamic(() => import('../../../components/LightRays'), {
+  ssr: false,
+  loading: () => null,
+});
+
+export default function CTASection() {
+  const { theme } = useTheme();
+  
   const titleColor = theme === 'light' ? 'hsl(var(--title))' : 'hsl(var(--text))';
   const specialColor = 'hsl(var(--primary))';
   const buttonBg = theme === 'light' ? '#83C5D8' : '#47D7FF';
-  const buttonText = theme === 'light' ? '#000' : 'hsl(var(--background))';
+  const buttonText = theme === 'light' ? '#ffffff' : '#000000';
   const textColor = 'hsl(var(--text))';
   const textSecondary = 'hsl(var(--text-secondary))';
   const surface = 'hsl(var(--surface))';
   const bg = 'hsl(var(--background))';
 
   return (
-    <section className="relative py-12 overflow-hidden" style={{ backgroundColor: bg }}>
+    <section id="contact" className="relative pt-12 overflow-hidden" style={{ backgroundColor: bg }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 relative">
         <div className="max-w-7xl mx-auto relative">
-          <div 
-            className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-3xl"
-            style={{
-              maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-              WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
-            }}
-          >
-            <LightRays
-              raysOrigin="top-center"
-              raysColor={specialColor}
-              raysSpeed={1.5}
-              lightSpread={0.8}
-              rayLength={1.2}
-              followMouse={true}
-              mouseInfluence={0.1}
-              noiseAmount={0.1}
-              distortion={0.05}
-              className="custom-rays"
-            />
-          </div>
+          {/* LightRays - Only in dark mode */}
+          {theme === 'dark' && (
+            <div 
+              className="absolute inset-0 pointer-events-none z-20 overflow-hidden rounded-3xl"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent, black 5%, black 95%, transparent)',
+              }}
+            >
+              <LightRays
+                raysOrigin="top-center"
+                raysColor={specialColor}
+                raysSpeed={1.5}
+                lightSpread={0.8}
+                rayLength={1.2}
+                followMouse={true}
+                mouseInfluence={0.1}
+                noiseAmount={0.1}
+                distortion={0.05}
+                className="custom-rays"
+              />
+            </div>
+          )}
 
+          {/* Grid background - Both themes */}
           <div 
             className="absolute inset-0 pointer-events-none rounded-3xl overflow-hidden"
             style={{
@@ -78,7 +91,7 @@ export default function CTASection({ theme = 'dark' }) {
                   className="text-4xl lg:text-6xl font-bold mb-6 leading-tight" 
                   style={{ color: titleColor }}
                 >
-                  Let's build something<br />amazing together.
+                  Let&apos;s build something<br />amazing together.
                 </motion.h2>
 
                 <motion.p
@@ -89,7 +102,7 @@ export default function CTASection({ theme = 'dark' }) {
                   className="text-lg lg:text-xl mb-10 max-w-2xl mx-auto" 
                   style={{ color: textSecondary }}
                 >
-                  Ready to create secure, scalable solutions? Let's collaborate and make your vision a reality.
+                  Ready to create secure, scalable solutions? Let&apos;s collaborate and make your vision a reality.
                 </motion.p>
 
                 <motion.div
@@ -99,7 +112,7 @@ export default function CTASection({ theme = 'dark' }) {
                   transition={{ delay: 0.5 }}
                 >
                   <motion.a
-                    href="/contact"
+                    href="mailto:arrudagbadev@gmail.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     className="inline-flex items-center gap-3 px-10 py-4 rounded-full font-semibold text-lg shadow-2xl transition-all"

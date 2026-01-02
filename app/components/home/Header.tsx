@@ -12,7 +12,6 @@ const navItems = [
   { href: "#about", label: "About Me", hash: "#about" },
   { href: "#skills", label: "Skills", hash: "#skills" },
   { href: "#projects", label: "Projects", hash: "#projects" },
-  { href: "#contact", label: "Contact", hash: "#contact" },
 ];
 
 export default function Header() {
@@ -21,6 +20,7 @@ export default function Header() {
   const { theme, toggleTheme } = useTheme();
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState('/');
+  const [isManualNavigation, setIsManualNavigation] = useState(false);
 
   // Smooth scroll handler
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -32,18 +32,33 @@ export default function Header() {
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
+        // Desabilitar scroll spy temporariamente
+        setIsManualNavigation(true);
+        setActiveSection(href);
+
         window.scrollTo({
           top: offsetPosition,
           behavior: 'smooth'
         });
         
-        setActiveSection(href);
+        // Reabilitar scroll spy após animação
+        setTimeout(() => {
+          setIsManualNavigation(false);
+        }, 1000);
+        
         setMobileMenuOpen(false);
       }
     } else if (href === '/') {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsManualNavigation(true);
       setActiveSection('/');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      setTimeout(() => {
+        setIsManualNavigation(false);
+      }, 1000);
+      
       setMobileMenuOpen(false);
     }
   };
@@ -68,11 +83,36 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Não executar scroll spy durante navegação manual
+      if (isManualNavigation) return;
+      
+      // Scroll spy - detectar seção ativa
+      const sections = ['about', 'skills', 'projects'];
+      const scrollPosition = window.scrollY + 150; // offset para considerar o header
+      
+      // Se estiver no topo, marcar Home como ativo
+      if (window.scrollY < 200) {
+        setActiveSection('/');
+        return;
+      }
+      
+      // Verificar qual seção está visível
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(`#${sectionId}`);
+            return;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isManualNavigation]);
 
   // Close mobile menu on resize
   useEffect(() => {
