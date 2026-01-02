@@ -3,6 +3,7 @@
 import { use, useEffect, useState } from "react"; 
 import { useTheme } from '../../context/ThemeContext';
 import { Clock, Tag, ChevronLeft, Pencil, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
+import { FaMastodon } from 'react-icons/fa';
 import { motion } from "framer-motion";
 import { FadeLoader } from 'react-spinners';
 import UtterancesComments from '../../components/Utterance/Comments';
@@ -67,12 +68,13 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
         whileInView="visible"
         viewport={{ once: true }}
         variants={fadeTopDown}
-        className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#ffffff] dark:bg-[#141313]"
+        className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)]"
+        style={{ backgroundColor: theme === 'dark' ? '#141313' : '#ffffff' }}
       >
         <div className="absolute top-0 left-0 p-4 flex items-center gap-4 z-50">
-          <div className="text-black dark:text-white text-2xl">
+          <div className="text-2xl">
             <a href="/blog" aria-label="Logo">
-              <ChevronLeft className="w-6 h-6" />
+              <ChevronLeft className="w-6 h-6" style={{ color: theme === 'dark' ? '#fff' : '#000' }} />
             </a>
           </div>
 
@@ -85,18 +87,23 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
                 onChange={toggleTheme}
               />
               <div
-                className={`w-14 h-7 bg-gray-900 rounded-full peer peer-checked:bg-[#039dfc] border border-[#A5A5A5] relative transition-colors duration-300`}
+                className={`w-14 h-7 rounded-full border relative transition-colors duration-300`}
+                style={{
+                  backgroundColor: theme === 'dark' ? '#039dfc' : '#1f2937',
+                  borderColor: '#A5A5A5'
+                }}
               >
                 <div className="absolute left-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
-                  <Sun className="text-[#ecf00c] w-4 h-4" />
+                  <Sun className="w-4 h-4" style={{ color: '#ecf00c' }} />
                 </div>
                 <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
-                  <Moon className="text-[#A5A5A5] w-4 h-4" />
+                  <Moon className="w-4 h-4" style={{ color: '#A5A5A5' }} />
                 </div>
                 <div
-                  className={`absolute w-[20px] h-[20px] bg-white rounded-full transition-transform duration-500 ${
-                    theme === 'dark' ? "translate-x-[30px]" : "translate-x-1"
-                  } top-1/2 transform -translate-y-1/2`}
+                  className={`absolute w-[20px] h-[20px] bg-white rounded-full transition-transform duration-500 top-1/2 transform -translate-y-1/2`}
+                  style={{
+                    transform: `translateY(-50%) ${theme === 'dark' ? 'translateX(30px)' : 'translateX(4px)'}`,
+                  }}
                 ></div>
               </div>
             </label>
@@ -105,22 +112,29 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
 
         <div className="flex flex-col md:flex-row justify-between items-start gap-4 py-5">
           <div className="w-full md:max-w-[480px]">
-            <h1 className="dark:text-white text-black font-sans font-bold text-xl md:text-2xl">
+            <h1 className="font-sans font-bold text-xl md:text-2xl" style={{ color: theme === 'dark' ? '#fff' : '#000' }}>
               {post.title}
             </h1>
           </div>
           
           <div className="flex items-center gap-2 whitespace-nowrap">
-            <Pencil className="post-info-bright dark:post-info w-4 h-4" />
-            <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.date}</h2>
-            <Clock className="post-info-bright dark:post-info w-4 h-4" />
-            <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.time}</h2>
-            <Tag className="post-info-bright dark:post-info w-4 h-4" />
-            <h2 className="post-info-bright dark:post-info text-sm md:text-base">{post.tag.join(", ")}</h2>
+            <Pencil className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+            <h2 className="text-sm md:text-base" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }}>{post.date}</h2>
+            <Clock className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+            <h2 className="text-sm md:text-base" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }}>{post.time}</h2>
+            <Tag className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+            <h2 className="text-sm md:text-base" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }}>{Array.isArray(post.tag) ? post.tag.join(", ") : ""}</h2>
           </div>
         </div>
 
-        <div className="post-div-bright dark:post-div w-full md:w-[80%] mx-auto p-8 text-black dark:text-[#A5A5A5]">
+        <div 
+          className="w-full md:w-[80%] mx-auto p-8 rounded-2xl"
+          style={{
+            backgroundColor: theme === 'dark' ? '#202020' : '#E4E4E7',
+            border: `1px solid ${theme === 'dark' ? '#3f3f3f' : '#d4d4d8'}`,
+            color: theme === 'dark' ? '#A5A5A5' : '#000'
+          }}
+        >
           <div className="overflow-y-scroll max-h-[100vh] px-4 flex justify-center">
             <div className="prose dark:prose-invert max-w-full" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           </div>
@@ -128,18 +142,41 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
 
         <UtterancesComments />
 
-        <footer className="flex items-center gap-7 text-1xlg font-normal justify-center itens-center py-3 bg-[#E4E4E7] dark:bg-[#191818] w-full mt-3">
-          <a href="https://github.com/arrudagba">
-            <Github className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+        <footer 
+          className="flex items-center gap-7 text-1xlg font-normal justify-center py-3 w-full mt-3"
+          style={{ backgroundColor: theme === 'dark' ? '#191818' : '#E4E4E7' }}
+        >
+          <a href="https://github.com/arrudagba" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Github 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="https://www.linkedin.com/in/arrudagba/">
-            <Linkedin className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="https://www.linkedin.com/in/arrudagba/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Linkedin 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="https://mastodon.social/@arrudagba">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="https://mastodon.social/@arrudagba" target="_blank" rel="noopener noreferrer" aria-label="Mastodon">
+            <FaMastodon 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="mailto:gabriel@arrudagba.dev">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="mailto:arrudagbadev@gmail.com" aria-label="Email">
+            <Mail 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
         </footer>
       </motion.main>

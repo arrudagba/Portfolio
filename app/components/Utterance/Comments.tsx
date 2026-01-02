@@ -4,28 +4,39 @@ import { useEffect, useRef } from 'react';
 import { useTheme } from '../../context/ThemeContext';
 
 export default function UtterancesComments() {
+  const ref = useRef<HTMLDivElement>(null);
+  const scriptAppended = useRef(false);
   const { theme } = useTheme();
-  const commentsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!commentsRef.current) return;
+    if (!ref.current || scriptAppended.current) return;
 
-    const script = document.createElement('script');
-    script.src = 'https://utteranc.es/client.js';
-    script.async = true;
-    script.crossOrigin = 'anonymous';
-    script.setAttribute('repo', 'your-username/your-repo'); // Configure isso depois
-    script.setAttribute('issue-term', 'pathname');
-    script.setAttribute('theme', theme === 'dark' ? 'github-dark' : 'github-light');
+    ref.current.innerHTML = "";
 
-    commentsRef.current.appendChild(script);
+    const script = document.createElement("script");
+    script.src = "https://utteranc.es/client.js";
+    script.setAttribute("repo", "arrudagba/Portfolio");
+    script.setAttribute("issue-term", "pathname");
+    script.setAttribute("label", "comments");
+    script.setAttribute("crossorigin", "anonymous");
+    script.setAttribute("async", "true");
+    script.setAttribute("theme", theme === 'dark' ? "github-dark" : "github-light");
+
+    const timeoutId = setTimeout(() => {
+      if (ref.current) {
+        ref.current.appendChild(script);
+        scriptAppended.current = true;
+      }
+    }, 100);
 
     return () => {
-      if (commentsRef.current) {
-        commentsRef.current.innerHTML = '';
+      clearTimeout(timeoutId);
+      if (ref.current) {
+        ref.current.innerHTML = "";
       }
+      scriptAppended.current = false;
     };
   }, [theme]);
 
-  return <div ref={commentsRef} />;
+  return <div ref={ref} id="utterances-container" className="w-full md:w-[80%] mx-auto p-8" />;
 }

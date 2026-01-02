@@ -1,9 +1,11 @@
 "use client";
 
+import Image from 'next/image';
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Clock, Tag, Pencil, Sun, Moon, Github, Linkedin, Mail } from 'lucide-react';
+import { Clock, Tag, Pencil, Sun, Moon, Github, Linkedin, Mail, ArrowLeft } from 'lucide-react';
+import { FaMastodon } from 'react-icons/fa';
 import React from "react";
 import { useTheme } from '../context/ThemeContext';
 
@@ -40,13 +42,14 @@ export default function BlogPage() {
       whileInView="visible"
       viewport={{ once: true }}
       variants={fadeTopDown}
-      className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)] bg-[#ffffff] dark:bg-[#141313]"
+      className="flex flex-col items-center justify-center pt-16 min-h-[calc(100vh-3rem)]"
+      style={{ backgroundColor: theme === 'dark' ? '#141313' : '#ffffff' }}
     >
       <div className="absolute top-0 left-0 p-4 flex items-center gap-4 z-50">
         <div>
-          <a href="/" aria-label="Home" style={{ fontSize: '24px', fontWeight: 'bold', color: theme === 'dark' ? '#fff' : '#000' }}>
-            Portfolio
-          </a>
+          <Link href="/" aria-label="Voltar para home" className="flex items-center gap-2 hover:opacity-70 transition-opacity">
+            <ArrowLeft className="w-6 h-6" style={{ color: theme === 'dark' ? '#fff' : '#000' }} />
+          </Link>
         </div>
         <div className="flex flex-row pr-2">
           <label className="relative inline-flex items-center cursor-pointer">
@@ -57,18 +60,23 @@ export default function BlogPage() {
               onChange={toggleTheme}
             />
             <div
-              className={`w-14 h-7 bg-gray-900 rounded-full peer peer-checked:bg-[#039dfc] border border-[#A5A5A5] relative transition-colors duration-300`}
+              className={`w-14 h-7 rounded-full border relative transition-colors duration-300`}
+              style={{
+                backgroundColor: theme === 'dark' ? '#039dfc' : '#1f2937',
+                borderColor: '#A5A5A5'
+              }}
             >
               <div className="absolute left-1 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
-                <Sun className="text-[#ecf00c] w-4 h-4" />
+                <Sun className="w-4 h-4" style={{ color: '#ecf00c' }} />
               </div>
               <div className="absolute left-8 top-1/2 transform -translate-y-1/2 flex items-center justify-center">
-                <Moon className="text-[#A5A5A5] w-4 h-4" />
+                <Moon className="w-4 h-4" style={{ color: '#A5A5A5' }} />
               </div>
               <div
-                className={`absolute w-[20px] h-[20px] bg-white rounded-full transition-transform duration-500 ${
-                  theme === 'dark' ? "translate-x-[30px]" : "translate-x-1"
-                } top-1/2 transform -translate-y-1/2`}
+                className={`absolute w-[20px] h-[20px] bg-white rounded-full transition-transform duration-500 top-1/2 transform -translate-y-1/2`}
+                style={{
+                  transform: `translateY(-50%) ${theme === 'dark' ? 'translateX(30px)' : 'translateX(4px)'}`
+                }}
               ></div>
             </div>
           </label>
@@ -76,80 +84,166 @@ export default function BlogPage() {
       </div>
 
       <div className="py-4 w-60 flex flex-col justify-center items-center relative md:order-none order-first md:row-auto row-start-1 md:justify-self-end justify-self-center">
-        <div className="object-contain mx-auto md:mx-0 mb-4" style={{ fontSize: '48px' }}>
-          📝
+        <div className="object-contain mx-auto md:mx-0 mb-4">
+          <Image 
+            src={theme === 'dark' ? "/blog-dark.png" : "/blog-bright.png"} 
+            alt="Blog illustration" 
+            width={325} 
+            height={325}
+            priority
+          />
         </div>
-        <p className="text-black dark:text-white font-mono text-xl">Gabriel Arruda</p>
-        <p className="obj-description-bright dark:obj-description">@arrudagba</p>
+        <p className="font-mono text-xl" style={{ color: theme === 'dark' ? '#fff' : '#000' }}>
+          Gabriel Arruda
+        </p>
+        <p style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280', fontSize: '14px' }}>
+          @arrudagba
+        </p>
         <div className="flex justify-center items-center gap-5 mt-4 p-2 w-full">
-
-          <a href="https://github.com/arrudagba">
-            <Github className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="https://github.com/arrudagba" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <Github 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="https://www.linkedin.com/in/arrudagba/">
-            <Linkedin className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="https://www.linkedin.com/in/arrudagba/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <Linkedin 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="https://mastodon.social/@arrudagba">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="https://mastodon.social/@arrudagba" target="_blank" rel="noopener noreferrer" aria-label="Mastodon">
+            <FaMastodon 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
-          <a href="mailto:arrudagbadev@gmail.com">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
+          <a href="mailto:arrudagbadev@gmail.com" aria-label="Email">
+            <Mail 
+              className="w-5 h-5 transition-colors" 
+              style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+              onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+              onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+            />
           </a>
         </div>
       </div>
 
-      <h1 className="blog-title-bright dark:blog-title text-lg md:text-2xl justify-center pt-4">Welcome to my blog!</h1>
+      <h1 
+        className="text-lg md:text-2xl justify-center pt-4 font-bold"
+        style={{ color: theme === 'dark' ? '#fff' : '#000' }}
+      >
+        Welcome to my blog!
+      </h1>
 
-      <div className="post-div-bright dark:post-div max-w-full md:max-w-4xl p-4 md:p-6">
+      <div 
+        className="max-w-full md:max-w-4xl p-4 md:p-6 rounded-2xl mt-6"
+        style={{
+          backgroundColor: theme === 'dark' ? '#202020' : '#E4E4E7',
+          border: `1px solid ${theme === 'dark' ? '#3f3f3f' : '#d4d4d8'}`
+        }}
+      >
         <div className="overflow-y-scroll h-[60vh] px-2 md:px-4">
           <ul className="space-y-6">
             {posts.length > 0 ? (
               posts.map((post) => (
                 <React.Fragment key={post.slug}>
-                  <li className="bg-[#E4E4E7] dark:bg-[#202020] p-4 rounded-xl shadow-md max-w-full">
+                  <li 
+                    className="p-4 rounded-xl shadow-md max-w-full"
+                    style={{ backgroundColor: theme === 'dark' ? '#2a2a2a' : '#f4f4f5' }}
+                  >
                     <div className="flex flex-col md:flex-row items-start gap-6">
                       <div className="w-full md:max-w-[36%]">
-                        <Link href={`/blog/${post.slug}`} className="text-lg font-semibold text-black dark:text-white">
+                        <Link 
+                          href={`/blog/${post.slug}`} 
+                          className="text-lg font-semibold hover:underline"
+                          style={{ color: theme === 'dark' ? '#fff' : '#000' }}
+                        >
                           {post.title}
                         </Link>
-                        <div className="w-full h-px bg-black dark:bg-white my-4"></div>
-                        <div className="flex justify-start items-center gap-2">
-                          <Pencil className="post-info-bright dark:post-info w-4 h-4" />
-                          <p className="post-info-bright dark:post-info">{post.date}</p>
-                          <Clock className="post-info-bright dark:post-info w-4 h-4" />
-                          <p className="post-info-bright dark:post-info">{post.time}</p>
-                          <Tag className="post-info-bright dark:post-info w-4 h-4" />
-                          <p className="post-info-bright dark:post-info">{post.tag.join(", ")}</p>
+                        <div 
+                          className="w-full h-px my-4"
+                          style={{ backgroundColor: theme === 'dark' ? '#fff' : '#000' }}
+                        ></div>
+                        <div className="flex justify-start items-center gap-2 flex-wrap">
+                          <Pencil className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+                          <p style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280', fontSize: '14px' }}>{post.date}</p>
+                          <Clock className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+                          <p style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280', fontSize: '14px' }}>{post.time}</p>
+                          <Tag className="w-4 h-4" style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280' }} />
+                          <p style={{ color: theme === 'dark' ? '#A5A5A5' : '#6B7280', fontSize: '14px' }}>{post.tag.join(", ")}</p>
                         </div>
                       </div>
                       <div className="w-full md:max-w-lg line-clamp-6">
-                        <p className="post-resume-bright dark:post-resume text-sm md:text-base leading-relaxed">{post.description}</p>
+                        <p 
+                          className="text-sm md:text-base leading-relaxed"
+                          style={{ color: theme === 'dark' ? '#d4d4d4' : '#3f3f46' }}
+                        >
+                          {post.description}
+                        </p>
                       </div>
                     </div>
                   </li>
-                  <div className="max-w-full h-px bg-[#E4E4E7] dark:bg-white my-4"></div>
+                  <div 
+                    className="max-w-full h-px my-4"
+                    style={{ backgroundColor: theme === 'dark' ? '#3f3f3f' : '#d4d4d8' }}
+                  ></div>
                 </React.Fragment>
               ))
             ) : (
-              <p className="text-center text-gray-700 dark:text-gray-300">No posts found.</p>
+              <p 
+                className="text-center"
+                style={{ color: theme === 'dark' ? '#9ca3af' : '#374151' }}
+              >
+                No posts found.
+              </p>
             )}
           </ul>
         </div>
       </div>
 
-      <footer className="flex items-center gap-7 text-1xlg font-normal justify-center itens-center py-3 bg-[#E4E4E7] dark:bg-[#191818] w-full mt-3">
-          <a href="https://github.com/arrudagba">
-            <Github className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
-          </a>
-          <a href="https://www.linkedin.com/in/arrudagba/">
-            <Linkedin className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
-          </a>
-          <a href="https://mastodon.social/@arrudagba">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
-          </a>
-          <a href="mailto:arrudagbadev@gmail.com">
-            <Mail className="text-black dark:text-[#A5A5A5] w-5 h-5 hover:text-blue-700 dark:hover:text-white" />
-          </a>
+      <footer 
+        className="flex items-center gap-7 text-1xlg font-normal justify-center py-3 w-full mt-3"
+        style={{ backgroundColor: theme === 'dark' ? '#191818' : '#E4E4E7' }}
+      >
+        <a href="https://github.com/arrudagba" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <Github 
+            className="w-5 h-5 transition-colors" 
+            style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+            onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+          />
+        </a>
+        <a href="https://www.linkedin.com/in/arrudagba/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <Linkedin 
+            className="w-5 h-5 transition-colors" 
+            style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+            onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+          />
+        </a>
+        <a href="https://mastodon.social/@arrudagba" target="_blank" rel="noopener noreferrer" aria-label="Mastodon">
+          <FaMastodon 
+            className="w-5 h-5 transition-colors" 
+            style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+            onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+          />
+        </a>
+        <a href="mailto:arrudagbadev@gmail.com" aria-label="Email">
+          <Mail 
+            className="w-5 h-5 transition-colors" 
+            style={{ color: theme === 'dark' ? '#A5A5A5' : '#000' }}
+            onMouseEnter={(e) => e.currentTarget.style.color = theme === 'dark' ? '#fff' : '#1d4ed8'}
+            onMouseLeave={(e) => e.currentTarget.style.color = theme === 'dark' ? '#A5A5A5' : '#000'}
+          />
+        </a>
       </footer>
     </motion.main>
   );

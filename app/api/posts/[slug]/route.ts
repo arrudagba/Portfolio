@@ -1,15 +1,15 @@
+import { NextResponse } from "next/server";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { NextResponse } from "next/server";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
-
+  
   const postsDirectory = path.join(process.cwd(), "app/blog/posts");
   const filePath = path.join(postsDirectory, `${slug}.md`);
 

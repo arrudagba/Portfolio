@@ -21,6 +21,8 @@ export default function Header() {
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState('/');
   const [isManualNavigation, setIsManualNavigation] = useState(false);
+  const [scrollTimeout, setScrollTimeout] = useState<NodeJS.Timeout | null>(null);
+  const [isClickAnimation, setIsClickAnimation] = useState(false);
 
   // Smooth scroll handler
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -32,7 +34,16 @@ export default function Header() {
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-        // Desabilitar scroll spy temporariamente
+        // Limpar timeout anterior se existir
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+
+        // Ativar animação rápida de clique
+        setIsClickAnimation(true);
+        setTimeout(() => setIsClickAnimation(false), 400);
+
+        // Desabilitar scroll spy e definir seção imediatamente
         setIsManualNavigation(true);
         setActiveSection(href);
 
@@ -41,23 +52,24 @@ export default function Header() {
           behavior: 'smooth'
         });
         
-        // Reabilitar scroll spy após animação
-        setTimeout(() => {
-          setIsManualNavigation(false);
-        }, 1000);
-        
         setMobileMenuOpen(false);
       }
     } else if (href === '/') {
       e.preventDefault();
+      
+      // Limpar timeout anterior se existir
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      // Ativar animação rápida de clique
+      setIsClickAnimation(true);
+      setTimeout(() => setIsClickAnimation(false), 400);
+      
       setIsManualNavigation(true);
       setActiveSection('/');
       
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      
-      setTimeout(() => {
-        setIsManualNavigation(false);
-      }, 1000);
       
       setMobileMenuOpen(false);
     }
@@ -81,15 +93,37 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
+    let lastScrollTime = Date.now();
+    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
+      // Atualizar o tempo do último scroll
+      lastScrollTime = Date.now();
+      
       // Não executar scroll spy durante navegação manual
-      if (isManualNavigation) return;
+      if (isManualNavigation) {
+        // Limpar timeout anterior
+        if (scrollTimeout) {
+          clearTimeout(scrollTimeout);
+        }
+        
+        // Detectar quando o scroll parou completamente
+        const timeout = setTimeout(() => {
+          const timeSinceLastScroll = Date.now() - lastScrollTime;
+          // Se passou 50ms sem novo scroll, considerar que parou
+          if (timeSinceLastScroll >= 50) {
+            setIsManualNavigation(false);
+          }
+        }, 50);
+        
+        setScrollTimeout(timeout);
+        return;
+      }
       
       // Scroll spy - detectar seção ativa
       const sections = ['about', 'skills', 'projects'];
-      const scrollPosition = window.scrollY + 150; // offset para considerar o header
+      const scrollPosition = window.scrollY + 150;
       
       // Se estiver no topo, marcar Home como ativo
       if (window.scrollY < 200) {
@@ -111,8 +145,13 @@ export default function Header() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isManualNavigation]);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+    };
+  }, [isManualNavigation, scrollTimeout]);
 
   // Close mobile menu on resize
   useEffect(() => {
@@ -179,7 +218,11 @@ export default function Header() {
                           layoutId="activeUnderline"
                           className="absolute bottom-0 left-0 right-0 h-0.5"
                           style={{ background: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-dark)))' }}
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                          transition={
+                            isClickAnimation
+                              ? { type: "tween", duration: 0.2, ease: "easeOut" }
+                              : { type: "tween", duration: 0.3, ease: "easeInOut" }
+                          }
                         />
                       )}
                     </Link>
