@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Send, Briefcase } from "lucide-react";
+import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
+import { FaMastodon } from "react-icons/fa";
 import Scene3D from "../3d/Scene3D";
 import { useTheme } from "@/app/context/ThemeContext";
 import CountUp from "react-countup";
@@ -88,37 +89,48 @@ export default function HeroSection() {
 
 
                 <div className="flex gap-3">
-                  <a
+                  <motion.a
                     href="https://github.com/arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Gabriel Arruda's GitHub profile"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
                     style={{ backgroundColor: surface, borderColor: textSecondary }}
                   >
                     <Github className="w-5 h-5" style={{ color: specialColor }} />
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="https://www.linkedin.com/in/arrudagba/"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    rel="noopener noreferrer"
+                    aria-label="Visit Gabriel Arruda's LinkedIn profile"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
                     style={{ backgroundColor: surface, borderColor: textSecondary }}
                   >
                     <Linkedin className="w-5 h-5" style={{ color: specialColor }} />
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="mailto:arrudagbadev@gmail.com"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    aria-label="Send email to Gabriel Arruda"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
                     style={{ backgroundColor: surface, borderColor: textSecondary }}
                   >
                     <Mail className="w-5 h-5" style={{ color: specialColor }} />
-                  </a>
-                  <a
+                  </motion.a>
+                  <motion.a
                     href="https://mastodon.social/@arrudagba"
                     target="_blank"
-                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors"
+                    rel="noopener noreferrer"
+                    aria-label="Follow Gabriel Arruda on Mastodon"
+                    whileTap={{ scale: 0.95 }}
+                    className="w-11 h-11 rounded-full border flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
                     style={{ backgroundColor: surface, borderColor: textSecondary }}
                   >
-                    <Send className="w-5 h-5" style={{ color: specialColor }} />
-                  </a>
+                    <FaMastodon className="w-5 h-5" style={{ color: specialColor }} />
+                  </motion.a>
                 </div>
                 </div>
             </motion.div>

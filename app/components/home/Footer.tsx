@@ -1,35 +1,36 @@
 "use client";
 
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { FaMastodon } from "react-icons/fa";
+import { useTheme } from "@/app/context/ThemeContext";
 
 export default function Footer() {
+  const { theme } = useTheme();
+  
   return (
     <footer className="py-12" style={{ backgroundColor: 'hsl(var(--background))', color: 'hsl(var(--text))' }}>
-      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
+      <div className="px-4 sm:px-6 lg:px-12">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
           
-          {/* Left - Logo */}
-          <div>
-            <div className="text-2xl font-bold mb-2">
-              <span className="bg-gradient-to-r text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))' }}>
-                Gabriel Arruda
-              </span>
+          {/* Left - Logo & Name */}
+          <div className="flex items-center gap-3">
+            <img 
+              src={theme === 'dark' ? '/logo-bright.svg' : '/logo-dark.svg'} 
+              alt="GA Logo" 
+              className="h-8 w-auto"
+            />
+            <div>
+              <div className="text-2xl font-bold mb-1">
+                <span className="bg-gradient-to-r text-transparent bg-clip-text" style={{ backgroundImage: 'linear-gradient(90deg, hsl(var(--primary)), hsl(var(--accent)))' }}>
+                  Gabriel Arruda
+                </span>
+              </div>
+              <p className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
+                Full-stack Developer
+              </p>
             </div>
-            <p className="text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
-              Software Engineer & Cybersecurity Enthusiast
-            </p>
           </div>
 
-          {/* Center - Contact Info */}
-          <div className="space-y-2 text-center md:text-left">
-            <a 
-              href="mailto:arrudagbadev@gmail.com"
-              className="block transition-colors" style={{ color: 'hsl(var(--text-secondary))' }}
-            >
-              arrudagbadev@gmail.com
-            </a>
-          </div>
 
           {/* Right - Social Links */}
           <div className="flex gap-4 justify-center md:justify-end">
@@ -37,6 +38,7 @@ export default function Footer() {
               href="https://github.com/arrudagba"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Visit Gabriel Arruda's GitHub profile"
               className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
               style={{ color: 'hsl(var(--text))' }}
             >
@@ -46,13 +48,15 @@ export default function Footer() {
               href="https://www.linkedin.com/in/arrudagba/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-full flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
-              style={{ backgroundColor: 'hsl(var(--surface))', borderColor: 'hsl(var(--surface))', color: 'hsl(var(--text))' }}
+              aria-label="Visit Gabriel Arruda's LinkedIn profile"
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
+              style={{ color: 'hsl(var(--text))' }}
             >
               <Linkedin className="w-5 h-5" />
             </a>
             <a
               href="mailto:arrudagbadev@gmail.com"
+              aria-label="Send email to Gabriel Arruda"
               className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
               style={{ color: 'hsl(var(--text))' }}
             >
@@ -62,10 +66,11 @@ export default function Footer() {
               href="https://mastodon.social/@arrudagba"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Follow Gabriel Arruda on Mastodon"
               className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center transition-colors hover:bg-[hsl(var(--primary))] hover:border-[hsl(var(--primary))]"
               style={{ color: 'hsl(var(--text))' }}
             >
-              <Send className="w-5 h-5" />
+              <FaMastodon className="w-5 h-5" />
             </a>
           </div>
         </div>
@@ -76,11 +81,6 @@ export default function Footer() {
         {/* Bottom - Copyright & Settings */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style={{ color: 'hsl(var(--text-secondary))' }}>
           <p>Copyright © 2025 Gabriel Arruda</p>
-          
-          <button className="transition-colors" style={{ color: 'hsl(var(--text-secondary))' }}>
-            Cookie Settings
-          </button>
-        </div>
         </div>
       </div>
     </footer>
