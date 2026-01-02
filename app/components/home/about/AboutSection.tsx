@@ -129,7 +129,7 @@ export default function AboutSection() {
               My Timeline
             </h2>
 
-            <div className="w-full max-w-6xl">
+            <div className="w-full">
               <CareerTimeline />
             </div>
           </div>
