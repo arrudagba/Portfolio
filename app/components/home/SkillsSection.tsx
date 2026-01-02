@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { 
-  Code, Server, Cog, Smile, Users, Eye,
-  Sparkles, MessageCircle, Target, CheckCircle,
-  Lightbulb, ArrowRight, Sprout, Award, Share2
+  Code, Server, Users, Eye,
+  Sparkles, Target,
+  Lightbulb, ArrowRight, Award
 } from "lucide-react";
 import { LucideIcon } from "lucide-react";
 
@@ -238,13 +238,16 @@ function SkillsOverview() {
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-4">
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center"
+                    className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{
                       backgroundColor: "hsl(var(--primary) / 0.2)",
                       border: "1px solid hsl(var(--primary) / 0.4)",
                     }}
                   >
-                    <Icon className="w-5 h-5" style={{ color: "hsl(var(--primary))" }} />
+                    <Icon
+                      className="w-5 h-5 block"
+                      style={{ color: "hsl(var(--primary))" }}
+                    />
                   </div>
 
                   <div>
@@ -328,7 +331,11 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
 
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const radius = Math.min(centerX, centerY) * 0.55;
+    const baseRadius = Math.min(centerX, centerY);
+    const radius =
+      baseRadius < 180 ? baseRadius * 0.48 :
+      baseRadius < 260 ? baseRadius * 0.52 :
+      baseRadius * 0.55;
     const numSkills = skills.length;
 
     // Clear canvas
@@ -393,10 +400,16 @@ function RadarChart({ skills, title }: { skills: Skill[]; title: string }) {
     const radius = Math.min(centerX, centerY) * 0.55;
     
     // Responsive label offset based on screen size
-    const isMobile = containerSize.width < 350;
-    const labelOffset = isMobile ? 35 : 45;
+    const size = containerSize.width;
+
+    const labelOffset =
+      size < 320 ? 26 :
+      size < 380 ? 32 :
+      size < 450 ? 38 :
+      44;
+
     const labelRadius = radius + labelOffset;
-    
+
     // Round to 2 decimal places to ensure consistent server/client rendering
     const left = Math.round((centerX + Math.cos(angle) * labelRadius) * 100) / 100;
     const top = Math.round((centerY + Math.sin(angle) * labelRadius) * 100) / 100;
