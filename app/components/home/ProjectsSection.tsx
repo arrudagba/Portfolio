@@ -79,15 +79,15 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   return (
-    <section 
-      className="relative py-12 overflow-hidden" 
-      id="projects" 
+    <section
+      className="relative py-12 overflow-hidden"
+      id="projects"
       style={{ backgroundColor: 'hsl(var(--background))' }}
     >
       {/* Content Container */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          
+
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -134,9 +134,9 @@ export default function ProjectsSection() {
                 />
 
                 {/* Image Container - Fixed aspect ratio */}
-                <div 
-                  className="relative w-full overflow-hidden" 
-                  style={{ 
+                <div
+                  className="relative w-full overflow-hidden"
+                  style={{
                     backgroundColor: 'hsl(var(--background) / 0.5)',
                     aspectRatio: '16/9',
                   }}
@@ -148,8 +148,11 @@ export default function ProjectsSection() {
                     priority={index < 2}
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                    style={{
+                      borderBottom: '1px solid hsl(var(--border) / 0.5)',
+                    }}
                   />
-                  
+
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[hsl(var(--surface))] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
@@ -209,7 +212,7 @@ export default function ProjectsSection() {
                         GitHub
                       </a>
                     )}
-                    
+
                     {project.demo && (
                       <a
                         href={project.demo}

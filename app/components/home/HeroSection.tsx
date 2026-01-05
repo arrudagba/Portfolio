@@ -254,7 +254,7 @@ export default function HeroSection() {
             <Stat value={2} suffix="+" label="Years of experience" />
             <Stat value={7} label="Completed Projects" />
             <Stat value={20} suffix="+" label="Technical Skills" />
-            <Stat value={100} suffix="%" label="Dedication" />
+            <Stat value={100} suffix="%" label="Client Satisfaction" />
           </div>
         </div>
       </div>
