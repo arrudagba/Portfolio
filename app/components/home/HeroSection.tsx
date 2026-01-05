@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Briefcase } from "lucide-react";
 import { FaMastodon } from "react-icons/fa";
-import Scene3D from "../3d/Scene3D";
 import { useTheme } from "@/app/context/ThemeContext";
 import CountUp from "react-countup";
-import Lottie from "lottie-react";
+import dynamic from 'next/dynamic';
 import scrolldownAnimation from "../../../public/scrolldown.json";
+
+const Scene3D = dynamic(() => import("../3d/Scene3D"), {
+  ssr: false,
+  loading: () => <div className="w-[300px] h-[300px] rounded-full bg-transparent" />,
+});
+
+const Lottie = dynamic(() => import("lottie-react"), { ssr: false });
 
 
 function Stat({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) {
@@ -26,8 +32,31 @@ function Stat({ value, label, suffix = "" }: { value: number; label: string; suf
 }
 
 
+import { useLoading } from "@/app/context/LoadingContext";
+
 export default function HeroSection() {
   const [isTimelineHovered, setIsTimelineHovered] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const { setIsLoading } = useLoading();
+
+  useEffect(() => {
+    // Only load 3D scene on desktop devices
+    const checkIsDesktop = () => {
+      const desktop = window.innerWidth >= 1024;
+      setIsDesktop(desktop);
+
+      // If mobile, we aren't loading the 3D model, so we can dismiss the loader
+      if (!desktop) {
+        setTimeout(() => setIsLoading(false), 1000);
+      }
+    };
+
+    checkIsDesktop();
+    window.addEventListener('resize', checkIsDesktop);
+
+    return () => window.removeEventListener('resize', checkIsDesktop);
+  }, [setIsLoading]);
+
   const { theme } = useTheme();
   // Color variables
   const titleColor = theme === 'light' ? 'hsl(var(--title))' : 'hsl(var(--text))';
@@ -44,38 +73,38 @@ export default function HeroSection() {
     <section className="relative overflow-hidden" style={{ backgroundColor: 'hsl(var(--background))', color: textColor }}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="max-w-7xl mx-auto pt-32 pb-20">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
 
             {/* LEFT */}
             <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8 }}
-                className="space-y-6"
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="space-y-6"
             >
 
-                <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                  <span style={{ color: textColor }}>Hello, I'm </span>
-                  <span
-                    className="bg-gradient-to-r text-transparent bg-clip-text"
-                    style={{
-                      backgroundImage: theme === 'light'
-                        ? 'linear-gradient(90deg, #83C5D8, #83C5D8)'
-                        : 'linear-gradient(90deg, #47D7FF, #20B8E8, #0EA5D0)'
-                    }}
-                  >
-                    Gabriel Arruda
-                  </span>
-                </h1>
+              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+                <span style={{ color: textColor }}>Hello, I'm </span>
+                <span
+                  className="bg-gradient-to-r text-transparent bg-clip-text"
+                  style={{
+                    backgroundImage: theme === 'light'
+                      ? 'linear-gradient(90deg, #83C5D8, #83C5D8)'
+                      : 'linear-gradient(90deg, #47D7FF, #20B8E8, #0EA5D0)'
+                  }}
+                >
+                  Gabriel Arruda
+                </span>
+              </h1>
 
-                <p className="max-w-xl leading-relaxed" style={{ color: textSecondary }}>
-                  I'm a Software Engineer and Cybersecurity enthusiast, currently
-                  completing a degree in Computer Science. I'm based in Brazil and
-                  specialize in <span className="font-semibold" style={{ color: specialColor }}>Full-stack Development</span> and <span className="font-semibold" style={{ color: specialColor }}>Application Security</span>.
-                </p>
+              <p className="max-w-xl leading-relaxed" style={{ color: textSecondary }}>
+                I'm a Software Engineer and Cybersecurity enthusiast, currently
+                completing a degree in Computer Science. I'm based in Brazil and
+                specialize in <span className="font-semibold" style={{ color: specialColor }}>Full-stack Development</span> and <span className="font-semibold" style={{ color: specialColor }}>Application Security</span>.
+              </p>
 
-                {/* CTA + SOCIAL */}
-                <div className="flex items-center gap-6 pt-4">
+              {/* CTA + SOCIAL */}
+              <div className="flex items-center gap-6 pt-4">
 
                 <motion.a
                   href="#about"
@@ -147,89 +176,89 @@ export default function HeroSection() {
                     <FaMastodon className="w-5 h-5" style={{ color: specialColor }} />
                   </motion.a>
                 </div>
-                </div>
+              </div>
             </motion.div>
 
             {/* RIGHT */}
             <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="hidden lg:flex flex-col items-center justify-center relative"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="hidden lg:flex flex-col items-center justify-center relative"
             >
-                <div className="relative md:h-[350px] md:w-[350px] w-[300px] h-[300px] flex items-center justify-center">
-                  {/* SVG Animation Circle - positioned around the 3D */}
-                  <svg 
-                    className="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none" 
-                    fill="transparent" 
-                    viewBox="0 0 506 506" 
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <defs>
-                      <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        {theme === 'light' ? (
-                          <>
-                            <stop offset="0%" stopColor="#83C5D8"></stop>
-                            <stop offset="100%" stopColor="#83C5D8"></stop>
-                          </>
-                        ) : (
-                          <>
-                            <stop offset="0%" stopColor="#47D7FF"></stop>
-                            <stop offset="100%" stopColor="#20B8E8"></stop>
-                          </>
-                        )}
-                      </linearGradient>
-                    </defs>
-                    <circle 
-                      cx="253" 
-                      cy="253" 
-                      r="240" 
-                      stroke="url(#circleGradient)" 
-                      strokeWidth="4" 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      className="animate-dash"
-                    />
-                  </svg>
-                  
-                  {/* 3D Model - centered */}
-                  <div className="relative z-10">
-                    <Scene3D />
-                  </div>
-                </div>
-                
-                {/* Scroll Indicator */}
-                <div className="flex flex-col items-center gap-0 mt-8">
-                  <span
-                    className="text-sm font-medium -mt-2 pb-1"
-                    style={{
-                      color: theme === 'light' ? linkColor : specialColor
-                    }}
-                  >
-                    Scroll Down
-                  </span>
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1, duration: 0.5 }}
-                    className="w-5 h-5"
-                  >
-                    <Lottie animationData={scrolldownAnimation} loop={true} />
-                  </motion.div>
-                </div>
-            </motion.div>
-            </div>
+              <div className="relative md:h-[350px] md:w-[350px] w-[300px] h-[300px] flex items-center justify-center">
+                {/* SVG Animation Circle - positioned around the 3D */}
+                <svg
+                  className="absolute inset-0 w-full h-full animate-spin-slow pointer-events-none"
+                  fill="transparent"
+                  viewBox="0 0 506 506"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <defs>
+                    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      {theme === 'light' ? (
+                        <>
+                          <stop offset="0%" stopColor="#83C5D8"></stop>
+                          <stop offset="100%" stopColor="#83C5D8"></stop>
+                        </>
+                      ) : (
+                        <>
+                          <stop offset="0%" stopColor="#47D7FF"></stop>
+                          <stop offset="100%" stopColor="#20B8E8"></stop>
+                        </>
+                      )}
+                    </linearGradient>
+                  </defs>
+                  <circle
+                    cx="253"
+                    cy="253"
+                    r="240"
+                    stroke="url(#circleGradient)"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="animate-dash"
+                  />
+                </svg>
 
-            {/* STATS */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mt-[50px]">
+                {/* 3D Model - centered */}
+                <div className="relative z-10">
+                  {isDesktop && <Scene3D />}
+                </div>
+              </div>
+
+              {/* Scroll Indicator */}
+              <div className="flex flex-col items-center gap-0 mt-8">
+                <span
+                  className="text-sm font-medium -mt-2 pb-1"
+                  style={{
+                    color: theme === 'light' ? linkColor : specialColor
+                  }}
+                >
+                  Scroll Down
+                </span>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 1, duration: 0.5 }}
+                  className="w-5 h-5"
+                >
+                  <Lottie animationData={scrolldownAnimation} loop={true} />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* STATS */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mt-[50px]">
             <Stat value={2} suffix="+" label="Years of experience" />
             <Stat value={7} label="Completed Projects" />
             <Stat value={20} suffix="+" label="Technical Skills" />
             <Stat value={100} suffix="%" label="Dedication" />
-            </div>
+          </div>
         </div>
       </div>
-        </section>
+    </section>
 
   );
 }

@@ -6,20 +6,16 @@ import { Suspense, useRef, useEffect } from 'react';
 import Model3D from './Model3D';
 import * as THREE from 'three';
 
+
 function Loader() {
-  return (
-    <mesh>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color="#444444" wireframe />
-    </mesh>
-  );
+  return null;
 }
 
 // Componente que rotaciona o modelo automaticamente
 function RotatingModel() {
   const groupRef = useRef<THREE.Group>(null);
   const startTimeRef = useRef<number>(0);
-  
+
   useFrame((state) => {
     if (groupRef.current) {
       // Inicializa o tempo de início
@@ -28,18 +24,18 @@ function RotatingModel() {
         // Define a rotação inicial (de lado - 90 graus = Math.PI / 2)
         groupRef.current.rotation.y = Math.PI * 2;
       }
-      
+
       // Espera 2 segundos antes de começar a girar
       const delayInSeconds = 1;
       const elapsedTime = state.clock.elapsedTime - startTimeRef.current;
-      
+
       if (elapsedTime > delayInSeconds) {
         // Rotação automática no eixo Y (horizontal) em sentido anti-horário
         groupRef.current.rotation.y -= 0.003; // Ajuste a velocidade aqui (valores maiores = mais rápido)
       }
     }
   });
-  
+
   return (
     <group ref={groupRef}>
       <Model3D />
@@ -63,7 +59,7 @@ export default function Scene3D() {
       position: 'relative',
       background: grad
     }}
-        className='md:h-[300px] md:w-[300px] w-[250px] h-[250px]'
+      className='md:h-[300px] md:w-[300px] w-[250px] h-[250px]'
     >
       <Canvas
         camera={{ position: [0, 5, 5], fov: 50 }}
@@ -79,7 +75,7 @@ export default function Scene3D() {
         <Suspense fallback={<Loader />}>
           <RotatingModel />
         </Suspense>
-        <OrbitControls 
+        <OrbitControls
           enableZoom={false}
           enablePan={false}
           enableRotate={true}
