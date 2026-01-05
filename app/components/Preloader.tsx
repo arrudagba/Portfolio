@@ -1,13 +1,24 @@
 "use client";
 
+// Forced rebuild
 import { motion, AnimatePresence } from "framer-motion";
 import { useLoading } from "../context/LoadingContext";
 import { useEffect, useState } from "react";
+import { useTheme } from "../context/ThemeContext";
+import { usePathname } from "next/navigation";
 
-// Forced rebuild
 export default function Preloader() {
-    const { isLoading } = useLoading();
+    const { isLoading, setIsLoading } = useLoading();
     const [show, setShow] = useState(true);
+    const { theme } = useTheme();
+    const pathname = usePathname();
+
+    // Auto-dismiss on non-root pages
+    useEffect(() => {
+        if (pathname !== '/') {
+            setIsLoading(false);
+        }
+    }, [pathname, setIsLoading]);
 
     useEffect(() => {
         if (!isLoading) {
@@ -17,6 +28,12 @@ export default function Preloader() {
         }
     }, [isLoading]);
 
+    const bgColor = theme === 'light' ? 'bg-[#F0F2F5]' : 'bg-black';
+    const strokeColor = theme === 'light' ? '#83C5D8' : '#47D7FF';
+
+    // Ensure we run on client to avoid hydration mismatch with theme
+    if (typeof window === 'undefined') return null;
+
     return (
         <AnimatePresence mode="wait">
             {(isLoading || show) && (
@@ -25,7 +42,7 @@ export default function Preloader() {
                     animate={{ opacity: isLoading ? 1 : 0 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
+                    className={`fixed inset-0 z-[9999] flex items-center justify-center ${bgColor}`}
                 >
                     <div className="flex flex-col items-center gap-4">
                         {/* Animated Logo */}
@@ -36,7 +53,7 @@ export default function Preloader() {
                             viewBox="0 0 319 202"
                             className="w-48 h-auto"
                         >
-                            <g transform="translate(0,202) scale(0.1,-0.1)" fill="none" stroke="#47D7FF" strokeWidth="20">
+                            <g transform="translate(0,202) scale(0.1,-0.1)" fill="none" stroke={strokeColor} strokeWidth="20">
                                 <motion.path
                                     d="M793 1999 c-91 -15 -236 -67 -313 -113 -84 -49 -196 -148 -258 -228 -167 -217 -246 -557 -197 -844 75 -431 352 -717 764 -789 249 -44 562 15 894 167 l67 31 0 239 c0 258 6 292 53 303 12 3 322 4 689 3 366 -2 665 -1 662 1 -4 4 -71 10 -794 66 -184 14 -447 34 -585 45 -356 28 -731 50 -863 50 -165 0 -222 -30 -152 -81 54 -40 254 -69 472 -69 l119 0 -3 -242 c-3 -267 -5 -276 -72 -346 -66 -71 -157 -96 -326 -90 -96 4 -124 9 -170 30 -217 100 -331 427 -317 916 7 265 43 432 130 611 97 199 248 290 434 261 110 -17 185 -59 277 -153 93 -94 151 -191 217 -358 41 -102 45 -109 71 -109 l28 0 -2 348 -3 347 -25 0 c-22 0 -31 -13 -70 -92 -25 -51 -48 -95 -52 -99 -4 -4 -23 7 -42 24 -84 73 -254 153 -366 171 -75 13 -193 12 -267 0z"
                                     initial={{ pathLength: 0, opacity: 0 }}

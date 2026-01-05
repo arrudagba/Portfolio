@@ -40,12 +40,12 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${jetbrainsMono.variable} ${montserrat.variable} ${roboto.variable}`}>
       <body style={{ margin: 0, padding: 0 }}>
-        <LoadingProvider>
-          <Preloader />
-          <ThemeProvider>
+        <ThemeProvider>
+          <LoadingProvider>
+            <Preloader />
             {children}
-          </ThemeProvider>
-        </LoadingProvider>
+          </LoadingProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
