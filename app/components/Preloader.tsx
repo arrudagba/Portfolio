@@ -13,6 +13,12 @@ export default function Preloader() {
     const { theme } = useTheme();
     const pathname = usePathname();
 
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     // Auto-dismiss on non-root pages
     useEffect(() => {
         if (pathname !== '/') {
@@ -31,8 +37,8 @@ export default function Preloader() {
     const bgColor = theme === 'light' ? 'bg-[#F0F2F5]' : 'bg-black';
     const strokeColor = theme === 'light' ? '#83C5D8' : '#47D7FF';
 
-    // Ensure we run on client to avoid hydration mismatch with theme
-    if (typeof window === 'undefined') return null;
+    // Ensure we run on client to avoid hydration mismatch
+    if (!mounted) return null;
 
     return (
         <AnimatePresence mode="wait">

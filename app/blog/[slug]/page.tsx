@@ -132,11 +132,12 @@ export default function BlogPost({ params }: { params: Promise<{ slug: string }>
           style={{
             backgroundColor: theme === 'dark' ? '#202020' : '#E4E4E7',
             border: `1px solid ${theme === 'dark' ? '#3f3f3f' : '#d4d4d8'}`,
-            color: theme === 'dark' ? '#A5A5A5' : '#000'
+            color: theme === 'dark' ? '#A5A5A5' : '#000',
+            fontFamily: 'var(--font-roboto)'
           }}
         >
           <div className="overflow-y-scroll max-h-[100vh] px-4 flex justify-center">
-            <div className="prose dark:prose-invert max-w-full" dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
+            <div className="prose dark:prose-invert max-w-full" style={{ fontFamily: 'var(--font-roboto)' }} dangerouslySetInnerHTML={{ __html: post.contentHtml }} />
           </div>
         </div>
 

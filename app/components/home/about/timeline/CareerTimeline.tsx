@@ -31,10 +31,6 @@ const workData: TimelineItem[] = [
     period: "Nov 2023 - Present",
     logo: "/assets/work/my_logo.png",
     link: "",
-    bullets: [
-      "Built NFTVue, a NFT gallery website that allows students to connect their crypto wallets",
-      "Worked on a full-stack web application that reconstructs 3D models from images",
-    ],
     projects: [{ name: "CASCO Website", url: "https://casco.inf.puc-rio.br" }],
   },
 ];
