@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLoading } from "../context/LoadingContext";
 import { useEffect, useState } from "react";
 
+// Forced rebuild
 export default function Preloader() {
     const { isLoading } = useLoading();
     const [show, setShow] = useState(true);
@@ -27,28 +28,35 @@ export default function Preloader() {
                     className="fixed inset-0 z-[9999] flex items-center justify-center bg-black"
                 >
                     <div className="flex flex-col items-center gap-4">
-                        {/* Elegant Spinner */}
-                        <div className="relative w-16 h-16">
-                            <motion.div
-                                className="absolute inset-0 border-4 border-t-transparent border-white rounded-full"
-                                animate={{ rotate: 360 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                            />
-                            <motion.div
-                                className="absolute inset-2 border-4 border-b-transparent border-blue-400 rounded-full"
-                                animate={{ rotate: -360 }}
-                                transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
-                            />
-                        </div>
-
-                        <motion.p
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ delay: 0.2 }}
-                            className="text-white font-light tracking-widest text-sm"
+                        {/* Animated Logo */}
+                        <motion.svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="319"
+                            height="202"
+                            viewBox="0 0 319 202"
+                            className="w-48 h-auto"
                         >
-                            LOADING EFFECT
-                        </motion.p>
+                            <g transform="translate(0,202) scale(0.1,-0.1)" fill="none" stroke="#47D7FF" strokeWidth="20">
+                                <motion.path
+                                    d="M793 1999 c-91 -15 -236 -67 -313 -113 -84 -49 -196 -148 -258 -228 -167 -217 -246 -557 -197 -844 75 -431 352 -717 764 -789 249 -44 562 15 894 167 l67 31 0 239 c0 258 6 292 53 303 12 3 322 4 689 3 366 -2 665 -1 662 1 -4 4 -71 10 -794 66 -184 14 -447 34 -585 45 -356 28 -731 50 -863 50 -165 0 -222 -30 -152 -81 54 -40 254 -69 472 -69 l119 0 -3 -242 c-3 -267 -5 -276 -72 -346 -66 -71 -157 -96 -326 -90 -96 4 -124 9 -170 30 -217 100 -331 427 -317 916 7 265 43 432 130 611 97 199 248 290 434 261 110 -17 185 -59 277 -153 93 -94 151 -191 217 -358 41 -102 45 -109 71 -109 l28 0 -2 348 -3 347 -25 0 c-22 0 -31 -13 -70 -92 -25 -51 -48 -95 -52 -99 -4 -4 -23 7 -42 24 -84 73 -254 153 -366 171 -75 13 -193 12 -267 0z"
+                                    initial={{ pathLength: 0, opacity: 0 }}
+                                    animate={{ pathLength: 1, opacity: 1 }}
+                                    transition={{ duration: 2, ease: "easeInOut" }}
+                                />
+                                <motion.path
+                                    d="M2187 1978 c-16 -41 -400 -985 -404 -996 -4 -10 5 -13 38 -10 l44 3 87 213 c48 118 88 216 91 218 2 2 46 -102 97 -231 51 -130 97 -238 101 -241 4 -2 70 -11 146 -19 76 -8 173 -18 216 -23 42 -4 77 -7 77 -6 0 1 -72 185 -160 410 -89 225 -186 473 -217 552 -53 135 -57 142 -83 142 -15 0 -30 -6 -33 -12z"
+                                    initial={{ pathLength: 0, opacity: 0 }}
+                                    animate={{ pathLength: 1, opacity: 1 }}
+                                    transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
+                                />
+                                <motion.path
+                                    d="M2411 485 c44 -113 82 -224 85 -248 12 -82 -31 -123 -148 -142 -32 -5 -38 -10 -38 -30 l0 -25 425 0 425 0 0 25 c0 19 -7 26 -27 31 -110 25 -141 42 -170 97 -9 18 -58 136 -109 262 l-92 230 -215 3 -215 2 79 -205z"
+                                    initial={{ pathLength: 0, opacity: 0 }}
+                                    animate={{ pathLength: 1, opacity: 1 }}
+                                    transition={{ duration: 2, ease: "easeInOut", delay: 1.0 }}
+                                />
+                            </g>
+                        </motion.svg>
                     </div>
                 </motion.div>
             )}
