@@ -12,19 +12,19 @@ interface FAQ {
 const faqs: FAQ[] = [
   {
     question: "What technologies do you specialize in?",
-    answer: "I specialize in C, Python and Rust. I work with modern frameworks and tools for full-stack development, focusing on building secure, scalable applications with clean code practices and robust architecture."
+    answer: "I specialize in full-stack development with React, Next.js, and TypeScript on the frontend, and Node.js with Express or Rust with Actix Web on the backend. I also work extensively with PostgreSQL, Docker, and cloud platforms like AWS and Vercel. My focus is building secure, scalable applications with clean architecture."
   },
   {
     question: "What is your approach to security?",
-    answer: "Security is fundamental in everything I build. From data encryption to protection against common attacks like SQL injection and XSS, I implement security best practices throughout the development lifecycle to create safe, resilient solutions."
+    answer: "Security is at the core of everything I build. With experience in pentesting and Red Team operations, I apply defensive programming practices, implement proper authentication/authorization, validate inputs rigorously, and design systems that are resilient against common vulnerabilities. I believe in security by design, not as an afterthought."
   },
   {
-    question: "How do you ensure code quality?",
-    answer: "I follow clean code principles, Test-Driven Development (TDD), and design patterns like Domain-Driven Design (DDD). I believe in writing maintainable, readable code that stands the test of time and can be easily extended by other developers."
+    question: "What's your experience with UI/UX design?",
+    answer: "I have 2+ years of experience designing user interfaces with a focus on usability and accessibility. I use tools like Figma for prototyping and design systems, and I implement responsive, modern interfaces using Tailwind CSS and Framer Motion. I believe good design is invisible—it just works."
   },
   {
     question: "Are you available for collaboration?",
-    answer: "Yes, I'm open to collaborating on both professional projects and free/open-source software initiatives. Whether it's full-time opportunities, contract work, or contributing to meaningful projects, I'm always interested in exploring new ideas."
+    answer: "Yes! I'm open to collaborating on full-stack projects, security audits, or open-source initiatives. Whether it's building a new product from scratch, hardening existing systems, or contributing to meaningful FOSS projects, I'm always interested in working on challenging problems with passionate people."
   }
 ];
 
